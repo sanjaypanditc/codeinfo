@@ -8,8 +8,7 @@ Welcome to codeinfo's documentation!
 
 ::.
 <?php echo "How are you";?>
-
-::.
+::
 
 
 .. toctree::
