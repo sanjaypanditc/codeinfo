@@ -6,9 +6,8 @@
 Welcome to codeinfo's documentation!
 ====================================
 
-::.
-<?php echo "How are you";?>
-::
+``<?php echo "How are you";?>``
+
 
 
 .. toctree::
