@@ -16,7 +16,7 @@ Welcome to codeinfo's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+.. include:: doc/php.rst
 
 Indices and tables
 ==================
