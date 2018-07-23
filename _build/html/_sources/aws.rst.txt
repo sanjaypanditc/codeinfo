@@ -1,6 +1,6 @@
 .. _aws:
 
-Introduction
+AWS
 ============
 
 lamp on aws with php7.2

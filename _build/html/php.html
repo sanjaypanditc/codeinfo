@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; codehelp 1.0 documentation</title>
+  <title>PHP &mdash; codehelp 1.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="aws.html" />
+    <link rel="next" title="AWS" href="aws.html" />
     <link rel="prev" title="Welcome to codehelp’s documentation!" href="index.html" /> 
 
   
@@ -83,13 +83,13 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PHP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#security-points">Security Points</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#shortcut-keys">Shortcut keys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a-word-about-users">A word about users</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">Introduction</a></li>
@@ -139,7 +139,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>PHP</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,15 +158,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<span id="php"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="php">
+<span id="id1"></span><h1>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="security-points">
 <h2>Security Points<a class="headerlink" href="#security-points" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>you are uploading the file use below code.
+<li>You are uploading the file use below code.
 <code class="docutils literal"><span class="pre">$file</span> <span class="pre">=</span> <span class="pre">basename(realpath($_GET['file']));</span></code></li>
-<li>Avoid using mysql(i)_ extensions <strong>use PDO</strong></li>
-<li><code class="docutils literal"><span class="pre">filter_var($_REQUEST['search'],</span> <span class="pre">FILTER_SANITIZE_FULL_SPECIAL_CHARS);</span></code></li>
+<li>Avoid using mysql(i)_ extensions <strong>use PDO</strong>
+<code class="docutils literal"><span class="pre">filter_var($_REQUEST['search'],</span> <span class="pre">FILTER_SANITIZE_FULL_SPECIAL_CHARS);</span></code></li>
 <li>use password_hash and password_verify
 <code class="docutils literal"><span class="pre">$hash</span> <span class="pre">=</span> <span class="pre">password_hash($password,</span> <span class="pre">PASSWORD_DEFAULT);</span></code>
 <code class="docutils literal"><span class="pre">password_verify($password,</span> <span class="pre">$hash);</span></code></li>
@@ -178,25 +178,22 @@
 <code class="docutils literal"><span class="pre">session.cookie_secure</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
 <li>In php.ini change session.use_strict_mode to On
 <code class="docutils literal"><span class="pre">session.use_strict_mode</span> <span class="pre">=</span> <span class="pre">1</span></code></li>
-</ol>
-<dl class="docutils">
-<dt>10.allow_url_fopen = Off</dt>
-<dd><code class="docutils literal"><span class="pre">allow_url_include</span> <span class="pre">=</span> <span class="pre">Off</span></code></dd>
-<dt>11.In php.ini change open_basedir</dt>
-<dd><code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/</span></code>
+<li>allow_url_fopen = Off
+<code class="docutils literal"><span class="pre">allow_url_include</span> <span class="pre">=</span> <span class="pre">Off</span></code></li>
+<li>In php.ini change open_basedir
+<code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/</span></code>
 <code class="docutils literal"><span class="pre">//</span> <span class="pre">Multiple</span> <span class="pre">directories</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">specified</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">&quot;:&quot;</span> <span class="pre">delimiter</span></code>
-<code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/:/var/www/html2/:/var/www/html3/</span></code></dd>
-<dt>12.In php.ini change upload_temp_dir</dt>
-<dd><code class="docutils literal"><span class="pre">upload_tmp_dir</span> <span class="pre">=</span> <span class="pre">/var/www/html/tmp/</span></code></dd>
-</dl>
-<p>13.``filter_var($email_address, FILTER_VALIDATE_EMAIL)``
-14.``filter_var($ip_address, FILTER_VALIDATE_IP)``
-15.``filter_var($url, FILTER_VALIDATE_URL)``
-16.Don&#8217;t Do This</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;http://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code>
+<code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/:/var/www/html2/:/var/www/html3/</span></code></li>
+<li>In php.ini change upload_temp_dir
+<code class="docutils literal"><span class="pre">upload_tmp_dir</span> <span class="pre">=</span> <span class="pre">/var/www/html/tmp/</span></code>
+<code class="docutils literal"><span class="pre">filter_var($email_address,</span> <span class="pre">FILTER_VALIDATE_EMAIL)</span></code></li>
+<li><code class="docutils literal"><span class="pre">filter_var($ip_address,</span> <span class="pre">FILTER_VALIDATE_IP)</span></code></li>
+<li><code class="docutils literal"><span class="pre">filter_var($url,</span> <span class="pre">FILTER_VALIDATE_URL)</span></code></li>
+<li>Don&#8217;t Do This
+<code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;http://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code>
 Do This Instead
-<code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></div></blockquote>
+<code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></li>
+</ol>
 </div>
 <div class="section" id="shortcut-keys">
 <h2>Shortcut keys<a class="headerlink" href="#shortcut-keys" title="Permalink to this headline">¶</a></h2>
@@ -214,7 +211,7 @@ Do This Instead
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aws.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aws.html" class="btn btn-neutral float-right" title="AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to codehelp’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
