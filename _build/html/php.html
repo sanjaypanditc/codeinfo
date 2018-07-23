@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="aws.html" />
+    <link rel="next" title="Introduction" href="aws.html" />
     <link rel="prev" title="Welcome to codehelp’s documentation!" href="index.html" /> 
 
   
@@ -89,6 +89,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-word-about-users">A word about users</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Introduction</a></li>
 </ul>
 
             
@@ -157,41 +162,41 @@
 <span id="php"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="security-points">
 <h2>Security Points<a class="headerlink" href="#security-points" title="Permalink to this headline">¶</a></h2>
-<p>1. you are uploading the file use below code.
-$file = basename(realpath($_GET[&#8216;file&#8217;]));</p>
-<p>2. Avoid using mysql(i)_ extensions
-use PDO</p>
-<ol class="arabic simple" start="3">
-<li>filter_var($_REQUEST[&#8216;search&#8217;], FILTER_SANITIZE_FULL_SPECIAL_CHARS);</li>
+<ol class="arabic simple">
+<li>you are uploading the file use below code.
+<code class="docutils literal"><span class="pre">$file</span> <span class="pre">=</span> <span class="pre">basename(realpath($_GET['file']));</span></code></li>
+<li>Avoid using mysql(i)_ extensions <strong>use PDO</strong></li>
+<li><code class="docutils literal"><span class="pre">filter_var($_REQUEST['search'],</span> <span class="pre">FILTER_SANITIZE_FULL_SPECIAL_CHARS);</span></code></li>
+<li>use password_hash and password_verify
+<code class="docutils literal"><span class="pre">$hash</span> <span class="pre">=</span> <span class="pre">password_hash($password,</span> <span class="pre">PASSWORD_DEFAULT);</span></code>
+<code class="docutils literal"><span class="pre">password_verify($password,</span> <span class="pre">$hash);</span></code></li>
+<li>In php.ini change expose_php to Off</li>
+<li>In php.ini change mail.add_x_header to Off</li>
+<li>In php.ini change session.cookie_httponly to On
+<code class="docutils literal"><span class="pre">session.cookie_httponly</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
+<li>In php.ini change session.cookie_secure to On
+<code class="docutils literal"><span class="pre">session.cookie_secure</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
+<li>In php.ini change session.use_strict_mode to On
+<code class="docutils literal"><span class="pre">session.use_strict_mode</span> <span class="pre">=</span> <span class="pre">1</span></code></li>
 </ol>
-<p>4. use password_hash and password_verify
-$hash = password_hash($password, PASSWORD_DEFAULT);
-password_verify($password, $hash);</p>
-<p>5.In php.ini change expose_php to Off
-6.In php.ini change mail.add_x_header to Off
-7.In php.ini change session.cookie_httponly to On
-session.cookie_httponly = On</p>
-<p>8.In php.ini change session.cookie_secure to On
-session.cookie_secure = On</p>
-<p>9.In php.ini change session.use_strict_mode to On
-session.use_strict_mode = 1</p>
-<p>10.allow_url_fopen = Off
-allow_url_include = Off</p>
-<p>11. In php.ini change open_basedir
-open_basedir = /var/www/html/</p>
-<p>// Multiple directories can be specified with the &#8221;:&#8221; delimiter
-open_basedir = /var/www/html/:/var/www/html2/:/var/www/html3/</p>
-<p>12. In php.ini change upload_temp_dir
-upload_tmp_dir = /var/www/html/tmp/</p>
-<ol class="arabic simple" start="13">
-<li>filter_var($email_address, FILTER_VALIDATE_EMAIL)</li>
-<li>filter_var($ip_address, FILTER_VALIDATE_IP)</li>
-<li>filter_var($url, FILTER_VALIDATE_URL)</li>
-</ol>
-<p>16. Don&#8217;t Do This
-&lt;a href=&#8221;<a class="reference external" href="http://example.com">http://example.com</a>&#8221; target=&#8221;_blank&#8221;&gt;Click here&lt;/a&gt;</p>
-<p>Do This Instead
-&lt;a href=&#8221;<a class="reference external" href="https://example.com">https://example.com</a>&#8221; target=&#8221;_blank&#8221; rel=&#8221;noopener noreferrer&#8221;&gt;Click here&lt;/a&gt;</p>
+<dl class="docutils">
+<dt>10.allow_url_fopen = Off</dt>
+<dd><code class="docutils literal"><span class="pre">allow_url_include</span> <span class="pre">=</span> <span class="pre">Off</span></code></dd>
+<dt>11.In php.ini change open_basedir</dt>
+<dd><code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/</span></code>
+<code class="docutils literal"><span class="pre">//</span> <span class="pre">Multiple</span> <span class="pre">directories</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">specified</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">&quot;:&quot;</span> <span class="pre">delimiter</span></code>
+<code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/:/var/www/html2/:/var/www/html3/</span></code></dd>
+<dt>12.In php.ini change upload_temp_dir</dt>
+<dd><code class="docutils literal"><span class="pre">upload_tmp_dir</span> <span class="pre">=</span> <span class="pre">/var/www/html/tmp/</span></code></dd>
+</dl>
+<p>13.``filter_var($email_address, FILTER_VALIDATE_EMAIL)``
+14.``filter_var($ip_address, FILTER_VALIDATE_IP)``
+15.``filter_var($url, FILTER_VALIDATE_URL)``
+16.Don&#8217;t Do This</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;http://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code>
+Do This Instead
+<code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></div></blockquote>
 </div>
 <div class="section" id="shortcut-keys">
 <h2>Shortcut keys<a class="headerlink" href="#shortcut-keys" title="Permalink to this headline">¶</a></h2>
@@ -209,7 +214,7 @@ upload_tmp_dir = /var/www/html/tmp/</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aws.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aws.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to codehelp’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

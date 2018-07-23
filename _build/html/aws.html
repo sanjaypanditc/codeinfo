@@ -158,7 +158,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="introduction">
-<span id="digitalocean"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<span id="aws"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lamp-on-aws-with-php7-2">
 <h2>lamp on aws with php7.2<a class="headerlink" href="#lamp-on-aws-with-php7-2" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
@@ -169,27 +169,24 @@
 <li>Insert 30GB as storage.</li>
 <li>Create security group and assign port.</li>
 <li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
+<li>Now your instance is ready.</li>
+<li>Go to Terminal and write below command (<strong>Ubuntu</strong>)
+<code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></li>
+<li>Open PuttyGen software and load your pem file to generate ppk file.(<strong>Windows</strong>)</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">amazon-linux-extras</span> <span class="pre">install</span> <span class="pre">lamp-mariadb10.2-php7.2</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mariadb-server</span> <span class="pre">php-mysqlnd</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">httpd</span> <span class="pre">start</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">httpd</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">httpd</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">httpd</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mariadb.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mariadb.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">mysql_secure_installation</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">php-gd</span> <span class="pre">php-ldap</span> <span class="pre">php-odbc</span> <span class="pre">php-pear</span> <span class="pre">php-xml</span> <span class="pre">php-xmlrpc</span> <span class="pre">php-mbstring</span> <span class="pre">php-soap</span> <span class="pre">curl</span> <span class="pre">curl-devel</span></code></li>
 </ol>
-<p>8. Now your instance is ready.
-<strong>Ubuntu</strong>
-9. Go to Terminal and write below command</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></div></blockquote>
-<p><strong>Windows</strong>
-10. Open PuttyGen software and load your pem file to generate ppk file.
-11. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code>
-12. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code>
-13. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">amazon-linux-extras</span> <span class="pre">install</span> <span class="pre">lamp-mariadb10.2-php7.2</span></code>
-14. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mariadb-server</span> <span class="pre">php-mysqlnd</span></code>
-15. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">httpd</span> <span class="pre">start</span></code>
-16. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">httpd</span></code>
-17. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">httpd</span></code>
-18. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">httpd</span></code>
-19. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mariadb.service</span></code>
-20. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mariadb.service</span></code>
-21. <code class="docutils literal"><span class="pre">mysql_secure_installation</span></code>
-22. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">php-gd</span> <span class="pre">php-ldap</span> <span class="pre">php-odbc</span> <span class="pre">php-pear</span> <span class="pre">php-xml</span> <span class="pre">php-xmlrpc</span> <span class="pre">php-mbstring</span> <span class="pre">php-soap</span> <span class="pre">curl</span> <span class="pre">curl-devel</span></code>
-23. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-a</span> <span class="pre">-G</span> <span class="pre">apache</span> <span class="pre">ec2-user</span></code>
+<p>23.     <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-a</span> <span class="pre">-G</span> <span class="pre">apache</span> <span class="pre">ec2-user</span></code>
 25. groups to know correct group.
 26. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">ec2-user:apache</span> <span class="pre">/var/www</span></code>
 27. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">/var/www</span> <span class="pre">&amp;&amp;</span> <span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">d</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">{}</span> <span class="pre">\;</span></code>
@@ -205,16 +202,13 @@
 <li>Insert 30GB as storage.</li>
 <li>Create security group and assign port.</li>
 <li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
+<li>Now your instance is ready.</li>
+<li>Go to Terminal and write below command (<strong>Ubuntu</strong>)
+<code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></li>
+<li>Open PuttyGen software and load your pem file to generate ppk file.(<strong>Windows</strong>)</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></li>
 </ol>
-<p>8. Now your instance is ready.
-<strong>Ubuntu</strong>
-9. Go to Terminal and write below command</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></div></blockquote>
-<p><strong>Windows</strong>
-10. Open PuttyGen software and load your pem file to generate ppk file.
-11. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code>
-12. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></p>
 </div>
 </div>
 
