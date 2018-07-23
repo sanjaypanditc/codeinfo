@@ -6,17 +6,17 @@
 Welcome to codeinfo's documentation!
 ====================================
 
----
-<?php echo "How are you";?>
+``<?php echo "How are you";?>``
 
----
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-.. include:: doc/php.rst
+.. include:: doc/php/php.rst
+
+../doc/php
 
 Indices and tables
 ==================
