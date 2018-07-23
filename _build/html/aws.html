@@ -84,7 +84,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lamp-on-aws-with-php7-2">lamp on aws with php7.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lamp-on-aws-with-php7-1">lamp on aws with php7.1</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">Introduction</a></li>
@@ -155,6 +159,63 @@
             
   <div class="section" id="introduction">
 <span id="digitalocean"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lamp-on-aws-with-php7-2">
+<h2>lamp on aws with php7.2<a class="headerlink" href="#lamp-on-aws-with-php7-2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Clink on launch a virtual machine</li>
+<li>Select &#8220;Amazon Linux 2 LTS Candidate AMI 2017.12.0&#8221; A latest Amazon linux candidate 64 bit.</li>
+<li>Select &#8220;t2.micro&#8221; as Free tire instance.</li>
+<li>Select auto option &#8220;Configure Instance Details&#8221;</li>
+<li>Insert 30GB as storage.</li>
+<li>Create security group and assign port.</li>
+<li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
+</ol>
+<p>8. Now your instance is ready.
+<strong>Ubuntu</strong>
+9. Go to Terminal and write below command</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></div></blockquote>
+<p><strong>Windows</strong>
+10. Open PuttyGen software and load your pem file to generate ppk file.
+11. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code>
+12. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code>
+13. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">amazon-linux-extras</span> <span class="pre">install</span> <span class="pre">lamp-mariadb10.2-php7.2</span></code>
+14. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mariadb-server</span> <span class="pre">php-mysqlnd</span></code>
+15. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">httpd</span> <span class="pre">start</span></code>
+16. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">httpd</span></code>
+17. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">httpd</span></code>
+18. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">httpd</span></code>
+19. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mariadb.service</span></code>
+20. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mariadb.service</span></code>
+21. <code class="docutils literal"><span class="pre">mysql_secure_installation</span></code>
+22. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">php-gd</span> <span class="pre">php-ldap</span> <span class="pre">php-odbc</span> <span class="pre">php-pear</span> <span class="pre">php-xml</span> <span class="pre">php-xmlrpc</span> <span class="pre">php-mbstring</span> <span class="pre">php-soap</span> <span class="pre">curl</span> <span class="pre">curl-devel</span></code>
+23. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-a</span> <span class="pre">-G</span> <span class="pre">apache</span> <span class="pre">ec2-user</span></code>
+25. groups to know correct group.
+26. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">ec2-user:apache</span> <span class="pre">/var/www</span></code>
+27. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">/var/www</span> <span class="pre">&amp;&amp;</span> <span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">d</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">{}</span> <span class="pre">\;</span></code>
+28. <code class="docutils literal"><span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">f</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">0664</span> <span class="pre">{}</span> <span class="pre">\;</span></code></p>
+</div>
+<div class="section" id="lamp-on-aws-with-php7-1">
+<h2>lamp on aws with php7.1<a class="headerlink" href="#lamp-on-aws-with-php7-1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Clink on launch a virtual machine</li>
+<li>Select &#8220;Amazon Linux 2 LTS Candidate AMI 2017.12.0&#8221; A latest Amazon linux candidate 64 bit.</li>
+<li>Select &#8220;t2.micro&#8221; as Free tire instance.</li>
+<li>Select auto option &#8220;Configure Instance Details&#8221;</li>
+<li>Insert 30GB as storage.</li>
+<li>Create security group and assign port.</li>
+<li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
+</ol>
+<p>8. Now your instance is ready.
+<strong>Ubuntu</strong>
+9. Go to Terminal and write below command</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></div></blockquote>
+<p><strong>Windows</strong>
+10. Open PuttyGen software and load your pem file to generate ppk file.
+11. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code>
+12. <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></p>
+</div>
 </div>
 
 
