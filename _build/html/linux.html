@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; codehelp 1.0 documentation</title>
+  <title>Linux &mdash; codehelp 1.0 documentation</title>
   
 
   
@@ -83,10 +83,13 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Introduction</a></li>
 </ul>
@@ -134,7 +137,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>Linux</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,8 +156,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<span id="linux"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="linux">
+<span id="id1"></span><h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">grep</span> <span class="pre">keyword</span> <span class="pre">/var/spool/cron/root</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">-v</span> <span class="pre">^#</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^$</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$1,$2,$3,$4,$5,$8}'</span></code>
+`` cat netstat.log.5 |  awk &#8216;$4 ~ /:80$/ {c++;print $5 | &#8220;sed &#8216;s/::ffff://&#8217; | sed &#8216;s/:.*$//&#8217;| sort | uniq -c | sort -n | tail -n 10&#8221;} END {print c}&#8217;``
+`` netstat -plantu | grep -c :1433 <code class="docutils literal"><span class="pre">`</span>
+<span class="pre">``</span> <span class="pre">ifconfig</span> <span class="pre">eth0</span> <span class="pre">`</span></code>
+<strong>Print last 20 lines from the error_log file</strong>  <code class="docutils literal"><span class="pre">tail</span> <span class="pre">-20</span>&#160;&#160; <span class="pre">/var/log/httpd/error_log</span></code>
+<strong>Get max number of client on apache configuration</strong> `` grep -i maxclients /etc/httpd/conf/httpd.conf``
+<code class="docutils literal"><span class="pre">cat</span> <span class="pre">/etc/my.cnf</span>&#160; <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">cache</span> <span class="pre">-i</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^#</span></code>
+<code class="docutils literal"><span class="pre">grep</span> <span class="pre">&quot;^|&quot;</span> <span class="pre">queries-pre-restart.txt</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{</span> <span class="pre">print</span> <span class="pre">$14</span> <span class="pre">}'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-nr</span></code>
+<code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">www/public_html</span></code> <strong>Will make directory at nested level (it will create both directory)</strong></p>
+<p><strong>To compress all files of foldername</strong>
+<code class="docutils literal"><span class="pre">tar</span> <span class="pre">-cvzf</span> <span class="pre">docs.tar.gz</span> <span class="pre">/var/www/html/foldername</span></code>
+<strong>extract docs.tar.gz in docs folder</strong>
+<code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">docs.tar.gz</span></code></p>
+</div>
 </div>
 
 
