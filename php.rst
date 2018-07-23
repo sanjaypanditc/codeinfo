@@ -3,7 +3,7 @@
 Introduction
 ============
 
-Security features
+Security Points
 ------------------
 1. you are uploading the file use below code.
 $file = basename(realpath($_GET['file']));

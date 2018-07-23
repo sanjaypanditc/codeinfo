@@ -10,6 +10,11 @@ Welcome to codehelp's documentation!
    :maxdepth: 2
 
    php
+   aws
+   digitalocean
+   linux
+   mysql
+   git
 
 
 
