@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; codehelp 1.0 documentation</title>
+  <title>MySQL &mdash; codehelp 1.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction" href="git.html" />
-    <link rel="prev" title="Introduction" href="linux.html" /> 
+    <link rel="prev" title="Linux" href="linux.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,11 +83,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Introduction</a></li>
 </ul>
 
@@ -134,7 +134,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>MySQL</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,8 +153,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<span id="mysql"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mysql">
+<span id="id1"></span><h1>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
+<p><strong>Convert DateTime in UnixTimeStamp</strong>
+<code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*,from_unixtime(date_added)</span> <span class="pre">FROM</span> <span class="pre">`TABLE_NAME`</span>&#160; <span class="pre">order</span> <span class="pre">by</span> <span class="pre">date_added</span> <span class="pre">desc</span></code></p>
+<p><strong>Space consume by a table</strong>
+<code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">table_schema</span> <span class="pre">&quot;Data</span> <span class="pre">Base</span> <span class="pre">Name&quot;,sum(</span> <span class="pre">data_length</span> <span class="pre">+</span> <span class="pre">index_length</span> <span class="pre">)</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/1024</span> <span class="pre">&quot;Used</span> <span class="pre">GB&quot;</span> <span class="pre">FROM</span> <span class="pre">information_schema.TABLES</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">table_schema</span> <span class="pre">;</span></code></p>
+<p><strong>Character Set</strong>
+<code class="docutils literal"><span class="pre">utf8mb4_unicode_ci</span></code></p>
+<p><strong>Set a login path using terminal/putty</strong>
+<code class="docutils literal"><span class="pre">mysql_config_editor</span> <span class="pre">set</span> <span class="pre">--login-path=anyname</span>&#160; <span class="pre">--host=localhost</span> <span class="pre">--port=3306</span> <span class="pre">--socket=/var/run/mysqld/mysqld.sock</span> <span class="pre">--user=databaseuser</span> <span class="pre">--password</span></code></p>
+<p><strong>How to fix a MySQL Failed to Start error</strong>
+Please visit [LowendBox](<a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/</a>)</p>
 </div>
 
 
@@ -168,7 +178,7 @@
         <a href="git.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="linux.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

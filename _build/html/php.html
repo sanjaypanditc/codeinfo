@@ -85,14 +85,14 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PHP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#security-points">Security Points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#shortcut-keys">Shortcut keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-word-about-users">A word about users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-redirection">SSL Redirection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test">Test</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Introduction</a></li>
 </ul>
 
@@ -195,11 +195,17 @@ Do This Instead
 <code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></li>
 </ol>
 </div>
-<div class="section" id="shortcut-keys">
-<h2>Shortcut keys<a class="headerlink" href="#shortcut-keys" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ssl-redirection">
+<h2>SSL Redirection<a class="headerlink" href="#ssl-redirection" title="Permalink to this headline">¶</a></h2>
+<p><strong>Redirection to https file</strong>
+::RewriteCond %{HTTPS} off
+::RewriteRule .* <a class="reference external" href="https:/">https:/</a>/%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</p>
+<p><strong>Redirection to https and www page</strong>
+::RewriteCond %{HTTP_HOST} !^www. [NC]
+::RewriteRule .* <a class="reference external" href="https://www">https://www</a>.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</p>
 </div>
-<div class="section" id="a-word-about-users">
-<h2>A word about users<a class="headerlink" href="#a-word-about-users" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="test">
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

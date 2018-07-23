@@ -36,9 +36,15 @@ Security Points
    Do This Instead
    ``<a href="https://example.com" target="_blank" rel="noopener noreferrer">Click here</a>``
 
-Shortcut keys
--------------
+SSL Redirection
+---------------
+**Redirection to https file**
+::RewriteCond %{HTTPS} off
+::RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+**Redirection to https and www page**
+::RewriteCond %{HTTP_HOST} !^www\. [NC]
+::RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-A word about users
+Test
 ------------------
