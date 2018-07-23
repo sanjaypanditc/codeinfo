@@ -9,6 +9,8 @@ Welcome to codehelp's documentation!
 .. toctree::
    :maxdepth: 2
 
+   php
+
 
 
 Indices and tables
