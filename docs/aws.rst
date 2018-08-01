@@ -80,7 +80,7 @@ Virtual Host Example
 
 Generate PPK file
 --------------------
-* Download Puttygen software from this `link <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>__`
+* Download Puttygen software from this `link <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`__
 * Install it 
 * Click on Conversion Tab
 * Upload your .pem file
