@@ -2,9 +2,10 @@
 
 AWS
 ============
+Amazon Web service is well known service provider in cloud industry, which provides various services to use in this industry.
 
-lamp on aws with php7.2
------------------------
+Install lamp with php7.2
+------------------------
 #. Clink on launch a virtual machine  
 #. Select "Amazon Linux 2 LTS Candidate AMI 2017.12.0" A latest Amazon linux candidate 64 bit.
 #. Select "t2.micro" as Free tire instance.
@@ -38,8 +39,8 @@ lamp on aws with php7.2
 #. ``nano httpd.conf``
 #. Search for allowoverrite None and replace it with allowoverrite All
 
-lamp on aws with php7.1
------------------------
+Install lamp with php7.1
+------------------------
 #. Clink on launch a virtual machine  
 #. Select "Amazon Linux 2 LTS Candidate AMI 2017.12.0" A latest Amazon linux candidate 64 bit.
 #. Select "t2.micro" as Free tire instance.
