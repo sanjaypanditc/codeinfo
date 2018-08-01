@@ -83,12 +83,6 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Welcome to codehelp’s documentation!</a></li>
-<li><a class="reference internal" href="#aws-syncr">AWS Syncr</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#running">Running</a></li>
-<li><a class="reference internal" href="#tests">Tests</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
@@ -186,95 +180,6 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="aws-syncr">
-<span id="id1"></span><h1>AWS Syncr<a class="headerlink" href="#aws-syncr" title="Permalink to this headline">¶</a></h1>
-<p>A python application that reads YAML and syncs definitions with amazon.</p>
-<p>It currently supports:</p>
-<ul class="simple">
-<li>Creation and modification of IAM roles permissions</li>
-<li>Creation of instance profiles for an IAM role</li>
-<li>Creation of s3 buckets</li>
-<li>Modification of s3 bucket policy and s3 bucket tags</li>
-<li>Modification of bucket website, logging and lifecycle configuration</li>
-<li>Creation and modification of KMS keys</li>
-<li>Creation and modification of KMS key grants</li>
-<li>Creation and modification of Lambda functions</li>
-<li>Creation and modification of apigateways</li>
-<li>Creation and modification of Route53 CNAMEs</li>
-</ul>
-<p>See more documentation at <a class="reference external" href="http://aws_syncr.readthedocs.org">http://aws_syncr.readthedocs.org</a></p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>aws_syncr is on pypi!:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install aws_syncr
-</pre></div>
-</div>
-</div>
-<div class="section" id="running">
-<h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
-<p>aws_syncr is designed to configure the same definition across multiple accounts.</p>
-<p>To run it you have the following file structure:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">accounts</span><span class="o">.</span><span class="n">yaml</span>
-<span class="o">&lt;</span><span class="n">environment1</span><span class="o">&gt;/</span>
-    <span class="n">config1</span><span class="o">.</span><span class="n">yaml</span>
-    <span class="n">config2</span><span class="o">.</span><span class="n">yaml</span>
-<span class="o">&lt;</span><span class="n">environment2</span><span class="o">&gt;/</span>
-    <span class="n">config1</span><span class="o">.</span><span class="n">yaml</span>
-    <span class="n">config2</span><span class="o">.</span><span class="n">yaml</span>
-</pre></div>
-</div>
-<p>And then you run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ aws_syncr &lt;environment&gt; sync
-</pre></div>
-</div>
-<p>For example, let’s say you have a <code class="docutils literal"><span class="pre">dev</span></code> environment and a <code class="docutils literal"><span class="pre">stg</span></code> environment:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">accounts</span><span class="o">.</span><span class="n">yaml</span>
-
-    <span class="o">---</span>
-
-    <span class="n">accounts</span><span class="p">:</span>
-        <span class="n">dev</span><span class="p">:</span> <span class="mi">123456789</span>
-        <span class="n">stg</span><span class="p">:</span> <span class="mi">382093840</span>
-
-<span class="n">roles</span><span class="o">.</span><span class="n">yaml</span>
-
-    <span class="o">---</span>
-
-    <span class="n">roles</span><span class="p">:</span>
-        <span class="n">my_role</span><span class="p">:</span>
-            <span class="p">[</span><span class="o">..</span><span class="p">]</span>
-
-<span class="n">dev</span><span class="o">/</span>
-    <span class="n">roles</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span> <span class="n">symlink</span> <span class="n">to</span> <span class="o">../</span><span class="n">roles</span><span class="o">.</span><span class="n">yaml</span>
-
-<span class="n">stg</span><span class="o">/</span>
-    <span class="n">roles</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span> <span class="n">symlink</span> <span class="n">to</span> <span class="o">../</span><span class="n">roles</span><span class="o">.</span><span class="n">yaml</span>
-</pre></div>
-</div>
-<p>Then from that folder:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ aws_syncr dev sync --dry-run
-$ aws_syncr dev sync
-</pre></div>
-</div>
-<p>Or if you are not in that folder:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ AWS_SYNCR_CONFIG_FOLDER=&lt;folder&gt; aws_syncr [..]
-</pre></div>
-</div>
-</div>
-<div class="section" id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
-<p>Run the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install -e .
-$ pip install -e &quot;.[tests]&quot;
-$ ./test.sh
-</pre></div>
-</div>
-<p>Or use tox:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ tox
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">

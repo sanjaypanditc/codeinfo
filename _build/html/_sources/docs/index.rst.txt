@@ -20,7 +20,7 @@ Hello Friends,
    
 .. _aws_syncr:
 
-.. include:: ../../README.rst
+.. include:: ../README.rst
 
 Indices and tables
 ==================
