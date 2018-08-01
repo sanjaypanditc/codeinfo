@@ -4,7 +4,9 @@ Welcome to codehelp's documentation!
 
 .. toctree::
    :maxdepth: 2
-
+   :numbered:
+   :caption: Contents
+   
    php
    mysql
    git
