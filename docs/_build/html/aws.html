@@ -84,7 +84,7 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. .htaccess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-2">7.1. Install lamp with php7.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">7.2. Install lamp with php7.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">7.3. Virtual Host Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-ppk-file">7.4. Generate PPK file</a></li>
 </ul>
 </li>
 </ul>
@@ -166,9 +167,14 @@
 <li>Create security group and assign port.</li>
 <li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
 <li>Now your instance is ready.</li>
-<li>Go to Terminal and write below command (<strong>Ubuntu</strong>)
-<code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></li>
-<li>Open PuttyGen software and load your pem file to generate ppk file.(<strong>Windows</strong>)</li>
+</ol>
+<p>..Hint:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>**Ubuntu users** Open Terminal and write below command
+``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
+**Windows users** generate PPK file :sub`generate` and use it in Putty
+</pre></div>
+</div>
+<ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">amazon-linux-extras</span> <span class="pre">install</span> <span class="pre">lamp-mariadb10.2-php7.2</span></code></li>
@@ -189,7 +195,7 @@
 <li>Enable Mode rewrite</li>
 <li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/etc/httpd/conf</span></code></li>
 <li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">httpd.conf</span></code></li>
-<li>Search for allowoverrite None and replace it with allowoverrite All</li>
+<li>Search for allowoverride None and replace it with allowoverride All</li>
 </ol>
 </div>
 <div class="section" id="install-lamp-with-php7-1">
@@ -213,19 +219,29 @@
 <div class="section" id="virtual-host-example">
 <h2>7.3. Virtual Host Example<a class="headerlink" href="#virtual-host-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
-ServerName www.xyz.com
-ServerAlias www.xyz.com
-DocumentRoot /var/www/xyz.com/public_html
+    ServerName www.xyz.com
+    ServerAlias www.xyz.com
+    DocumentRoot /var/www/xyz.com/public_html
 
-&lt;Directory <span class="s2">&quot;/var/www/xyz.com/public_html&quot;</span>&gt;
-        AllowOverride All
-&lt;/Directory&gt;
+    &lt;Directory <span class="s2">&quot;/var/www/xyz.com/public_html&quot;</span>&gt;
+            AllowOverride All
+    &lt;/Directory&gt;
 
-ErrorLog /var/log/httpd/xyz.com-error.log
-CustomLog /var/log/httpd/xyz.com-requests.log combined
+    ErrorLog /var/log/httpd/xyz.com-error.log
+    CustomLog /var/log/httpd/xyz.com-requests.log combined
 &lt;/VirtualHost&gt;
 </pre></div>
 </div>
+</div>
+<div class="section" id="generate-ppk-file">
+<h2>7.4. Generate PPK file<a class="headerlink" href="#generate-ppk-file" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Download Puttygen software from this <cite>link&lt;https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html&gt;</cite></li>
+<li>Install it</li>
+<li>Click on Conversion Tab</li>
+<li>Upload your .pem file</li>
+<li>Click on <em>Save Private key</em> to generate PPK file.</li>
+</ul>
 </div>
 </div>
 

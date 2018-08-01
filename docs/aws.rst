@@ -14,9 +14,13 @@ Install lamp with php7.2
 #. Create security group and assign port.
 #. Click on launch using a new key pair (Remember you need to put .pem file at secure place.)
 #. Now your instance is ready.
-#. Go to Terminal and write below command (**Ubuntu**)
+
+..Hint::
+
+   **Ubuntu users** Open Terminal and write below command
    ``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
-#. Open PuttyGen software and load your pem file to generate ppk file.(**Windows**)
+   **Windows users** generate PPK file :sub`generate` and use it in Putty
+   
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
 #. ``sudo amazon-linux-extras install lamp-mariadb10.2-php7.2``  
@@ -37,7 +41,7 @@ Install lamp with php7.2
 #. Enable Mode rewrite
 #. ``cd /etc/httpd/conf``
 #. ``nano httpd.conf``
-#. Search for allowoverrite None and replace it with allowoverrite All
+#. Search for allowoverride None and replace it with allowoverride All
 
 Install lamp with php7.1
 ------------------------
@@ -59,7 +63,7 @@ Virtual Host Example
 --------------------
 .. code-block:: bash
 
-	<VirtualHost *:80>
+    <VirtualHost *:80>
         ServerName www.xyz.com
         ServerAlias www.xyz.com
         DocumentRoot /var/www/xyz.com/public_html
@@ -70,4 +74,12 @@ Virtual Host Example
 
         ErrorLog /var/log/httpd/xyz.com-error.log
         CustomLog /var/log/httpd/xyz.com-requests.log combined
-	</VirtualHost>
+    </VirtualHost>
+
+Generate PPK file
+--------------------
+* Download Puttygen software from this `link<https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`
+* Install it 
+* Click on Conversion Tab
+* Upload your .pem file
+* Click on *Save Private key* to generate PPK file.
