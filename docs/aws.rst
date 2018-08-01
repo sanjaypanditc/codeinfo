@@ -22,6 +22,7 @@ Install lamp with php7.2
    **Windows users** generate PPK file and use it in Putty
 
 ** Start Below commands**
+
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
 #. ``sudo amazon-linux-extras install lamp-mariadb10.2-php7.2``  
