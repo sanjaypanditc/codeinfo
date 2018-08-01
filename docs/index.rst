@@ -1,5 +1,7 @@
 Welcome to codehelp's documentation!
 ====================================
+.. include:: ../README.rst
+
 .. toctree::
    :maxdepth: 2
 
@@ -10,7 +12,6 @@ Welcome to codehelp's documentation!
    digitalocean
    aws
    
-.. include:: ../README.rst
 
 Indices and tables
 ==================
