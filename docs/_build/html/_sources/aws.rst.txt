@@ -21,6 +21,7 @@ Install lamp with php7.2
    ``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
    **Windows users** generate PPK file :sub`generate` and use it in Putty
 
+** Start Below commands
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
 #. ``sudo amazon-linux-extras install lamp-mariadb10.2-php7.2``  
@@ -78,7 +79,7 @@ Virtual Host Example
 
 Generate PPK file
 --------------------
-* Download Puttygen software from this `link <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>_`
+* Download Puttygen software from this `link <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>__`
 * Install it 
 * Click on Conversion Tab
 * Upload your .pem file
