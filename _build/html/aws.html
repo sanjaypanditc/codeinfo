@@ -90,9 +90,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a></li>
 </ul>
 
             
@@ -163,9 +163,9 @@
 <h2>lamp on aws with php7.2<a class="headerlink" href="#lamp-on-aws-with-php7-2" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Clink on launch a virtual machine</li>
-<li>Select &#8220;Amazon Linux 2 LTS Candidate AMI 2017.12.0&#8221; A latest Amazon linux candidate 64 bit.</li>
-<li>Select &#8220;t2.micro&#8221; as Free tire instance.</li>
-<li>Select auto option &#8220;Configure Instance Details&#8221;</li>
+<li>Select “Amazon Linux 2 LTS Candidate AMI 2017.12.0” A latest Amazon linux candidate 64 bit.</li>
+<li>Select “t2.micro” as Free tire instance.</li>
+<li>Select auto option “Configure Instance Details”</li>
 <li>Insert 30GB as storage.</li>
 <li>Create security group and assign port.</li>
 <li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
@@ -190,15 +190,19 @@
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">ec2-user:apache</span> <span class="pre">/var/www</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">/var/www</span> <span class="pre">&amp;&amp;</span> <span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">d</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">{}</span> <span class="pre">\;</span></code></li>
 <li><code class="docutils literal"><span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">f</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">0664</span> <span class="pre">{}</span> <span class="pre">\;</span></code></li>
+<li>Enable Mode rewrite</li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/etc/httpd/conf</span></code></li>
+<li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">httpd.conf</span></code></li>
+<li>Search for allowoverrite None and replace it with allowoverrite All</li>
 </ol>
 </div>
 <div class="section" id="lamp-on-aws-with-php7-1">
 <h2>lamp on aws with php7.1<a class="headerlink" href="#lamp-on-aws-with-php7-1" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Clink on launch a virtual machine</li>
-<li>Select &#8220;Amazon Linux 2 LTS Candidate AMI 2017.12.0&#8221; A latest Amazon linux candidate 64 bit.</li>
-<li>Select &#8220;t2.micro&#8221; as Free tire instance.</li>
-<li>Select auto option &#8220;Configure Instance Details&#8221;</li>
+<li>Select “Amazon Linux 2 LTS Candidate AMI 2017.12.0” A latest Amazon linux candidate 64 bit.</li>
+<li>Select “t2.micro” as Free tire instance.</li>
+<li>Select auto option “Configure Instance Details”</li>
 <li>Insert 30GB as storage.</li>
 <li>Create security group and assign port.</li>
 <li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
