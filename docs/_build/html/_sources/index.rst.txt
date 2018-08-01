@@ -2,7 +2,6 @@
 
 .. toctree::
    :maxdepth: 2
-   :numbered:
    :caption: Contents
 
    php
