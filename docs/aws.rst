@@ -15,10 +15,11 @@ Install lamp with php7.2
 #. Click on launch using a new key pair (Remember you need to put .pem file at secure place.)
 #. Now your instance is ready.
 
-.. Hint::
+.. Tip::
 
    **Ubuntu users** Open Terminal and write below command
    ``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
+
    **Windows users** generate PPK file and use it in Putty
 
 ** Start Below commands**
