@@ -35,18 +35,3 @@ Security Points
    ``<a href="http://example.com" target="_blank">Click here</a>``
    Do This Instead
    ``<a href="https://example.com" target="_blank" rel="noopener noreferrer">Click here</a>``
-
-SSL Redirection
----------------
-.. code-block:: php
-
-   ##Redirection to https file**
-   RewriteCond %{HTTPS} off
-   RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-   ##Redirection to https and www page**
-   RewriteCond %{HTTP_HOST} !^www\. [NC]
-   RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-Test
-------------------

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. .htaccess &mdash; codeinfo 1.0 documentation</title>
+  <title>2. Htaccess &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -85,7 +85,7 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. .htaccess</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Htaccess</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ssl-redirection">2.1. SSL Redirection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test">2.2. Test</a></li>
 </ul>
@@ -140,7 +140,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>2. .htaccess</li>
+      <li>2. Htaccess</li>
     
     
 
@@ -153,9 +153,18 @@
            <div itemprop="articleBody">
             
   <div class="section" id="htaccess">
-<h1>2. .htaccess<a class="headerlink" href="#htaccess" title="Permalink to this headline">¶</a></h1>
+<h1>2. Htaccess<a class="headerlink" href="#htaccess" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ssl-redirection">
 <h2>2.1. SSL Redirection<a class="headerlink" href="#ssl-redirection" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">##Redirection to https file**</span>
+RewriteCond %<span class="o">{</span>HTTPS<span class="o">}</span> off
+RewriteRule .* https://%<span class="o">{</span>HTTP_HOST<span class="o">}</span>%<span class="o">{</span>REQUEST_URI<span class="o">}</span> <span class="o">[</span>L,R<span class="o">=</span><span class="m">301</span><span class="o">]</span>
+
+<span class="c1">##Redirection to https and www page**</span>
+RewriteCond %<span class="o">{</span>HTTP_HOST<span class="o">}</span> !^www<span class="se">\.</span> <span class="o">[</span>NC<span class="o">]</span>
+RewriteRule .* https://www.%<span class="o">{</span>HTTP_HOST<span class="o">}</span>%<span class="o">{</span>REQUEST_URI<span class="o">}</span> <span class="o">[</span>L,R<span class="o">=</span><span class="m">301</span><span class="o">]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="test">
 <h2>2.2. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>

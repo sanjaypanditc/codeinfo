@@ -1,9 +1,9 @@
-.htaccess
+Htaccess
 ##########
 
 SSL Redirection
 ---------------
-.. code-block::shell
+.. code-block:: bash
 
    ##Redirection to https file**
    RewriteCond %{HTTPS} off
