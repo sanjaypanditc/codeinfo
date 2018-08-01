@@ -60,15 +60,14 @@ Virtual Host Example
 .. code-block:: bash
 
 	<VirtualHost *:80>
-        ServerName aws.adopted.com
-        #ServerName adopted.com
-        #ServerAlias www.adopted.com
-        DocumentRoot /var/www/adopted.com/public_html
+        ServerName www.xyz.com
+        ServerAlias www.xyz.com
+        DocumentRoot /var/www/xyz.com/public_html
 
-        <Directory "/var/www/adopted.com/public_html">
+        <Directory "/var/www/xyz.com/public_html">
                 AllowOverride All
         </Directory>
 
-        ErrorLog /var/log/httpd/adopted.com-error.log
-        CustomLog /var/log/httpd/adopted.com-requests.log combined
+        ErrorLog /var/log/httpd/xyz.com-error.log
+        CustomLog /var/log/httpd/xyz.com-requests.log combined
 	</VirtualHost>

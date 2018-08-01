@@ -219,17 +219,16 @@
 <div class="section" id="virtual-host-example">
 <h2>Virtual Host Example<a class="headerlink" href="#virtual-host-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
-ServerName aws.adopted.com
-<span class="c1">#ServerName adopted.com</span>
-<span class="c1">#ServerAlias www.adopted.com</span>
-DocumentRoot /var/www/adopted.com/public_html
+ServerName www.xyz.com
+ServerAlias www.xyz.com
+DocumentRoot /var/www/xyz.com/public_html
 
-&lt;Directory <span class="s2">&quot;/var/www/adopted.com/public_html&quot;</span>&gt;
+&lt;Directory <span class="s2">&quot;/var/www/xyz.com/public_html&quot;</span>&gt;
         AllowOverride All
 &lt;/Directory&gt;
 
-ErrorLog /var/log/httpd/adopted.com-error.log
-CustomLog /var/log/httpd/adopted.com-requests.log combined
+ErrorLog /var/log/httpd/xyz.com-error.log
+CustomLog /var/log/httpd/xyz.com-requests.log combined
 &lt;/VirtualHost&gt;
 </pre></div>
 </div>
