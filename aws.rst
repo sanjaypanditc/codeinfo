@@ -53,3 +53,21 @@ lamp on aws with php7.1
 #. Open PuttyGen software and load your pem file to generate ppk file.(**Windows**)
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
+
+Virtual Host Example
+--------------------
+.. code-block:: bash
+
+	<VirtualHost *:80>
+        ServerName aws.adopted.com
+        #ServerName adopted.com
+        #ServerAlias www.adopted.com
+        DocumentRoot /var/www/adopted.com/public_html
+
+        <Directory "/var/www/adopted.com/public_html">
+                AllowOverride All
+        </Directory>
+
+        ErrorLog /var/log/httpd/adopted.com-error.log
+        CustomLog /var/log/httpd/adopted.com-requests.log combined
+	</VirtualHost>
