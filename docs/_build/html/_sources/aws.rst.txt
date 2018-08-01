@@ -19,9 +19,9 @@ Install lamp with php7.2
 
    **Ubuntu users** Open Terminal and write below command
    ``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
-   **Windows users** generate PPK file :sub`generate` and use it in Putty
+   **Windows users** generate PPK file and use it in Putty
 
-** Start Below commands
+** Start Below commands**
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
 #. ``sudo amazon-linux-extras install lamp-mariadb10.2-php7.2``  
