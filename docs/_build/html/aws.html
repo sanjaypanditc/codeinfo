@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. AWS &mdash; codeinfo 1.0 documentation</title>
+  <title>AWS &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -89,11 +89,11 @@
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. AWS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-2">7.1. Install lamp with php7.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">7.2. Install lamp with php7.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">7.3. Virtual Host Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#generate-ppk-file">7.4. Generate PPK file</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-2">Install lamp with php7.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">Install lamp with php7.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">Virtual Host Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-ppk-file">Generate PPK file</a></li>
 </ul>
 </li>
 </ul>
@@ -141,7 +141,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>7. AWS</li>
+      <li>AWS</li>
     
     
 
@@ -154,10 +154,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="aws">
-<span id="id1"></span><h1>7. AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h1>
 <p>Amazon Web service is well known service provider in cloud industry, which provides various services to use in this industry.</p>
 <div class="section" id="install-lamp-with-php7-2">
-<h2>7.1. Install lamp with php7.2<a class="headerlink" href="#install-lamp-with-php7-2" title="Permalink to this headline">¶</a></h2>
+<h2>Install lamp with php7.2<a class="headerlink" href="#install-lamp-with-php7-2" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Clink on launch a virtual machine</li>
 <li>Select “Amazon Linux 2 LTS Candidate AMI 2017.12.0” A latest Amazon linux candidate 64 bit.</li>
@@ -168,11 +168,11 @@
 <li>Click on launch using a new key pair (Remember you need to put .pem file at secure place.)</li>
 <li>Now your instance is ready.</li>
 </ol>
-<p>..Hint:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>**Ubuntu users** Open Terminal and write below command
-``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
-**Windows users** generate PPK file :sub`generate` and use it in Putty
-</pre></div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last"><strong>Ubuntu users</strong> Open Terminal and write below command
+<code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code>
+<strong>Windows users</strong> generate PPK file :sub`generate` and use it in Putty</p>
 </div>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code></li>
@@ -199,7 +199,7 @@
 </ol>
 </div>
 <div class="section" id="install-lamp-with-php7-1">
-<h2>7.2. Install lamp with php7.1<a class="headerlink" href="#install-lamp-with-php7-1" title="Permalink to this headline">¶</a></h2>
+<h2>Install lamp with php7.1<a class="headerlink" href="#install-lamp-with-php7-1" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Clink on launch a virtual machine</li>
 <li>Select “Amazon Linux 2 LTS Candidate AMI 2017.12.0” A latest Amazon linux candidate 64 bit.</li>
@@ -217,7 +217,7 @@
 </ol>
 </div>
 <div class="section" id="virtual-host-example">
-<h2>7.3. Virtual Host Example<a class="headerlink" href="#virtual-host-example" title="Permalink to this headline">¶</a></h2>
+<h2>Virtual Host Example<a class="headerlink" href="#virtual-host-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
     ServerName www.xyz.com
     ServerAlias www.xyz.com
@@ -234,7 +234,7 @@
 </div>
 </div>
 <div class="section" id="generate-ppk-file">
-<h2>7.4. Generate PPK file<a class="headerlink" href="#generate-ppk-file" title="Permalink to this headline">¶</a></h2>
+<h2>Generate PPK file<a class="headerlink" href="#generate-ppk-file" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Download Puttygen software from this <cite>link&lt;https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html&gt;</cite></li>
 <li>Install it</li>
