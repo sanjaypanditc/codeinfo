@@ -1,4 +1,4 @@
 .. _digitalocean:
 
-Introduction
+Digital Ocean
 ============

@@ -5,17 +5,19 @@
 
 Welcome to codehelp's documentation!
 ====================================
+Hello Friends, 
+   You can check latest code/security suggession on this page.
 
 .. toctree::
    :maxdepth: 2
 
    php
-   aws
-   digitalocean
-   linux
    mysql
    git
-
+   linux
+   digitalocean
+   aws
+   
 
 
 Indices and tables
