@@ -6,6 +6,7 @@
    :caption: Contents
 
    php
+   htaccess
    mysql
    git
    linux

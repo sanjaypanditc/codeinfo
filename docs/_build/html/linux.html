@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Linux &mdash; codeinfo 1.0 documentation</title>
+  <title>5. Linux &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Digital Ocean" href="digitalocean.html" />
-    <link rel="prev" title="3. GIT" href="git.html" /> 
+    <link rel="next" title="6. Digital Ocean" href="digitalocean.html" />
+    <link rel="prev" title="4. GIT" href="git.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -85,14 +85,15 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">2. MySQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">3. GIT</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#commands">4.1. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. .htaccess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands">5.1. Commands</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">5. Digital Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">6. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">7. AWS</a></li>
 </ul>
 
             
@@ -138,7 +139,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>4. Linux</li>
+      <li>5. Linux</li>
     
     
 
@@ -151,9 +152,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="linux">
-<span id="id1"></span><h1>4. Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>5. Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="commands">
-<h2>4.1. Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">grep</span> <span class="pre">keyword</span> <span class="pre">/var/spool/cron/root</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">-v</span> <span class="pre">^#</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^$</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$1,$2,$3,$4,$5,$8}'</span></code></li>
 <li><code class="docutils literal"><span class="pre">cat</span> <span class="pre">netstat.log.5</span> <span class="pre">|</span>&#160; <span class="pre">awk</span> <span class="pre">'$4</span> <span class="pre">~</span> <span class="pre">/:80$/</span> <span class="pre">{c++;print</span> <span class="pre">$5</span> <span class="pre">|</span> <span class="pre">&quot;sed</span> <span class="pre">'s/::ffff://'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/:.*$//'|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">10&quot;}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">c}'</span></code></li>
@@ -178,10 +179,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="digitalocean.html" class="btn btn-neutral float-right" title="5. Digital Ocean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="digitalocean.html" class="btn btn-neutral float-right" title="6. Digital Ocean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="git.html" class="btn btn-neutral" title="3. GIT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="git.html" class="btn btn-neutral" title="4. GIT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
