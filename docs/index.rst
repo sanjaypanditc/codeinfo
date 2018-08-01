@@ -1,12 +1,10 @@
-Welcome to codehelp's documentation!
-====================================
 .. include:: ../README.rst
 
 .. toctree::
    :maxdepth: 2
    :numbered:
    :caption: Contents
-   
+
    php
    mysql
    git
