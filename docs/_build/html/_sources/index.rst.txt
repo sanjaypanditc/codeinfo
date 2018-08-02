@@ -8,6 +8,7 @@
    htaccess
    mysql
    git
+   nodejs
    linux
    digitalocean
    aws
