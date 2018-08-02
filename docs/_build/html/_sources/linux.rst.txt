@@ -21,3 +21,26 @@ Commands
   ``tar -cvzf docs.tar.gz /var/www/html/foldername``
 * **extract docs.tar.gz in docs folder**
   ``tar -xvzf docs.tar.gz``
+* **Symlink specific time on server**
+  ``sudo ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime``
+
+
+Cronjobs
+--------
+.. code-block:: bash
+
+	# Example of job definition:
+	# .---------------- minute (0 - 59)
+	# |  .------------- hour (0 - 23)
+	# |  |  .---------- day of month (1 - 31)
+	# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+	# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+	# |  |  |  |  |
+	# *  *  *  *  * user-name command to be executed
+
+	#crontab -e
+	*/10 *  *  *  * wget -O /dev/null webpage url
+	0    *  *  *  * /usr/bin/php /var/www/html/projectname/yourphpfile
+
+	#cronjob for last day of month
+	[ "$(/bin/date +\%d -d tomorrow)" = "01" ] && /usr/local/bin/php /var/www/html/projectname/yourphpfile

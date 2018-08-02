@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="6. Digital Ocean" href="digitalocean.html" /> 
+    <link rel="next" title="Google Cloud" href="gcloud.html" />
+    <link rel="prev" title="Digital Ocean" href="digitalocean.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,19 +84,22 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AWS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-2">Install lamp with php7.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">Install lamp with php7.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">Virtual Host Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-ppk-file">Generate PPK file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-cli">AWS CLI</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 </ul>
 
             
@@ -222,6 +226,7 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
     ServerName www.xyz.com
     ServerAlias www.xyz.com
+    ServerAdmin youremailaddress
     DocumentRoot /var/www/xyz.com/public_html
 
     &lt;Directory <span class="s2">&quot;/var/www/xyz.com/public_html&quot;</span>&gt;
@@ -244,6 +249,20 @@
 <li>Click on <em>Save Private key</em> to generate PPK file.</li>
 </ul>
 </div>
+<div class="section" id="aws-cli">
+<h2>AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this headline">¶</a></h2>
+<p>Aws cli configuration
+<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
+<span class="pre">AWS</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">ID</span> <span class="pre">[None]:</span> <span class="pre">YOURKEY</span>
+<span class="pre">AWS</span> <span class="pre">Secret</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">[None]:</span> <span class="pre">YOURSECRETKEY</span>
+<span class="pre">Default</span> <span class="pre">region</span> <span class="pre">name</span> <span class="pre">[None]:</span> <span class="pre">us-west-2</span>
+<span class="pre">Default</span> <span class="pre">output</span> <span class="pre">format</span> <span class="pre">[None]:</span> <span class="pre">json</span>
+<span class="pre">`</span></code>
+Space in S3 Bucket
+<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">s3api</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span> <span class="pre">list-objects</span> <span class="pre">--bucket</span> <span class="pre">BUCKETNAME</span> <span class="pre">--output</span> <span class="pre">json</span> <span class="pre">--query</span> <span class="pre">&quot;[sum(Contents[].Size),</span> <span class="pre">length(Contents[])]&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'NR!=2</span> <span class="pre">{print</span> <span class="pre">$0;next}</span> <span class="pre">NR==2</span> <span class="pre">{print</span> <span class="pre">$0/1024/1024/1024&quot;</span> <span class="pre">GB&quot;}'`</span></code></p>
+<p>aws –profile profilename s3 cp filename s3://bucketname/
+aws –profile profilename s3 sync s3://bucketname/foldername</p>
+</div>
 </div>
 
 
@@ -254,8 +273,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="gcloud.html" class="btn btn-neutral float-right" title="Google Cloud" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="digitalocean.html" class="btn btn-neutral" title="6. Digital Ocean" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="digitalocean.html" class="btn btn-neutral" title="Digital Ocean" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

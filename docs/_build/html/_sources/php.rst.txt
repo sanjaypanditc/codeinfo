@@ -35,3 +35,24 @@ Security Points
    ``<a href="http://example.com" target="_blank">Click here</a>``
    Do This Instead
    ``<a href="https://example.com" target="_blank" rel="noopener noreferrer">Click here</a>``
+
+**Generate PHP Error on a Specific IP** Generate PHP Errors on a Specific IP
+.. code-block:: bash
+
+   if($_SERVER["REMOTE_ADDR"] =='xxx.xxxx.xxx.xxx'){
+     error_reporting(E_ALL);
+      ini_set('display_errors','Off');
+      ini_set("log_errors", 1);
+      ini_set("error_log", "D:/xampp/htdocs/live/errors/lservererror.html");
+   }
+
+**Write a PHP File** Write PHP Errors in a single file
+
+.. code-block:: bash
+
+   ##Generate file##
+   $arrayInfo =array();
+   $path = "/var/www/html/";
+   $fp = fopen($path."arrayDetails.txt", "a");
+   fwrite($fp, print_r($arrayInfo,true));
+   fclose($fp);

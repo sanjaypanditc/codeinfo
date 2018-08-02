@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Digital Ocean" href="digitalocean.html" />
+    <link rel="next" title="Digital Ocean" href="digitalocean.html" />
     <link rel="prev" title="4. GIT" href="git.html" /> 
 
   
@@ -84,16 +84,19 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cronjobs">Cronjobs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 </ul>
 
             
@@ -172,7 +175,29 @@
 <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-cvzf</span> <span class="pre">docs.tar.gz</span> <span class="pre">/var/www/html/foldername</span></code></li>
 <li><strong>extract docs.tar.gz in docs folder</strong>
 <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">docs.tar.gz</span></code></li>
+<li><strong>Symlink specific time on server</strong>
+<code class="docutils literal"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/usr/share/zoneinfo/US/Pacific</span> <span class="pre">/etc/localtime</span></code></li>
 </ul>
+</div>
+<div class="section" id="cronjobs">
+<h2>Cronjobs<a class="headerlink" href="#cronjobs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Example of job definition:</span>
+<span class="c1"># .---------------- minute (0 - 59)</span>
+<span class="c1"># |  .------------- hour (0 - 23)</span>
+<span class="c1"># |  |  .---------- day of month (1 - 31)</span>
+<span class="c1"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span>
+<span class="c1"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span>
+<span class="c1"># |  |  |  |  |</span>
+<span class="c1"># *  *  *  *  * user-name command to be executed</span>
+
+<span class="c1">#crontab -e</span>
+*/10 *  *  *  * wget -O /dev/null webpage url
+<span class="m">0</span>    *  *  *  * /usr/bin/php /var/www/html/projectname/yourphpfile
+
+<span class="c1">#cronjob for last day of month</span>
+<span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>/bin/date +<span class="se">\%</span>d -d tomorrow<span class="k">)</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;01&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> /usr/local/bin/php /var/www/html/projectname/yourphpfile
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -184,7 +209,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="digitalocean.html" class="btn btn-neutral float-right" title="6. Digital Ocean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="digitalocean.html" class="btn btn-neutral float-right" title="Digital Ocean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="git.html" class="btn btn-neutral" title="4. GIT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

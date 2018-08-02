@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. Digital Ocean &mdash; codeinfo 1.0 documentation</title>
+  <title>Digital Ocean &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="7. AWS" href="aws.html" />
-    <link rel="prev" title="5. Linux" href="linux.html" /> 
+    <link rel="next" title="AWS" href="aws.html" />
+    <link rel="prev" title="Linux" href="linux.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,13 +84,15 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. .htaccess</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Digital Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">7. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 </ul>
 
             
@@ -136,7 +138,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>6. Digital Ocean</li>
+      <li>Digital Ocean</li>
     
     
 
@@ -149,7 +151,69 @@
            <div itemprop="articleBody">
             
   <div class="section" id="digital-ocean">
-<span id="digitalocean"></span><h1>6. Digital Ocean<a class="headerlink" href="#digital-ocean" title="Permalink to this headline">¶</a></h1>
+<span id="digitalocean"></span><h1>Digital Ocean<a class="headerlink" href="#digital-ocean" title="Permalink to this headline">¶</a></h1>
+<p>## Ubuntu ##</p>
+<p>You may be using a ubuntu machine or you are creating virtual host on ubuntu server.
+Open terminal using ctrl+alt+T in ubuntu, putty on windows. Connect with ssh if you are going to creating virtual host on ubuntu server.</p>
+<ol class="arabic simple">
+<li>sudo apt-get update  (it will update all system libraries)</li>
+<li>cd /var/www          (Move to www path)</li>
+<li>sudo mkdir -p example1.com/public_html    (it will create both directory example1.com and example1.com/public_html)</li>
+<li>sudo mkdir -p example2.com/public_html    (it will create both directory example2.com and example2.com/public_html)</li>
+<li>cd /etc/apache2/sites-available/</li>
+<li>sudo cp 000-default.conf example1.com.conf</li>
+<li>sudo cp 000-default.conf example2.com.conf</li>
+<li>nano example1.com.conf and put below code in it</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">&lt;VirtualHost</span> <span class="pre">*:80&gt;</span>
+<span class="pre">ServerAdmin</span> <span class="pre">webmaster&#64;example1.com</span>
+<span class="pre">ServerName</span> <span class="pre">example1.com</span>
+<span class="pre">ServerAlias</span> <span class="pre">www.example1.com</span>
+<span class="pre">DocumentRoot</span> <span class="pre">/var/www/example1.com/public_html</span>
+<span class="pre">ErrorLog</span> <span class="pre">${APACHE_LOG_DIR}/error.log</span>
+<span class="pre">CustomLog</span> <span class="pre">${APACHE_LOG_DIR}/access.log</span> <span class="pre">combined</span>
+<span class="pre">&lt;/VirtualHost&gt;</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="9">
+<li>nano example2.com.conf and put below code in it</li>
+</ol>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">&lt;VirtualHost</span> <span class="pre">*:80&gt;</span>
+<span class="pre">ServerAdmin</span> <span class="pre">webmaster&#64;example1.com</span>
+<span class="pre">ServerName</span> <span class="pre">example2.com</span>
+<span class="pre">ServerAlias</span> <span class="pre">www.example2.com</span>
+<span class="pre">DocumentRoot</span> <span class="pre">/var/www/example2.com/public_html</span>
+<span class="pre">ErrorLog</span> <span class="pre">${APACHE_LOG_DIR}/error.log</span>
+<span class="pre">CustomLog</span> <span class="pre">${APACHE_LOG_DIR}/access.log</span> <span class="pre">combined</span>
+<span class="pre">&lt;/VirtualHost&gt;</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic" start="10">
+<li><p class="first">sudo a2dissite 000-default.conf</p>
+</li>
+<li><p class="first">sudo a2ensite example1.com.conf</p>
+</li>
+<li><p class="first">sudo a2ensite example2.com.conf</p>
+</li>
+<li><p class="first">sudo systemctl restart apache2</p>
+</li>
+<li><p class="first">cd /var/www</p>
+</li>
+<li><p class="first">nano example1.com/public_html/index.html and put “Welcome to example1.com”</p>
+</li>
+<li><p class="first">nano example2.com/public_html/index.html and put “Welcome to example2.com”</p>
+</li>
+<li><p class="first">now you need to make host entries to your local machines.</p>
+</li>
+<li><p class="first">on ubuntu you need to open /etc/hosts file and make host entry like, Use C:WindowsSystem32driversetchosts if you are on windows</p>
+</li>
+<li><p class="first">xxx.xxx.xxx.xxx example1.com</p>
+<p>xxx.xxx.xxx.xxx www.example1.com</p>
+<p>xxx.xxx.xxx.xxx example2.com</p>
+<p>xxx.xxx.xxx.xxx www.example2.com</p>
+</li>
+</ol>
+<p>Now your subdomains/virtual host are ready.</p>
 </div>
 
 
@@ -160,10 +224,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aws.html" class="btn btn-neutral float-right" title="7. AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aws.html" class="btn btn-neutral float-right" title="AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="linux.html" class="btn btn-neutral" title="5. Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

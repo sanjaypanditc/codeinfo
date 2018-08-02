@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. MySQL &mdash; codeinfo 1.0 documentation</title>
+  <title>MySQL &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. GIT" href="git.html" />
-    <link rel="prev" title="2. .htaccess" href="htaccess.html" /> 
+    <link rel="prev" title="2. Htaccess" href="htaccess.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,13 +84,18 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. .htaccess</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MySQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mysql-backup-restore">Mysql Backup/Restore</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">7. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 </ul>
 
             
@@ -136,7 +141,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. MySQL</li>
+      <li>MySQL</li>
     
     
 
@@ -149,7 +154,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mysql">
-<span id="id1"></span><h1>3. MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
 <p><strong>Convert DateTime in UnixTimeStamp</strong>
 <code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*,from_unixtime(date_added)</span> <span class="pre">FROM</span> <span class="pre">`TABLE_NAME`</span>&#160; <span class="pre">order</span> <span class="pre">by</span> <span class="pre">date_added</span> <span class="pre">desc</span></code></p>
 <p><strong>Space consume by a table</strong>
@@ -159,7 +164,10 @@
 <p><strong>Set a login path using terminal/putty</strong>
 <code class="docutils literal"><span class="pre">mysql_config_editor</span> <span class="pre">set</span> <span class="pre">--login-path=anyname</span>&#160; <span class="pre">--host=localhost</span> <span class="pre">--port=3306</span> <span class="pre">--socket=/var/run/mysqld/mysqld.sock</span> <span class="pre">--user=databaseuser</span> <span class="pre">--password</span></code></p>
 <p><strong>How to fix a MySQL Failed to Start error</strong>
-Please visit [LowendBox](<a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/</a>)</p>
+Please visit <a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">LowendBox</a></p>
+<div class="section" id="mysql-backup-restore">
+<h2>Mysql Backup/Restore<a class="headerlink" href="#mysql-backup-restore" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -173,7 +181,7 @@ Please visit [LowendBox](<a class="reference external" href="https://lowendbox.c
         <a href="git.html" class="btn btn-neutral float-right" title="4. GIT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="htaccess.html" class="btn btn-neutral" title="2. .htaccess" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="htaccess.html" class="btn btn-neutral" title="2. Htaccess" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

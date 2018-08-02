@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. PHP &mdash; codeinfo 1.0 documentation</title>
+  <title>PHP &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -84,16 +84,18 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. PHP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#security-points">1.1. Security Points</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PHP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#security-points">Security Points</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">7. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 </ul>
 
             
@@ -139,7 +141,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>1. PHP</li>
+      <li>PHP</li>
     
     
 
@@ -152,9 +154,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="php">
-<span id="id1"></span><h1>1. PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="security-points">
-<h2>1.1. Security Points<a class="headerlink" href="#security-points" title="Permalink to this headline">¶</a></h2>
+<h2>Security Points<a class="headerlink" href="#security-points" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>You are uploading the file use below code.
 <code class="docutils literal"><span class="pre">$file</span> <span class="pre">=</span> <span class="pre">basename(realpath($_GET['file']));</span></code></li>
@@ -187,6 +189,30 @@
 Do This Instead
 <code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></li>
 </ol>
+<p><strong>Generate PHP Error on a Specific IP</strong> Generate PHP Errors on a Specific IP
+.. code-block:: bash</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if($_SERVER[“REMOTE_ADDR”] ==’xxx.xxxx.xxx.xxx’){</dt>
+<dd><dl class="first last docutils">
+<dt>error_reporting(E_ALL);</dt>
+<dd>ini_set(‘display_errors’,’Off’);
+ini_set(“log_errors”, 1);
+ini_set(“error_log”, “D:/xampp/htdocs/live/errors/lservererror.html”);</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p><strong>Write a PHP File</strong> Write PHP Errors in a single file</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">##Generate file##</span>
+<span class="nv">$arrayInfo</span> <span class="o">=</span>array<span class="o">()</span><span class="p">;</span>
+<span class="nv">$path</span> <span class="o">=</span> <span class="s2">&quot;/var/www/html/&quot;</span><span class="p">;</span>
+<span class="nv">$fp</span> <span class="o">=</span> fopen<span class="o">(</span><span class="nv">$path</span>.<span class="s2">&quot;arrayDetails.txt&quot;</span>, <span class="s2">&quot;a&quot;</span><span class="o">)</span><span class="p">;</span>
+fwrite<span class="o">(</span><span class="nv">$fp</span>, print_r<span class="o">(</span><span class="nv">$arrayInfo</span>,true<span class="o">))</span><span class="p">;</span>
+fclose<span class="o">(</span><span class="nv">$fp</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
 </div>
 </div>
 

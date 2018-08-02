@@ -11,6 +11,8 @@
    linux
    digitalocean
    aws
+   gcloud
+   docker
    
 
 Indices and tables
