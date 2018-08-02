@@ -20,7 +20,7 @@ Please visit `LowendBox <https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%
 
 Mysql Backup/Restore
 --------------------
-.. Code::MySql
+.. code-block:: bash
 
 	**Download full database (.gz extention)**  
 	``mysqldump -h[host] -u[user] -p[password] [database] | gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz``

@@ -167,6 +167,28 @@
 Please visit <a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">LowendBox</a></p>
 <div class="section" id="mysql-backup-restore">
 <h2>Mysql Backup/Restore<a class="headerlink" href="#mysql-backup-restore" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>**Download full database <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download full database with ssl enabled <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> --ssl-ca<span class="o">=[</span>.PEM file<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download Specific database table <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="o">[</span>tablename<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="o">[</span>tablename<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download Database after ignore some table <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> --ignore-table<span class="o">=[</span>table1<span class="o">]</span> --ignore-table<span class="o">=[</span>table2<span class="o">]</span><span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Restore Backup file in Database**
+<span class="sb">``</span>mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> &lt; /var/www/html/database.sql<span class="sb">``</span>
+
+**Restore Database using .sql.gz file with ssl enabled**
+<span class="sb">``</span>zcat database.sql.gz <span class="p">|</span> mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> --ssl-ca<span class="o">=[</span>.PEM file<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span><span class="sb">``</span>
+
+**Restore Database using .sql.gz file**
+<span class="sb">``</span>zcat database.sql.gz <span class="p">|</span> mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span><span class="sb">``</span>
+</pre></div>
+</div>
 </div>
 </div>
 
