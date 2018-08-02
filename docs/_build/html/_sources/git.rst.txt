@@ -38,43 +38,59 @@ Commands
 
 GIT Basics
 ----------
-**1. git checkout master**   
-> - git checkout allows you to move between branches and potentially restore tree files.
-> - The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
+**git checkout master**
+::
 
-**2. git pull origin master**
->  - Get the latest updates on the master branch, 
->  - This is typically done to merge upstream changes. A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
->  - Essentially, git pull origin master allows you to do two commands at once. It’s a great time-saver!
->  - Always run git pull origin master before starting work on a repository. After all, you want to be sure your repository is up to date with the remote repo where you collaborate.
+   * git checkout allows you to move between branches and potentially restore tree files.
+   * The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
 
-**3. checkout -b branchname**
-   > - Create a new branch called “branchname” and move to it.
-   > - Branching out is essential to working with Git. Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it. 
-   > - The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.
-   > - When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master). Those commands are coming right up ...
+**git pull origin master**
+::
 
-**4. git status**
-   >- Current status of your repository. 
-   >- Git offers suggestions on what to do, offering commands on how to stage or commit those files.
+   * Get the latest updates on the master branch, 
+   * This is typically done to merge upstream changes. A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
+   * Essentially, git pull origin master allows you to do two commands at once. It’s a great time-saver!
+   * Always run git pull origin master before starting work on a repository. After all, you want to be sure your repository is up to date with the remote repo where you collaborate.
 
-**5. git add**
-   >- The git add command appends a change in the working directory to the staging area. 
-   >- A change can be either a removal or an addition of a file or directory. This a preparatory step toward committing your changes.
-   >- The actual actions are already “done,” but this command officially nominates those changes to be committed.
-   >- You can add the —all option. Entering git add —all stages all changes in the working directory and subdirectories, including removals of directories.
+**checkout -b branchname**
+::
 
-**6. git commit**
-   >- The git commit command records changes you make to the local repository.
-   >- You can also use git commit to delete files, though it’s a somewhat roundabout way of doing so.
-   >- Git is essentially a tree of commits, where a commit is a change (an addition, deletion, or update).
-   >- Doing git commit will commit the changes that you have staged with git add. The commit is made on your local repository.
-   >- It must be pushed to remotes (repositories not on your computer) to be shared.
+   * Create a new branch called “branchname” and move to it.
+   * Branching out is essential to working with Git. Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it. 
+   * The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.
+   * When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master). Those commands are coming right up ...
 
-**7. git push**
-   >- Run the git push command to push your changes to the repository. There are a variety of ways you can tweak this, as you can combine the push command with exceptions. On its own, git push makes changes to the repository and all of its associations.
-   >- The git push `<remote> <branch>` command will push the changes on `<branch>` from your local repository to `<remote>`, which is usually the repository on a server where you collaborate with your colleagues.
-   >- By default, the first remote is called "origin." If you’ve made changes in your new-feature branch, you’d do git push origin new-feature to send the changes (commits) of new-feature to the place where you collaborate with your colleagues.
+**git status**
+::
+
+   * Current status of your repository. 
+   * Git offers suggestions on what to do, offering commands on how to stage or commit those files.
+
+**git add**
+::
+
+   * The git add command appends a change in the working directory to the staging area. 
+   * A change can be either a removal or an addition of a file or directory. This a preparatory step toward committing your changes.
+   * The actual actions are already “done,” but this command officially nominates those changes to be committed.
+   * You can add the —all option. Entering git add —all stages all changes in the working directory and subdirectories, including removals of directories.
+
+**git commit**
+::
+
+   * The git commit command records changes you make to the local repository.
+   * You can also use git commit to delete files, though it’s a somewhat roundabout way of doing so.
+   * Git is essentially a tree of commits, where a commit is a change (an addition, deletion, or update).
+   * Doing git commit will commit the changes that you have staged with git add. The commit is made on your local repository.
+   * It must be pushed to remotes (repositories not on your computer) to be shared.
+
+**git push**
+::
+
+   * Run the git push command to push your changes to the repository. There are a variety of ways you can tweak this, as you can combine the push command with exceptions. On its own, git push makes changes to the repository and all of its associations.
+   * The git push `<remote> <branch>` command will push the changes on `<branch>` from your local repository to `<remote>`, which is usually the repository on a server where you collaborate with your colleagues.
+   * By default, the first remote is called "origin." If you’ve made changes in your new-feature branch, you’d do git push origin new-feature to send the changes (commits) of new-feature to the place where you collaborate with your colleagues.
    
-**8. git merge --abort**
-   >- It will abort merging issue.
+**git merge --abort**
+::
+
+  * It will abort merging issue.
