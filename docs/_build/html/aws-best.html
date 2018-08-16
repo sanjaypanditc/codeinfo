@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Code Help &mdash; codeinfo 1.0 documentation</title>
+  <title>AWS Best practise &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PHP" href="php.html" /> 
+    <link rel="prev" title="Docker" href="docker.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +47,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> codeinfo
+            <a href="index.html" class="icon icon-home"> codeinfo
           
 
           
@@ -82,7 +82,7 @@
             
             
               <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
@@ -93,7 +93,14 @@
 <li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws-best.html">AWS Best practise</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AWS Best practise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aws-load-balancer">AWS load balancer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scaling-vertically">Scaling Vertically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scaling-horizontally">Scaling Horizontally</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -108,7 +115,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">codeinfo</a>
+          <a href="index.html">codeinfo</a>
         
       </nav>
 
@@ -137,9 +144,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Code Help</li>
+      <li>AWS Best practise</li>
     
     
 
@@ -151,67 +158,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="code-help">
-<h1>Code Help<a class="headerlink" href="#code-help" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="php.html#security-points">Security Points</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="htaccess.html#ssl-redirection">2.1. SSL Redirection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htaccess.html#test">2.2. Test</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-backup-restore">Mysql Backup/Restore</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="git.html#commands">Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git.html#git-basics">GIT Basics</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nodejs.html#ubuntu">Ubuntu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nodejs.html#windows">Windows</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linux.html#commands">Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux.html#cronjobs">Cronjobs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="digitalocean.html#install-ubuntu">Install Ubuntu</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aws.html#install-lamp-with-php7-2">Install lamp with php7.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aws.html#install-lamp-with-php7-1">Install lamp with php7.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aws.html#virtual-host-example">Virtual Host Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aws.html#generate-ppk-file">Generate PPK file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aws.html#aws-cli">AWS CLI</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws-best.html">AWS Best practise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aws-best.html#aws-load-balancer">AWS load balancer</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="aws-best-practise">
+<span id="awsbest"></span><h1>AWS Best practise<a class="headerlink" href="#aws-best-practise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aws-load-balancer">
+<h2>AWS load balancer<a class="headerlink" href="#aws-load-balancer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scaling-vertically">
+<h3>Scaling Vertically<a class="headerlink" href="#scaling-vertically" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Scaling vertically takes place through an increase in the specifications of an individual resource (e.g., upgrading a server with a larger hard drive or a faster CPU). On Amazon EC2, this can easily be achieved by stopping an instance and resizing it to an instance type that has more RAM, CPU, IO, or networking capabilities. This way of scaling can eventually hit a limit and it is not always a cost efficient or highly available approach. However, it is very easy to implement and can be sufficient for many use cases especially in the short term.</dd>
+</dl>
+</div>
+<div class="section" id="scaling-horizontally">
+<h3>Scaling Horizontally<a class="headerlink" href="#scaling-horizontally" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Scaling horizontally takes place through an increase in the number of resources (e.g., adding more hard drives to a storage array or adding more servers to support an application). This is a great way to build Internet-scale applications that leverage the elasticity of cloud computing. Not all architectures are designed to distribute their workload to multiple resources, so let’s examine some of the possible scenarios.</dd>
+</dl>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
 </div>
 
 
@@ -222,8 +187,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="php.html" class="btn btn-neutral float-right" title="PHP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="docker.html" class="btn btn-neutral" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

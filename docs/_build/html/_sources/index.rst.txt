@@ -14,6 +14,7 @@
    aws
    gcloud
    docker
+   aws-best
    
 
 Indices and tables
