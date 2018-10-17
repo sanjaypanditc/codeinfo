@@ -4,7 +4,7 @@ Linux
 ============
 
 Commands
---------
+---------
 * ``grep keyword /var/spool/cron/root | egrep -v ^# | grep -v ^$ | awk '{print $1,$2,$3,$4,$5,$8}'``
 * ``cat netstat.log.5 |  awk '$4 ~ /:80$/ {c++;print $5 | "sed 's/::ffff://' | sed 's/:.*$//'| sort | uniq -c | sort -n | tail -n 10"} END {print c}'``
 * ``netstat -plantu | grep -c :1433``
@@ -23,6 +23,14 @@ Commands
   ``tar -xvzf docs.tar.gz``
 * **Symlink specific time on server**
   ``sudo ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime``
+* **search text from file name**
+	``grep word /mnt/data/filepath``
+* **Mount a Drive**
+	``sudo mount /dev/xvdf /mnt/data/``
+* **UnMount a Drive**
+	``sudo umount --verbose /mnt/data/``
+* **Blank an email**
+	``> /var/spool/mail/root``
 
 
 Cronjobs

@@ -84,7 +84,7 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">Htaccess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AWS Best practise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aws-cli">AWS CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aws-load-balancer">AWS load balancer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#scaling-vertically">Scaling Vertically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scaling-horizontally">Scaling Horizontally</a></li>
@@ -160,6 +161,23 @@
             
   <div class="section" id="aws-best-practise">
 <span id="awsbest"></span><h1>AWS Best practise<a class="headerlink" href="#aws-best-practise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aws-cli">
+<h2>AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this headline">¶</a></h2>
+<p>Aws cli configuration
+<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
+<span class="pre">AWS</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">ID</span> <span class="pre">[None]:</span> <span class="pre">YOURKEY</span>
+<span class="pre">AWS</span> <span class="pre">Secret</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">[None]:</span> <span class="pre">YOURSECRETKEY</span>
+<span class="pre">Default</span> <span class="pre">region</span> <span class="pre">name</span> <span class="pre">[None]:</span> <span class="pre">us-west-2</span>
+<span class="pre">Default</span> <span class="pre">output</span> <span class="pre">format</span> <span class="pre">[None]:</span> <span class="pre">json</span>
+<span class="pre">`</span></code>
+Space in S3 Bucket
+<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">s3api</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span> <span class="pre">list-objects</span> <span class="pre">--bucket</span> <span class="pre">BUCKETNAME</span> <span class="pre">--output</span> <span class="pre">json</span> <span class="pre">--query</span> <span class="pre">&quot;[sum(Contents[].Size),</span> <span class="pre">length(Contents[])]&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'NR!=2</span> <span class="pre">{print</span> <span class="pre">$0;next}</span> <span class="pre">NR==2</span> <span class="pre">{print</span> <span class="pre">$0/1024/1024/1024&quot;</span> <span class="pre">GB&quot;}'`</span></code></p>
+<p>aws –profile profilenames3 ls s3://bucketname
+aws –profile profilename s3 cp filename s3://bucketname/
+aws –profile profilename s3 sync s3://bucketname/foldername</p>
+<p>aws –profile profilename s3 cp s3://bucketname/filename /serverpath
+aws –profile profilename s3 sync . s3://bucketname/MyFolder</p>
+</div>
 <div class="section" id="aws-load-balancer">
 <h2>AWS load balancer<a class="headerlink" href="#aws-load-balancer" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="scaling-vertically">

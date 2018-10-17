@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Htaccess &mdash; codeinfo 1.0 documentation</title>
+  <title>Htaccess &mdash; codeinfo 1.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. MySQL" href="mysql.html" />
-    <link rel="prev" title="1. PHP" href="php.html" /> 
+    <link rel="next" title="MySQL" href="mysql.html" />
+    <link rel="prev" title="PHP" href="php.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,17 +84,21 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="php.html">1. PHP</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Htaccess</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ssl-redirection">2.1. SSL Redirection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#test">2.2. Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Htaccess</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-redirection">SSL Redirection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test">Test</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">3. MySQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">5. Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">6. Digital Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">7. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-best.html">AWS Best practise</a></li>
 </ul>
 
             
@@ -140,7 +144,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>2. Htaccess</li>
+      <li>Htaccess</li>
     
     
 
@@ -153,9 +157,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="htaccess">
-<h1>2. Htaccess<a class="headerlink" href="#htaccess" title="Permalink to this headline">¶</a></h1>
+<h1>Htaccess<a class="headerlink" href="#htaccess" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ssl-redirection">
-<h2>2.1. SSL Redirection<a class="headerlink" href="#ssl-redirection" title="Permalink to this headline">¶</a></h2>
+<h2>SSL Redirection<a class="headerlink" href="#ssl-redirection" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">##Redirection to https file**</span>
 RewriteCond %<span class="o">{</span>HTTPS<span class="o">}</span> off
 RewriteRule .* https://%<span class="o">{</span>HTTP_HOST<span class="o">}</span>%<span class="o">{</span>REQUEST_URI<span class="o">}</span> <span class="o">[</span>L,R<span class="o">=</span><span class="m">301</span><span class="o">]</span>
@@ -167,7 +171,7 @@ RewriteRule .* https://www.%<span class="o">{</span>HTTP_HOST<span class="o">}</
 </div>
 </div>
 <div class="section" id="test">
-<h2>2.2. Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -179,10 +183,10 @@ RewriteRule .* https://www.%<span class="o">{</span>HTTP_HOST<span class="o">}</
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mysql.html" class="btn btn-neutral float-right" title="3. MySQL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mysql.html" class="btn btn-neutral float-right" title="MySQL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="php.html" class="btn btn-neutral" title="1. PHP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="php.html" class="btn btn-neutral" title="PHP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

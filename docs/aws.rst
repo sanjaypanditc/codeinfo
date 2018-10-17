@@ -62,6 +62,33 @@ Install lamp with php7.1
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
 
+Initial Setup
+-------------
+**Connect to server**
+``ssh -i pathof pem file serveruser@yourip``
+**Create User**
+``sudo adduser username``
+**SetPassword**
+``sudo passwd username``
+it will ask for insert SetPassword, you need to put your desire password.
+**Set Directory Path of that user**
+``sudo usermod -d /var/www/html/ username``
+**
+
+Mysql Initial
+~~~~~~~~~~~~~
+**First logged in Mysql panel**
+**Adduser and provide permission**
+``CREATE USER 'mysqlusername'@'%' IDENTIFIED BY 'mysqluserpassword';``
+``GRANT ALL PRIVILEGES ON *.* TO 'rsmaauusr'@'%' WITH GRANT OPTION;``
+``EATE USER 'ankit'@'%' IDENTIFIED WITH mysql_native_password AS '***';``
+``GRANT ALL PRIVILEGES ON *.* TO 'ankit'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;``
+``GRANT ALL PRIVILEGES ON `adopted`.* TO 'ankit'@'%' WITH GRANT OPTION;``
+
+
+devadt	Kt1V!bi^CNFU
+
+
 Virtual Host Example
 --------------------
 .. code-block:: bash
@@ -87,18 +114,3 @@ Generate PPK file
 * Click on Conversion Tab
 * Upload your .pem file
 * Click on *Save Private key* to generate PPK file.
-
-AWS CLI
--------
-Aws cli configuration
-```aws configure --profile PROFILE_NAME
-AWS Access Key ID [None]: YOURKEY
-AWS Secret Access Key [None]: YOURSECRETKEY
-Default region name [None]: us-west-2
-Default output format [None]: json
-```
-Space in S3 Bucket  
-```aws s3api --profile PROFILE_NAME list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]" | awk 'NR!=2 {print $0;next} NR==2 {print $0/1024/1024/1024" GB"}'```
-
-aws --profile profilename s3 cp filename s3://bucketname/
-aws --profile profilename s3 sync s3://bucketname/foldername

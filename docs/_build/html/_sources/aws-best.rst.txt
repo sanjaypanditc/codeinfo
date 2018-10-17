@@ -3,6 +3,27 @@
 AWS Best practise
 =================
 
+AWS CLI
+-------
+Aws cli configuration
+```aws configure --profile PROFILE_NAME
+AWS Access Key ID [None]: YOURKEY
+AWS Secret Access Key [None]: YOURSECRETKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+```
+Space in S3 Bucket  
+```aws s3api --profile PROFILE_NAME list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]" | awk 'NR!=2 {print $0;next} NR==2 {print $0/1024/1024/1024" GB"}'```
+
+aws --profile profilenames3 ls s3://bucketname
+aws --profile profilename s3 cp filename s3://bucketname/
+aws --profile profilename s3 sync s3://bucketname/foldername
+
+
+aws --profile profilename s3 cp s3://bucketname/filename /serverpath
+aws --profile profilename s3 sync . s3://bucketname/MyFolder
+
+
 AWS load balancer
 -----------------
 

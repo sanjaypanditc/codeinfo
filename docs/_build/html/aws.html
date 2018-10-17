@@ -85,21 +85,26 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htaccess.html">2. Htaccess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">Htaccess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">4. GIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AWS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-2">Install lamp with php7.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">Install lamp with php7.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mysql-initial">Mysql Initial</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">Virtual Host Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-ppk-file">Generate PPK file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#aws-cli">AWS CLI</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-best.html">AWS Best practise</a></li>
 </ul>
 
             
@@ -221,6 +226,30 @@
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></li>
 </ol>
 </div>
+<div class="section" id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
+<p><strong>Connect to server</strong>
+<code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">pathof</span> <span class="pre">pem</span> <span class="pre">file</span> <span class="pre">serveruser&#64;yourip</span></code>
+<strong>Create User</strong>
+<code class="docutils literal"><span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">username</span></code>
+<strong>SetPassword</strong>
+<code class="docutils literal"><span class="pre">sudo</span> <span class="pre">passwd</span> <span class="pre">username</span></code>
+it will ask for insert SetPassword, you need to put your desire password.
+<strong>Set Directory Path of that user</strong>
+<code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-d</span> <span class="pre">/var/www/html/</span> <span class="pre">username</span></code>
+**</p>
+<div class="section" id="mysql-initial">
+<h3>Mysql Initial<a class="headerlink" href="#mysql-initial" title="Permalink to this headline">¶</a></h3>
+<p><strong>First logged in Mysql panel</strong>
+<strong>Adduser and provide permission</strong>
+<code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">'mysqlusername'&#64;'%'</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'mysqluserpassword';</span></code>
+<code class="docutils literal"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">*.*</span> <span class="pre">TO</span> <span class="pre">'rsmaauusr'&#64;'%'</span> <span class="pre">WITH</span> <span class="pre">GRANT</span> <span class="pre">OPTION;</span></code>
+<code class="docutils literal"><span class="pre">EATE</span> <span class="pre">USER</span> <span class="pre">'ankit'&#64;'%'</span> <span class="pre">IDENTIFIED</span> <span class="pre">WITH</span> <span class="pre">mysql_native_password</span> <span class="pre">AS</span> <span class="pre">'***';</span></code>
+<code class="docutils literal"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">*.*</span> <span class="pre">TO</span> <span class="pre">'ankit'&#64;'%'</span> <span class="pre">REQUIRE</span> <span class="pre">NONE</span> <span class="pre">WITH</span> <span class="pre">GRANT</span> <span class="pre">OPTION</span> <span class="pre">MAX_QUERIES_PER_HOUR</span> <span class="pre">0</span> <span class="pre">MAX_CONNECTIONS_PER_HOUR</span> <span class="pre">0</span> <span class="pre">MAX_UPDATES_PER_HOUR</span> <span class="pre">0</span> <span class="pre">MAX_USER_CONNECTIONS</span> <span class="pre">0;</span></code>
+<code class="docutils literal"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">`adopted`.*</span> <span class="pre">TO</span> <span class="pre">'ankit'&#64;'%'</span> <span class="pre">WITH</span> <span class="pre">GRANT</span> <span class="pre">OPTION;</span></code></p>
+<p>devadt  Kt1V!bi^CNFU</p>
+</div>
+</div>
 <div class="section" id="virtual-host-example">
 <h2>Virtual Host Example<a class="headerlink" href="#virtual-host-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
@@ -248,20 +277,6 @@
 <li>Upload your .pem file</li>
 <li>Click on <em>Save Private key</em> to generate PPK file.</li>
 </ul>
-</div>
-<div class="section" id="aws-cli">
-<h2>AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this headline">¶</a></h2>
-<p>Aws cli configuration
-<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
-<span class="pre">AWS</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">ID</span> <span class="pre">[None]:</span> <span class="pre">YOURKEY</span>
-<span class="pre">AWS</span> <span class="pre">Secret</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">[None]:</span> <span class="pre">YOURSECRETKEY</span>
-<span class="pre">Default</span> <span class="pre">region</span> <span class="pre">name</span> <span class="pre">[None]:</span> <span class="pre">us-west-2</span>
-<span class="pre">Default</span> <span class="pre">output</span> <span class="pre">format</span> <span class="pre">[None]:</span> <span class="pre">json</span>
-<span class="pre">`</span></code>
-Space in S3 Bucket
-<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">s3api</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span> <span class="pre">list-objects</span> <span class="pre">--bucket</span> <span class="pre">BUCKETNAME</span> <span class="pre">--output</span> <span class="pre">json</span> <span class="pre">--query</span> <span class="pre">&quot;[sum(Contents[].Size),</span> <span class="pre">length(Contents[])]&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'NR!=2</span> <span class="pre">{print</span> <span class="pre">$0;next}</span> <span class="pre">NR==2</span> <span class="pre">{print</span> <span class="pre">$0/1024/1024/1024&quot;</span> <span class="pre">GB&quot;}'`</span></code></p>
-<p>aws –profile profilename s3 cp filename s3://bucketname/
-aws –profile profilename s3 sync s3://bucketname/foldername</p>
 </div>
 </div>
 
