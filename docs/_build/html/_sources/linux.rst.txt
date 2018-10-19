@@ -32,6 +32,15 @@ Commands
 * **Blank an email**
 	``> /var/spool/mail/root``
 
+cd /tmp
+
+.. Tip::
+		``cd /tmp``
+		``curl -sS https://getcomposer.org/installer | php``
+		``Move it to /usr/local/bin/``
+		``mv composer.phar /usr/local/bin/composer``
+
+
 
 Cronjobs
 --------

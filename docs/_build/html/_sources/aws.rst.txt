@@ -91,7 +91,6 @@ Initial Setup
 it will ask for insert SetPassword, you need to put your desire password.
 **Set Directory Path of that user**
 ``sudo usermod -d /var/www/html/ username``
-**
 
 Mysql Initial
 ~~~~~~~~~~~~~
@@ -102,9 +101,6 @@ Mysql Initial
 ``EATE USER 'ankit'@'%' IDENTIFIED WITH mysql_native_password AS '***';``
 ``GRANT ALL PRIVILEGES ON *.* TO 'ankit'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;``
 ``GRANT ALL PRIVILEGES ON `adopted`.* TO 'ankit'@'%' WITH GRANT OPTION;``
-
-
-devadt	Kt1V!bi^CNFU
 
 
 Virtual Host Example
