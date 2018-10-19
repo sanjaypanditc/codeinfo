@@ -22,7 +22,7 @@ Install lamp with php7.2
 
    **Windows users** generate PPK file and use it in Putty
 
-** Start Below commands**
+**Start Below commands**
 
 #. ``sudo yum update -y``  
 #. ``sudo yum install httpd``
@@ -60,7 +60,25 @@ Install lamp with php7.1
    ``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
 #. Open PuttyGen software and load your pem file to generate ppk file.(**Windows**)
 #. ``sudo yum update -y``  
-#. ``sudo yum install httpd``
+#. ``sudo yum install httpd24``
+#. ``sudo service httpd start``
+#. ``sudo chkconfig httpd on``
+#. ``sudo yum install mysql-server``
+#. ``sudo service mysqld start``
+#. ``sudo chkconfig mysqld on``
+#. ``sudo yum install php71``
+#. ``sudo yum -y install php71-gd php71-ldap php71-odbc php71-pear php71-xml php71-xmlrpc php71-mbstring php71-soap curl curl-devel``
+#. ``mysql_secure_installation``
+#. ``sudo usermod -a -G apache ec2-user``
+#. groups to know correct group.
+#. ``sudo chown -R ec2-user:apache /var/www``
+#. ``sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;``
+#. ``find /var/www -type f -exec sudo chmod 0664 {} \;``
+#. Enable Mode rewrite
+#. ``cd /etc/httpd/conf``
+#. ``nano httpd.conf``
+#. Search for allowoverride None and replace it with allowoverride All
+
 
 Initial Setup
 -------------

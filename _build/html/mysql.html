@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MySQL &mdash; codeinfo 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="GIT" href="git.html" />
+    <link rel="prev" title="Htaccess" href="htaccess.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> codeinfo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htaccess.html">Htaccess</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MySQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mysql-backup-restore">Mysql Backup/Restore</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-best.html">AWS Best practise</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">codeinfo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MySQL</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mysql">
+<span id="id1"></span><h1>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
+<p><strong>Convert DateTime in UnixTimeStamp</strong>
+<code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*,from_unixtime(date_added)</span> <span class="pre">FROM</span> <span class="pre">`TABLE_NAME`</span>&#160; <span class="pre">order</span> <span class="pre">by</span> <span class="pre">date_added</span> <span class="pre">desc</span></code></p>
+<p><strong>Space consume by a table</strong>
+<code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">table_schema</span> <span class="pre">&quot;Data</span> <span class="pre">Base</span> <span class="pre">Name&quot;,sum(</span> <span class="pre">data_length</span> <span class="pre">+</span> <span class="pre">index_length</span> <span class="pre">)</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/1024</span> <span class="pre">&quot;Used</span> <span class="pre">GB&quot;</span> <span class="pre">FROM</span> <span class="pre">information_schema.TABLES</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">table_schema</span> <span class="pre">;</span></code></p>
+<p><strong>Character Set</strong>
+<code class="docutils literal"><span class="pre">utf8mb4_unicode_ci</span></code></p>
+<p><strong>Set a login path using terminal/putty</strong>
+<code class="docutils literal"><span class="pre">mysql_config_editor</span> <span class="pre">set</span> <span class="pre">--login-path=anyname</span>&#160; <span class="pre">--host=localhost</span> <span class="pre">--port=3306</span> <span class="pre">--socket=/var/run/mysqld/mysqld.sock</span> <span class="pre">--user=databaseuser</span> <span class="pre">--password</span></code></p>
+<p><strong>How to fix a MySQL Failed to Start error</strong>
+Please visit <a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">LowendBox</a></p>
+<div class="section" id="mysql-backup-restore">
+<h2>Mysql Backup/Restore<a class="headerlink" href="#mysql-backup-restore" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>**Download full database <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download full database with ssl enabled <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> --ssl-ca<span class="o">=[</span>.PEM file<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download Specific database table <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="o">[</span>tablename<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="o">[</span>tablename<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download Database after ignore some table <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> --ignore-table<span class="o">=[</span>table1<span class="o">]</span> --ignore-table<span class="o">=[</span>table2<span class="o">]</span><span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Restore Backup file in Database**
+<span class="sb">``</span>mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> &lt; /var/www/html/database.sql<span class="sb">``</span>
+
+**Restore Database using .sql.gz file with ssl enabled**
+<span class="sb">``</span>zcat database.sql.gz <span class="p">|</span> mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> --ssl-ca<span class="o">=[</span>.PEM file<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span><span class="sb">``</span>
+
+**Restore Database using .sql.gz file**
+<span class="sb">``</span>zcat database.sql.gz <span class="p">|</span> mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span><span class="sb">``</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="git.html" class="btn btn-neutral float-right" title="GIT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="htaccess.html" class="btn btn-neutral" title="Htaccess" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, sanjay chaturvedi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+.. _gcloud:
+
+Google Cloud
+==============
