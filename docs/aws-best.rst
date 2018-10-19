@@ -13,6 +13,7 @@ Default region name [None]: us-west-2
 Default output format [None]: json
 ```
 .. Tip::
+
     Space in S3 Bucket  
     ```aws s3api --profile PROFILE_NAME list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]" | awk 'NR!=2 {print $0;next} NR==2 {print $0/1024/1024/1024" GB"}'```
 
