@@ -81,14 +81,14 @@ Install lamp with php7.1
 
 Initial Setup
 -------------
-**Connect to server** 
+**Connect to server**
 ``ssh -i pathof pem file serveruser@yourip``
-**Create User** 
+**Create User**
 ``sudo adduser username``
-**SetPassword** 
+**SetPassword**
 ``sudo passwd username``
 it will ask for insert SetPassword, you need to put your desire password.
-**Set Directory Path of that user** 
+**Set Directory Path of that user**
 ``sudo usermod -d /var/www/html/ username``
 
 Mysql Initial
@@ -103,10 +103,10 @@ Mysql Initial
 
 TimeZone change
 ~~~~~~~~~~~~~~~
-ls -l /etc/localtime
-cp /etc/localtime /root/old.timezone
-rm /etc/localtime
-ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime
+``ls -l /etc/localtime``
+``cp /etc/localtime /root/old.timezone``
+``rm /etc/localtime``
+``ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime``
 
 
 vsftpd install
