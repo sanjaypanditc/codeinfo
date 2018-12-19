@@ -96,6 +96,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">Install lamp with php7.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mysql-initial">Mysql Initial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timezone-change">TimeZone change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vsftpd-install">vsftpd install</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">Virtual Host Example</a></li>
@@ -186,8 +188,8 @@
 <p><strong>Start Below commands</strong></p>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">amazon-linux-extras</span> <span class="pre">install</span> <span class="pre">lamp-mariadb10.2-php7.2</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">httpd</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">amazon-linux-extras</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">lamp-mariadb10.2-php7.2</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mariadb-server</span> <span class="pre">php-mysqlnd</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">httpd</span> <span class="pre">start</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">httpd</span></code></li>
@@ -195,13 +197,12 @@
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">httpd</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mariadb.service</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mariadb.service</span></code></li>
-<li><code class="docutils literal"><span class="pre">mysql_secure_installation</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">php-gd</span> <span class="pre">php-ldap</span> <span class="pre">php-odbc</span> <span class="pre">php-pear</span> <span class="pre">php-xml</span> <span class="pre">php-xmlrpc</span> <span class="pre">php-mbstring</span> <span class="pre">php-soap</span> <span class="pre">curl</span> <span class="pre">curl-devel</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-a</span> <span class="pre">-G</span> <span class="pre">apache</span> <span class="pre">ec2-user</span></code></li>
-<li>groups to know correct group.</li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">ec2-user:apache</span> <span class="pre">/var/www</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">/var/www</span> <span class="pre">&amp;&amp;</span> <span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">d</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">{}</span> <span class="pre">\;</span></code></li>
 <li><code class="docutils literal"><span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">f</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">0664</span> <span class="pre">{}</span> <span class="pre">\;</span></code></li>
+<li><code class="docutils literal"><span class="pre">mysql_secure_installation</span></code></li>
 <li>Enable Mode rewrite</li>
 <li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/etc/httpd/conf</span></code></li>
 <li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">httpd.conf</span></code></li>
@@ -223,20 +224,20 @@
 <code class="docutils literal"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">/web/yourkey.pem</span> <span class="pre">ec2-user&#64;xxx.xxx.xxx.xxx</span></code></li>
 <li>Open PuttyGen software and load your pem file to generate ppk file.(<strong>Windows</strong>)</li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span> <span class="pre">-y</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">httpd24</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">httpd24</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">httpd</span> <span class="pre">start</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">httpd</span> <span class="pre">on</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">mysql-server</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">mysql-server</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">mysqld</span> <span class="pre">start</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">mysqld</span> <span class="pre">on</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">php71</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">php71-gd</span> <span class="pre">php71-ldap</span> <span class="pre">php71-odbc</span> <span class="pre">php71-pear</span> <span class="pre">php71-xml</span> <span class="pre">php71-xmlrpc</span> <span class="pre">php71-mbstring</span> <span class="pre">php71-soap</span> <span class="pre">curl</span> <span class="pre">curl-devel</span></code></li>
-<li><code class="docutils literal"><span class="pre">mysql_secure_installation</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-a</span> <span class="pre">-G</span> <span class="pre">apache</span> <span class="pre">ec2-user</span></code></li>
 <li>groups to know correct group.</li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">ec2-user:apache</span> <span class="pre">/var/www</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">/var/www</span> <span class="pre">&amp;&amp;</span> <span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">d</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">2775</span> <span class="pre">{}</span> <span class="pre">\;</span></code></li>
 <li><code class="docutils literal"><span class="pre">find</span> <span class="pre">/var/www</span> <span class="pre">-type</span> <span class="pre">f</span> <span class="pre">-exec</span> <span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">0664</span> <span class="pre">{}</span> <span class="pre">\;</span></code></li>
+<li><code class="docutils literal"><span class="pre">mysql_secure_installation</span></code></li>
 <li>Enable Mode rewrite</li>
 <li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/etc/httpd/conf</span></code></li>
 <li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">httpd.conf</span></code></li>
@@ -263,6 +264,20 @@ it will ask for insert SetPassword, you need to put your desire password.
 <code class="docutils literal"><span class="pre">EATE</span> <span class="pre">USER</span> <span class="pre">'ankit'&#64;'%'</span> <span class="pre">IDENTIFIED</span> <span class="pre">WITH</span> <span class="pre">mysql_native_password</span> <span class="pre">AS</span> <span class="pre">'***';</span></code>
 <code class="docutils literal"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">*.*</span> <span class="pre">TO</span> <span class="pre">'ankit'&#64;'%'</span> <span class="pre">REQUIRE</span> <span class="pre">NONE</span> <span class="pre">WITH</span> <span class="pre">GRANT</span> <span class="pre">OPTION</span> <span class="pre">MAX_QUERIES_PER_HOUR</span> <span class="pre">0</span> <span class="pre">MAX_CONNECTIONS_PER_HOUR</span> <span class="pre">0</span> <span class="pre">MAX_UPDATES_PER_HOUR</span> <span class="pre">0</span> <span class="pre">MAX_USER_CONNECTIONS</span> <span class="pre">0;</span></code>
 <code class="docutils literal"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">`adopted`.*</span> <span class="pre">TO</span> <span class="pre">'ankit'&#64;'%'</span> <span class="pre">WITH</span> <span class="pre">GRANT</span> <span class="pre">OPTION;</span></code></p>
+</div>
+<div class="section" id="timezone-change">
+<h3>TimeZone change<a class="headerlink" href="#timezone-change" title="Permalink to this headline">¶</a></h3>
+<p>ls -l /etc/localtime
+cp /etc/localtime /root/old.timezone
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime</p>
+</div>
+<div class="section" id="vsftpd-install">
+<h3>vsftpd install<a class="headerlink" href="#vsftpd-install" title="Permalink to this headline">¶</a></h3>
+<p>pasv_enable=YES
+pasv_min_port=1024
+pasv_max_port=1048
+pasv_address=&lt;Public IP of your instance&gt;</p>
 </div>
 </div>
 <div class="section" id="virtual-host-example">

@@ -25,8 +25,8 @@ Install lamp with php7.2
 **Start Below commands**
 
 #. ``sudo yum update -y``  
-#. ``sudo yum install httpd``
-#. ``sudo amazon-linux-extras install lamp-mariadb10.2-php7.2``  
+#. ``sudo yum install -y httpd``
+#. ``sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2``  
 #. ``sudo yum install -y mariadb-server php-mysqlnd``
 #. ``sudo service httpd start``
 #. ``sudo systemctl start httpd``
@@ -34,13 +34,12 @@ Install lamp with php7.2
 #. ``sudo systemctl is-enabled httpd``
 #. ``sudo systemctl start mariadb.service``
 #. ``sudo systemctl enable mariadb.service`` 
-#. ``mysql_secure_installation``
 #. ``sudo yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel``
 #. ``sudo usermod -a -G apache ec2-user``
-#. groups to know correct group.
 #. ``sudo chown -R ec2-user:apache /var/www``
 #. ``sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;``
 #. ``find /var/www -type f -exec sudo chmod 0664 {} \;``
+#. ``mysql_secure_installation``
 #. Enable Mode rewrite
 #. ``cd /etc/httpd/conf``
 #. ``nano httpd.conf``
@@ -60,20 +59,20 @@ Install lamp with php7.1
    ``ssh -i /web/yourkey.pem ec2-user@xxx.xxx.xxx.xxx``
 #. Open PuttyGen software and load your pem file to generate ppk file.(**Windows**)
 #. ``sudo yum update -y``  
-#. ``sudo yum install httpd24``
+#. ``sudo yum install -y httpd24``
 #. ``sudo service httpd start``
 #. ``sudo chkconfig httpd on``
-#. ``sudo yum install mysql-server``
+#. ``sudo yum install -y mysql-server``
 #. ``sudo service mysqld start``
 #. ``sudo chkconfig mysqld on``
 #. ``sudo yum install php71``
 #. ``sudo yum -y install php71-gd php71-ldap php71-odbc php71-pear php71-xml php71-xmlrpc php71-mbstring php71-soap curl curl-devel``
-#. ``mysql_secure_installation``
 #. ``sudo usermod -a -G apache ec2-user``
 #. groups to know correct group.
 #. ``sudo chown -R ec2-user:apache /var/www``
 #. ``sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;``
 #. ``find /var/www -type f -exec sudo chmod 0664 {} \;``
+#. ``mysql_secure_installation``
 #. Enable Mode rewrite
 #. ``cd /etc/httpd/conf``
 #. ``nano httpd.conf``
@@ -82,14 +81,14 @@ Install lamp with php7.1
 
 Initial Setup
 -------------
-**Connect to server**
+**Connect to server** 
 ``ssh -i pathof pem file serveruser@yourip``
-**Create User**
+**Create User** 
 ``sudo adduser username``
-**SetPassword**
+**SetPassword** 
 ``sudo passwd username``
 it will ask for insert SetPassword, you need to put your desire password.
-**Set Directory Path of that user**
+**Set Directory Path of that user** 
 ``sudo usermod -d /var/www/html/ username``
 
 Mysql Initial
@@ -101,6 +100,21 @@ Mysql Initial
 ``EATE USER 'ankit'@'%' IDENTIFIED WITH mysql_native_password AS '***';``
 ``GRANT ALL PRIVILEGES ON *.* TO 'ankit'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;``
 ``GRANT ALL PRIVILEGES ON `adopted`.* TO 'ankit'@'%' WITH GRANT OPTION;``
+
+TimeZone change
+~~~~~~~~~~~~~~~
+ls -l /etc/localtime
+cp /etc/localtime /root/old.timezone
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/US/Pacific /etc/localtime
+
+
+vsftpd install
+~~~~~~~~~~~~~~
+pasv_enable=YES
+pasv_min_port=1024
+pasv_max_port=1048
+pasv_address=<Public IP of your instance>
 
 
 Virtual Host Example

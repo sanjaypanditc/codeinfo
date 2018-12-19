@@ -154,6 +154,24 @@
             
   <div class="section" id="docker">
 <span id="id1"></span><h1>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
+<p>docker build -f Dockerfile .</p>
+<p>docker run -i -t -p 80:80 4214bb0c53d2 /bin/bash
+apachectl start</p>
+<dl class="docutils">
+<dt>docker build </dt>
+<dd>–file .docker/Dockerfile -t sanjaydocker .</dd>
+</dl>
+<p>docker run –rm -p 8080:80 sanjaydocker</p>
+<p>ssh -i /home/admin1/Desktop/your.pem <a class="reference external" href="mailto:ubuntu&#37;&#52;&#48;yourip">ubuntu<span>&#64;</span>yourip</a>
+sudo apt-get install docker docker-compose
+sudo docker-compose up</p>
+<p>docker-compose down &amp;&amp; docker-compose up -d</p>
+<ol class="arabic simple">
+<li>Clone the repository using the master branch</li>
+<li>Run git checkout docker</li>
+<li>Run docker-compose -f docker-compose-nginx.yml up -d</li>
+<li>Run docker-compose down &amp;&amp; docker-compose up -d</li>
+</ol>
 </div>
 
 
