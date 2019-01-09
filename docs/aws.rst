@@ -28,6 +28,10 @@ Install lamp with php7.2
 #. ``sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2``
 #. ``sudo yum -y install php-mysqlnd php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel php-intl``
 #. ``sudo yum install -y httpd mariadb-server``
+#. ``sudo usermod -a -G apache ec2-user``
+#. ``sudo chown -R ec2-user:apache /var/www``
+#. ``sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;``
+#. ``find /var/www -type f -exec sudo chmod 0664 {} \;``
 #. ``sudo service httpd start``
 #. ``sudo systemctl start httpd``
 #. ``sudo systemctl enable httpd``  
@@ -35,10 +39,6 @@ Install lamp with php7.2
 #. ``sudo systemctl start mariadb.service``
 #. ``sudo systemctl enable mariadb.service``
 #. ``mysql_secure_installation``
-#. ``sudo usermod -a -G apache ec2-user``
-#. ``sudo chown -R ec2-user:apache /var/www``
-#. ``sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;``
-#. ``find /var/www -type f -exec sudo chmod 0664 {} \;``
 #. ``cd /etc/httpd/conf``
 #. ``nano httpd.conf``
 #. Search for allowoverride None and replace it with allowoverride All
