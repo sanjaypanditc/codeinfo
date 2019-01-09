@@ -25,22 +25,20 @@ Install lamp with php7.2
 **Start Below commands**
 
 #. ``sudo yum update -y``  
-#. ``sudo yum install -y httpd``
-#. ``sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2``  
-#. ``sudo yum install -y mariadb-server php-mysqlnd``
+#. ``sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2``
+#. ``sudo yum -y install php-mysqlnd php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel php-intl``
+#. ``sudo yum install -y httpd mariadb-server``
 #. ``sudo service httpd start``
 #. ``sudo systemctl start httpd``
 #. ``sudo systemctl enable httpd``  
 #. ``sudo systemctl is-enabled httpd``
 #. ``sudo systemctl start mariadb.service``
-#. ``sudo systemctl enable mariadb.service`` 
-#. ``sudo yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel``
+#. ``sudo systemctl enable mariadb.service``
+#. ``mysql_secure_installation``
 #. ``sudo usermod -a -G apache ec2-user``
 #. ``sudo chown -R ec2-user:apache /var/www``
 #. ``sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;``
 #. ``find /var/www -type f -exec sudo chmod 0664 {} \;``
-#. ``mysql_secure_installation``
-#. Enable Mode rewrite
 #. ``cd /etc/httpd/conf``
 #. ``nano httpd.conf``
 #. Search for allowoverride None and replace it with allowoverride All
