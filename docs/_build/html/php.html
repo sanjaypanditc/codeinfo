@@ -191,21 +191,15 @@
 Do This Instead
 <code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></li>
 </ol>
-<p><strong>Generate PHP Error on a Specific IP</strong> Generate PHP Errors on a Specific IP
-.. code-block:: bash</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>if($_SERVER[“REMOTE_ADDR”] ==’xxx.xxxx.xxx.xxx’){</dt>
-<dd><dl class="first last docutils">
-<dt>error_reporting(E_ALL);</dt>
-<dd>ini_set(‘display_errors’,’Off’);
-ini_set(“log_errors”, 1);
-ini_set(“error_log”, “D:/xampp/htdocs/live/errors/lservererror.html”);</dd>
-</dl>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
+<p><strong>Generate PHP Error on a Specific IP</strong> Generate PHP Errors on a Specific IP</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="nv">$_SERVER</span><span class="o">[</span><span class="s2">&quot;REMOTE_ADDR&quot;</span><span class="o">]</span> <span class="o">==</span><span class="s1">&#39;xxx.xxxx.xxx.xxx&#39;</span><span class="o">){</span>
+  error_reporting<span class="o">(</span>E_ALL<span class="o">)</span><span class="p">;</span>
+   ini_set<span class="o">(</span><span class="s1">&#39;display_errors&#39;</span>,<span class="s1">&#39;Off&#39;</span><span class="o">)</span><span class="p">;</span>
+   ini_set<span class="o">(</span><span class="s2">&quot;log_errors&quot;</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+   ini_set<span class="o">(</span><span class="s2">&quot;error_log&quot;</span>, <span class="s2">&quot;D:/xampp/htdocs/live/errors/lservererror.html&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p><strong>Write a PHP File</strong> Write PHP Errors in a single file</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">##Generate file##</span>
 <span class="nv">$arrayInfo</span> <span class="o">=</span>array<span class="o">()</span><span class="p">;</span>

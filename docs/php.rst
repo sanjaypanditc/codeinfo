@@ -37,6 +37,7 @@ Security Points
    ``<a href="https://example.com" target="_blank" rel="noopener noreferrer">Click here</a>``
 
 **Generate PHP Error on a Specific IP** Generate PHP Errors on a Specific IP
+
 .. code-block:: bash
 
    if($_SERVER["REMOTE_ADDR"] =='xxx.xxxx.xxx.xxx'){
