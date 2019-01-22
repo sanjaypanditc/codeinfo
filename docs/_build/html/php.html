@@ -160,9 +160,10 @@
 <div class="section" id="security-points">
 <h2>Security Points<a class="headerlink" href="#security-points" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>You are uploading the file use below code.
+<li>Avoid using mysql(i)_ extensions <strong>use PDO</strong></li>
+<li>You should use below code at the time uploading file.
 <code class="docutils literal"><span class="pre">$file</span> <span class="pre">=</span> <span class="pre">basename(realpath($_GET['file']));</span></code></li>
-<li>Avoid using mysql(i)_ extensions <strong>use PDO</strong>
+<li>SANITIZE user data
 <code class="docutils literal"><span class="pre">filter_var($_REQUEST['search'],</span> <span class="pre">FILTER_SANITIZE_FULL_SPECIAL_CHARS);</span></code></li>
 <li>use password_hash and password_verify
 <code class="docutils literal"><span class="pre">$hash</span> <span class="pre">=</span> <span class="pre">password_hash($password,</span> <span class="pre">PASSWORD_DEFAULT);</span></code>

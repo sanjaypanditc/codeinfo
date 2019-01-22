@@ -17,9 +17,15 @@ MySQL
 
 **How to fix a MySQL Failed to Start error**  
 Please visit `LowendBox <https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/>`_
-EATE USER 'ankit'@'%' IDENTIFIED WITH mysql_native_password AS '***';
-GRANT ALL PRIVILEGES ON *.* TO 'ankit'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-GRANT ALL PRIVILEGES ON `adopted`.* TO 'ankit'@'%' WITH GRANT OPTION;
+
+**Give Permission to mysqluser** 
+
+.. code-block:: bash
+
+	CEATE USER 'ankit'@'%' IDENTIFIED WITH mysql_native_password AS '***';
+	GRANT ALL PRIVILEGES ON *.* TO 'ankit'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+	GRANT ALL PRIVILEGES ON `adopted`.* TO 'ankit'@'%' WITH GRANT OPTION;
+
 Mysql Backup/Restore
 --------------------
 .. code-block:: bash

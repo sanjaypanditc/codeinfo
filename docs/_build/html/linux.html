@@ -212,33 +212,44 @@
 </div>
 <div class="section" id="logcommands">
 <h2>logCommands<a class="headerlink" href="#logcommands" title="Permalink to this headline">¶</a></h2>
-<p><a href="#id2"><span class="problematic" id="id3">``</span></a>awk ‘{print $1}’ combined_log         # ip address (%h)
-awk ‘{print $2}’ combined_log         # RFC 1413 identity (%l)
-awk ‘{print $3}’ combined_log         # userid (%u)
-awk ‘{print $4,5}’ combined_log       # date/time (%t)
-awk ‘{print $9}’ combined_log         # status code (%&gt;s)
-awk ‘{print $10}’ combined_log        # size (%b)</p>
-<p>You might notice that we’ve missed out some items. To get to them we need to set the delimiter to the ” character which changes the way the lines are ‘exploded’ and allows the following:
-awk -F” ‘{print $2}’ combined_log    # request line (%r)
-awk -F” ‘{print $4}’ combined_log    # referer
-awk -F” ‘{print $6}’ combined_log    # user agent</p>
-<p>###awk -F” ‘{print $4,5}’ ‘{print $4}’ combined_log requests.log</p>
-<p>awk ‘{print $9}’ requests.log | sort | uniq -c | sort
-awk ‘{print $1}’ requests.log | sort | uniq -c | sort -r -n | head -n 10</p>
-<p>awk -F” ‘{print $6}’ requests.log | sort | uniq -c | sort   (number of browsers request)</p>
-<p>awk -F” ‘($6 ~ /^-?$/)’ requests.log | awk ‘{print $1}’ | sort -r -n | uniq</p>
-<p>awk -F” ‘($6 ~ /^-?$/)’ requests.log | awk ‘{print $1}’ | sort -r -n | uniq</p>
-<dl class="docutils">
-<dt>awk -F” ‘{print $6}’ requests.log </dt>
-<dd><div class="first last line-block">
-<div class="line">sed ‘s/(([^;]+; [^;]+)[^)]*)/(1)/’ </div>
-<div class="line">awk ‘{print $1}’ | uniq -c | sort -r -n | head -n 10</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>awk &#39;{print $1}&#39; combined_log         # ip address (%h)
+awk &#39;{print $2}&#39; combined_log         # RFC 1413 identity (%l)
+awk &#39;{print $3}&#39; combined_log         # userid (%u)
+awk &#39;{print $4,5}&#39; combined_log       # date/time (%t)
+awk &#39;{print $9}&#39; combined_log         # status code (%&gt;s)
+awk &#39;{print $10}&#39; combined_log        # size (%b)
+
+You might notice that we&#39;ve missed out some items. To get to them we need to set the delimiter to the &quot; character which changes the way the lines are &#39;exploded&#39; and allows the following:
+awk -F\&quot; &#39;{print $2}&#39; combined_log    # request line (%r)
+awk -F\&quot; &#39;{print $4}&#39; combined_log    # referer
+awk -F\&quot; &#39;{print $6}&#39; combined_log    # user agent
+
+
+###awk -F\&quot; &#39;{print $4,5}&#39; &#39;{print $4}&#39; combined_log requests.log
+
+awk &#39;{print $9}&#39; requests.log | sort | uniq -c | sort
+awk &#39;{print $1}&#39; requests.log | sort | uniq -c | sort -r -n | head -n 10
+
+
+awk -F\&quot; &#39;{print $6}&#39; requests.log | sort | uniq -c | sort   (number of browsers request)
+
+awk -F\&quot; &#39;($6 ~ /^-?$/)&#39; requests.log | awk &#39;{print $1}&#39; | sort -r -n | uniq
+
+awk -F\&quot; &#39;($6 ~ /^-?$/)&#39; requests.log | awk &#39;{print $1}&#39; | sort -r -n | uniq
+
+awk -F\&quot; &#39;{print $6}&#39; requests.log \
+  | sed &#39;s/(\([^;]\+; [^;]\+\)[^)]*)/(\1)/&#39; \
+  | awk &#39;{print $1}&#39; | uniq -c | sort -r -n | head -n 10
+
+awk -F\&quot; &#39;{print $6}&#39; /var/log/httpd/requests.log   | awk &#39;{print $1}&#39; | sort -r -n | uniq -c | sort -r -n | head -n 10
+
+awk -F\&quot; &#39;($6 ~ /^-?$/)&#39; requests.log | awk &#39;{print $1}&#39; | sort -r -n | uniq -c | sort -r -n | head -n 10
+
+grep 12/Aug requests.log | grep state | \
+awk &#39;{ print $1 }&#39; |  sort -n | uniq -c | \
+sort -rn | head -n 10
+</pre></div>
 </div>
-</dd>
-</dl>
-<p>awk -F” ‘{print $6}’ /var/log/httpd/requests.log   | awk ‘{print $1}’ | sort -r -n | uniq -c | sort -r -n | head -n 10</p>
-<p>awk -F” ‘($6 ~ /^-?$/)’ requests.log | awk ‘{print $1}’ | sort -r -n | uniq -c | sort -r -n | head -n 10</p>
-<p>grep 12/Aug requests.log | grep state | awk ‘{ print $1 }’ |  sort -n | uniq -c | sort -rn | head -n 10``</p>
 </div>
 <div class="section" id="cronjobs">
 <h2>Cronjobs<a class="headerlink" href="#cronjobs" title="Permalink to this headline">¶</a></h2>

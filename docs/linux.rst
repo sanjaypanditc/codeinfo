@@ -45,42 +45,44 @@ Commands
 logCommands
 -----------
 
-``awk '{print $1}' combined_log         # ip address (%h)
-awk '{print $2}' combined_log         # RFC 1413 identity (%l)
-awk '{print $3}' combined_log         # userid (%u)
-awk '{print $4,5}' combined_log       # date/time (%t)
-awk '{print $9}' combined_log         # status code (%>s)
-awk '{print $10}' combined_log        # size (%b)
+.. code-block:: bash
 
-You might notice that we've missed out some items. To get to them we need to set the delimiter to the " character which changes the way the lines are 'exploded' and allows the following:
-awk -F\" '{print $2}' combined_log    # request line (%r)
-awk -F\" '{print $4}' combined_log    # referer
-awk -F\" '{print $6}' combined_log    # user agent
+	awk '{print $1}' combined_log         # ip address (%h)
+	awk '{print $2}' combined_log         # RFC 1413 identity (%l)
+	awk '{print $3}' combined_log         # userid (%u)
+	awk '{print $4,5}' combined_log       # date/time (%t)
+	awk '{print $9}' combined_log         # status code (%>s)
+	awk '{print $10}' combined_log        # size (%b)
 
-
-###awk -F\" '{print $4,5}' '{print $4}' combined_log requests.log
-
-awk '{print $9}' requests.log | sort | uniq -c | sort
-awk '{print $1}' requests.log | sort | uniq -c | sort -r -n | head -n 10
+	You might notice that we've missed out some items. To get to them we need to set the delimiter to the " character which changes the way the lines are 'exploded' and allows the following:
+	awk -F\" '{print $2}' combined_log    # request line (%r)
+	awk -F\" '{print $4}' combined_log    # referer
+	awk -F\" '{print $6}' combined_log    # user agent
 
 
-awk -F\" '{print $6}' requests.log | sort | uniq -c | sort   (number of browsers request)
+	###awk -F\" '{print $4,5}' '{print $4}' combined_log requests.log
 
-awk -F\" '($6 ~ /^-?$/)' requests.log | awk '{print $1}' | sort -r -n | uniq
+	awk '{print $9}' requests.log | sort | uniq -c | sort
+	awk '{print $1}' requests.log | sort | uniq -c | sort -r -n | head -n 10
 
-awk -F\" '($6 ~ /^-?$/)' requests.log | awk '{print $1}' | sort -r -n | uniq
 
-awk -F\" '{print $6}' requests.log \
-  | sed 's/(\([^;]\+; [^;]\+\)[^)]*)/(\1)/' \
-  | awk '{print $1}' | uniq -c | sort -r -n | head -n 10
+	awk -F\" '{print $6}' requests.log | sort | uniq -c | sort   (number of browsers request)
 
-awk -F\" '{print $6}' /var/log/httpd/requests.log   | awk '{print $1}' | sort -r -n | uniq -c | sort -r -n | head -n 10
+	awk -F\" '($6 ~ /^-?$/)' requests.log | awk '{print $1}' | sort -r -n | uniq
 
-awk -F\" '($6 ~ /^-?$/)' requests.log | awk '{print $1}' | sort -r -n | uniq -c | sort -r -n | head -n 10
+	awk -F\" '($6 ~ /^-?$/)' requests.log | awk '{print $1}' | sort -r -n | uniq
 
-grep 12/Aug requests.log | grep state | \
-awk '{ print $1 }' |  sort -n | uniq -c | \
-sort -rn | head -n 10``
+	awk -F\" '{print $6}' requests.log \
+	  | sed 's/(\([^;]\+; [^;]\+\)[^)]*)/(\1)/' \
+	  | awk '{print $1}' | uniq -c | sort -r -n | head -n 10
+
+	awk -F\" '{print $6}' /var/log/httpd/requests.log   | awk '{print $1}' | sort -r -n | uniq -c | sort -r -n | head -n 10
+
+	awk -F\" '($6 ~ /^-?$/)' requests.log | awk '{print $1}' | sort -r -n | uniq -c | sort -r -n | head -n 10
+
+	grep 12/Aug requests.log | grep state | \
+	awk '{ print $1 }' |  sort -n | uniq -c | \
+	sort -rn | head -n 10
 
 
 Cronjobs

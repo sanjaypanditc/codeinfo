@@ -86,7 +86,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="php.html">PHP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">Htaccess</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MySQL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MySQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mysql-backup-restore">Mysql Backup/Restore</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">GIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
@@ -163,29 +166,38 @@
 <p><strong>Set a login path using terminal/putty</strong>
 <code class="docutils literal"><span class="pre">mysql_config_editor</span> <span class="pre">set</span> <span class="pre">--login-path=anyname</span>&#160; <span class="pre">--host=localhost</span> <span class="pre">--port=3306</span> <span class="pre">--socket=/var/run/mysqld/mysqld.sock</span> <span class="pre">--user=databaseuser</span> <span class="pre">--password</span></code></p>
 <p><strong>How to fix a MySQL Failed to Start error</strong>
-Please visit <a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">LowendBox</a>
-EATE USER ‘ankit’&#64;’%’ IDENTIFIED WITH mysql_native_password AS ‘<a href="#id2"><span class="problematic" id="id3">**</span></a><em>’;
-GRANT ALL PRIVILEGES ON *.</em> TO ‘ankit’&#64;’%’ REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-GRANT ALL PRIVILEGES ON <cite>adopted</cite>.* TO ‘ankit’&#64;’%’ WITH GRANT OPTION;
-Mysql Backup/Restore
-——————–
-.. code-block:: bash</p>
-<blockquote>
-<div><p><strong>Download full database (.gz extention)</strong>
-<code class="docutils literal"><span class="pre">mysqldump</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">[database]</span> <span class="pre">|</span> <span class="pre">gzip</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">/var/www/html/mysqldump_[database]_$(date</span> <span class="pre">+%Y%m%d_%H%M%S).sql.gz</span></code></p>
-<p><strong>Download full database with ssl enabled (.gz extention)</strong>
-<code class="docutils literal"><span class="pre">mysqldump</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">[database]</span> <span class="pre">--ssl-ca=[.PEM</span> <span class="pre">file]</span> <span class="pre">[database]</span> <span class="pre">|</span> <span class="pre">gzip</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">/var/www/html/mysqldump_[database]_$(date</span> <span class="pre">+%Y%m%d_%H%M%S).sql.gz</span></code></p>
-<p><strong>Download Specific database table (.gz extention)</strong>
-<code class="docutils literal"><span class="pre">mysqldump</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">[database]</span> <span class="pre">[tablename]</span> <span class="pre">|</span> <span class="pre">gzip</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">/var/www/html/mysqldump_[database]_[tablename]_$(date</span> <span class="pre">+%Y%m%d_%H%M%S).sql.gz</span></code></p>
-<p><strong>Download Database after ignore some table (.gz extention)</strong>
-<code class="docutils literal"><span class="pre">mysqldump</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">[database]</span> <span class="pre">--ignore-table=[table1]</span> <span class="pre">--ignore-table=[table2]|</span> <span class="pre">gzip</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">/var/www/html/mysqldump_[database]_$(date</span> <span class="pre">+%Y%m%d_%H%M%S).sql.gz</span></code></p>
-<p><strong>Restore Backup file in Database</strong>
-<code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">[database]</span> <span class="pre">&lt;</span> <span class="pre">/var/www/html/database.sql</span></code></p>
-<p><strong>Restore Database using .sql.gz file with ssl enabled</strong>
-<code class="docutils literal"><span class="pre">zcat</span> <span class="pre">database.sql.gz</span> <span class="pre">|</span> <span class="pre">mysql</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">--ssl-ca=[.PEM</span> <span class="pre">file]</span> <span class="pre">[database]</span></code></p>
-<p><strong>Restore Database using .sql.gz file</strong>
-<code class="docutils literal"><span class="pre">zcat</span> <span class="pre">database.sql.gz</span> <span class="pre">|</span> <span class="pre">mysql</span> <span class="pre">-h[host]</span> <span class="pre">-u[user]</span> <span class="pre">-p[password]</span> <span class="pre">[database]</span></code></p>
-</div></blockquote>
+Please visit <a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">LowendBox</a></p>
+<p><strong>Give Permission to mysqluser</strong></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>CEATE USER <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED WITH mysql_native_password AS <span class="s1">&#39;***&#39;</span><span class="p">;</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR <span class="m">0</span> MAX_CONNECTIONS_PER_HOUR <span class="m">0</span> MAX_UPDATES_PER_HOUR <span class="m">0</span> MAX_USER_CONNECTIONS <span class="m">0</span><span class="p">;</span>
+GRANT ALL PRIVILEGES ON <span class="sb">`</span>adopted<span class="sb">`</span>.* TO <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> WITH GRANT OPTION<span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="mysql-backup-restore">
+<h2>Mysql Backup/Restore<a class="headerlink" href="#mysql-backup-restore" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>**Download full database <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download full database with ssl enabled <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> --ssl-ca<span class="o">=[</span>.PEM file<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download Specific database table <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="o">[</span>tablename<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="o">[</span>tablename<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Download Database after ignore some table <span class="o">(</span>.gz extention<span class="o">)</span>**
+<span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> --ignore-table<span class="o">=[</span>table1<span class="o">]</span> --ignore-table<span class="o">=[</span>table2<span class="o">]</span><span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
+
+**Restore Backup file in Database**
+<span class="sb">``</span>mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> &lt; /var/www/html/database.sql<span class="sb">``</span>
+
+**Restore Database using .sql.gz file with ssl enabled**
+<span class="sb">``</span>zcat database.sql.gz <span class="p">|</span> mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> --ssl-ca<span class="o">=[</span>.PEM file<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span><span class="sb">``</span>
+
+**Restore Database using .sql.gz file**
+<span class="sb">``</span>zcat database.sql.gz <span class="p">|</span> mysql -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span><span class="sb">``</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

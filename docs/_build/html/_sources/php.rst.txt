@@ -5,9 +5,10 @@ PHP
 
 Security Points
 ------------------
-#. You are uploading the file use below code.
-   ``$file = basename(realpath($_GET['file']));``
 #. Avoid using mysql(i)_ extensions **use PDO**
+#. You should use below code at the time uploading file.
+   ``$file = basename(realpath($_GET['file']));``
+#. SANITIZE user data
    ``filter_var($_REQUEST['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);``
 #. use password_hash and password_verify
    ``$hash = password_hash($password, PASSWORD_DEFAULT);``
