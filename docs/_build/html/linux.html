@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logcommands">logCommands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cronjobs">Cronjobs</a></li>
 </ul>
 </li>
@@ -208,6 +209,36 @@
 <p class="last"><code class="docutils literal"><span class="pre">Move</span> <span class="pre">it</span> <span class="pre">to</span> <span class="pre">/usr/local/bin/</span></code>
 <code class="docutils literal"><span class="pre">mv</span> <span class="pre">composer.phar</span> <span class="pre">/usr/local/bin/composer</span></code></p>
 </div>
+</div>
+<div class="section" id="logcommands">
+<h2>logCommands<a class="headerlink" href="#logcommands" title="Permalink to this headline">¶</a></h2>
+<p><a href="#id2"><span class="problematic" id="id3">``</span></a>awk ‘{print $1}’ combined_log         # ip address (%h)
+awk ‘{print $2}’ combined_log         # RFC 1413 identity (%l)
+awk ‘{print $3}’ combined_log         # userid (%u)
+awk ‘{print $4,5}’ combined_log       # date/time (%t)
+awk ‘{print $9}’ combined_log         # status code (%&gt;s)
+awk ‘{print $10}’ combined_log        # size (%b)</p>
+<p>You might notice that we’ve missed out some items. To get to them we need to set the delimiter to the ” character which changes the way the lines are ‘exploded’ and allows the following:
+awk -F” ‘{print $2}’ combined_log    # request line (%r)
+awk -F” ‘{print $4}’ combined_log    # referer
+awk -F” ‘{print $6}’ combined_log    # user agent</p>
+<p>###awk -F” ‘{print $4,5}’ ‘{print $4}’ combined_log requests.log</p>
+<p>awk ‘{print $9}’ requests.log | sort | uniq -c | sort
+awk ‘{print $1}’ requests.log | sort | uniq -c | sort -r -n | head -n 10</p>
+<p>awk -F” ‘{print $6}’ requests.log | sort | uniq -c | sort   (number of browsers request)</p>
+<p>awk -F” ‘($6 ~ /^-?$/)’ requests.log | awk ‘{print $1}’ | sort -r -n | uniq</p>
+<p>awk -F” ‘($6 ~ /^-?$/)’ requests.log | awk ‘{print $1}’ | sort -r -n | uniq</p>
+<dl class="docutils">
+<dt>awk -F” ‘{print $6}’ requests.log </dt>
+<dd><div class="first last line-block">
+<div class="line">sed ‘s/(([^;]+; [^;]+)[^)]*)/(1)/’ </div>
+<div class="line">awk ‘{print $1}’ | uniq -c | sort -r -n | head -n 10</div>
+</div>
+</dd>
+</dl>
+<p>awk -F” ‘{print $6}’ /var/log/httpd/requests.log   | awk ‘{print $1}’ | sort -r -n | uniq -c | sort -r -n | head -n 10</p>
+<p>awk -F” ‘($6 ~ /^-?$/)’ requests.log | awk ‘{print $1}’ | sort -r -n | uniq -c | sort -r -n | head -n 10</p>
+<p>grep 12/Aug requests.log | grep state | awk ‘{ print $1 }’ |  sort -n | uniq -c | sort -rn | head -n 10``</p>
 </div>
 <div class="section" id="cronjobs">
 <h2>Cronjobs<a class="headerlink" href="#cronjobs" title="Permalink to this headline">¶</a></h2>
