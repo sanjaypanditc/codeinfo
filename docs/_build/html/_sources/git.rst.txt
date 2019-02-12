@@ -76,36 +76,33 @@ Commands
 ``git config``
  * Use it to view git config settings.
 
+.. code-block:: bash
 
-
-``git checkout HEAD^``
-
-``git checkout -f master``
-
- * To abort the merge if conflict occur
+   git checkout HEAD^
+   git checkout -f master
 
 ``git merge --abort``
-
- * To remove last commit changes completely
+ * To abort the merge if conflict occur
 
 ``git reset --hard HEAD~1``
+ * To remove last commit changes completely
+
+.. code-block:: bash
+
+  git branch -d branch_name
+  git branch -D branch_name
 
  * To delete particular branch:
 
-``git branch -d branch_name``
+.. code-block:: bash
 
-``git branch -D branch_name``
+  git checkout BRANCH-NAME -- filename
+  git checkout origin/BRANCH-NAME -- filename
 
  * To pull specific file from specific branch:
 
-``git checkout BRANCH-NAME -- filename``
-
-``git checkout origin/BRANCH-NAME -- filename``
-
+``ssh-keygen -t rsa  -C "emailid"``
  * To generate SSH key for bitbucket:
 
-``ssh-keygen -t rsa  -C "emailid"``
-
- * To check the difference between made in the file of two different branch
-
 ``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
+ * To check the difference between made in the file of two different branch
