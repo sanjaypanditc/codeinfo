@@ -164,22 +164,22 @@
 <div class="section" id="aws-cli">
 <h2>AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this headline">¶</a></h2>
 <p>Aws cli configuration
-<code class="docutils literal"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
+<code class="docutils literal notranslate"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
 <span class="pre">AWS</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">ID</span> <span class="pre">[None]:</span> <span class="pre">YOURKEY</span>
 <span class="pre">AWS</span> <span class="pre">Secret</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">[None]:</span> <span class="pre">YOURSECRETKEY</span>
 <span class="pre">Default</span> <span class="pre">region</span> <span class="pre">name</span> <span class="pre">[None]:</span> <span class="pre">us-west-2</span>
 <span class="pre">Default</span> <span class="pre">output</span> <span class="pre">format</span> <span class="pre">[None]:</span> <span class="pre">json</span>
 <span class="pre">`</span></code>
 .. Tip:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Space in S3 Bucket
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Space in S3 Bucket
 ```aws s3api --profile PROFILE_NAME list-objects --bucket BUCKETNAME --output json --query &quot;[sum(Contents[].Size), length(Contents[])]&quot; | awk &#39;NR!=2 {print $0;next} NR==2 {print $0/1024/1024/1024&quot; GB&quot;}&#39;```
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilenames3</span> <span class="pre">ls</span> <span class="pre">s3://bucketname</span></code>
-<code class="docutils literal"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">filename</span> <span class="pre">s3://bucketname/</span></code>
-<code class="docutils literal"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">sync</span> <span class="pre">s3://bucketname/foldername</span></code></p>
-<p><code class="docutils literal"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">s3://bucketname/filename</span> <span class="pre">/serverpath</span></code>
-<code class="docutils literal"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">sync</span> <span class="pre">.</span> <span class="pre">s3://bucketname/MyFolder</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilenames3</span> <span class="pre">ls</span> <span class="pre">s3://bucketname</span></code>
+<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">filename</span> <span class="pre">s3://bucketname/</span></code>
+<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">sync</span> <span class="pre">s3://bucketname/foldername</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">s3://bucketname/filename</span> <span class="pre">/serverpath</span></code>
+<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">sync</span> <span class="pre">.</span> <span class="pre">s3://bucketname/MyFolder</span></code></p>
 </div>
 <div class="section" id="aws-load-balancer">
 <h2>AWS load balancer<a class="headerlink" href="#aws-load-balancer" title="Permalink to this headline">¶</a></h2>
@@ -247,6 +247,7 @@ Scaling horizontally takes place through an increase in the number of resources 
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

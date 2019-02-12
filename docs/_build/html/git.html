@@ -161,30 +161,30 @@
 <div class="section" id="git-basics">
 <h2>GIT Basics<a class="headerlink" href="#git-basics" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code></dt>
 <dd><ul class="first last simple">
 <li>git clone allow you to get all files of git in a directory having name gitpath</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span>&#160; <span class="pre">newdoc</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span>&#160; <span class="pre">newdoc</span></code></dt>
 <dd><ul class="first last simple">
 <li>git clone allow you to get all files of git in a directory having name newdoc</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></dt>
 <dd><ul class="first last simple">
 <li>git checkout allows you to move between branches and potentially restore tree files.</li>
 <li>The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code></dt>
 <dd><ul class="first last simple">
 <li>Get the latest updates on the master branch,</li>
 <li>A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together.</li>
 <li>Always run git pull origin master before starting work on a repository.</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branchname</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branchname</span></code></dt>
 <dd><ul class="first last simple">
 <li>Create a new branch called “branchname” and move to it.</li>
 <li>Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it.</li>
@@ -192,13 +192,13 @@
 <li>When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master).</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">status</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></dt>
 <dd><ul class="first last simple">
 <li>Current status of your repository.</li>
 <li>Git offers suggestions on what to do, offering commands on how to stage or commit those files.</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code></dt>
 <dd><ul class="first last simple">
 <li>The git add command appends a change in the working directory to the staging area.</li>
 <li>A change can be either a removal or an addition of a file or directory. This a preparatory step toward committing your changes.</li>
@@ -212,7 +212,7 @@
 <p class="last">git add filename1 filename2</p>
 </div>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code></dt>
 <dd><ul class="first last simple">
 <li>The git commit command records changes you make to the local repository.</li>
 <li>You can also use git commit to delete files, though it’s a somewhat roundabout way of doing so.</li>
@@ -227,7 +227,7 @@
 <p class="last">git commit -m “Your message”</p>
 </div>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></dt>
 <dd><ul class="first last simple">
 <li>Run the git push command to push your changes to the repository. There are a variety of ways you can tweak this, as you can combine the push command with exceptions.</li>
 <li>On its own, git push makes changes to the repository and all of its associations.</li>
@@ -243,7 +243,7 @@ where you collaborate with your colleagues.</li>
 <p class="last">git push origin new-feature</p>
 </div>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code></dt>
 <dd><ul class="first last simple">
 <li>It will abort merging issue.</li>
 </ul>
@@ -253,53 +253,54 @@ where you collaborate with your colleagues.</li>
 <div class="section" id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">origin/master</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">origin/master</span></code></dt>
 <dd><ul class="first last simple">
 <li>It Keep you local changes and replace it your files with the files uploaded at master branch.</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></dt>
 <dd><ul class="first last simple">
 <li>Use it to view git config settings.</li>
 </ul>
 </dd>
 </dl>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>git checkout HEAD^
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout HEAD^
 git checkout -f master
 </pre></div>
 </div>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code></dt>
 <dd><ul class="first last simple">
 <li>To abort the merge if conflict occur</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">HEAD~1</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">HEAD~1</span></code></dt>
 <dd><ul class="first last simple">
 <li>To remove last commit changes completely</li>
 </ul>
 </dd>
 </dl>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>git branch -d branch_name
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch -d branch_name
 git branch -D branch_name
 </pre></div>
 </div>
 <ul class="simple">
 <li>To delete particular branch:</li>
 </ul>
-<div class="highlight-rst"><div class="highlight"><pre><span></span>  git checkout BRANCH-NAME -- filename
-  git checkout origin/BRANCH-NAME -- filename
-
-<span class="m">*</span> To pull specific file from specific branch:
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>git checkout BRANCH-NAME -- filename
+git checkout origin/BRANCH-NAME -- filename
 </pre></div>
 </div>
+<ul class="simple">
+<li>To pull specific file from specific branch:</li>
+</ul>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">rsa</span>&#160; <span class="pre">-C</span> <span class="pre">&quot;emailid&quot;</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">rsa</span>&#160; <span class="pre">-C</span> <span class="pre">&quot;emailid&quot;</span></code></dt>
 <dd><ul class="first last simple">
 <li>To generate SSH key for bitbucket:</li>
 </ul>
 </dd>
-<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">develop(FIRST-BRANCH)</span> <span class="pre">feature/matches-and-filter(SECOND-BRANCH)</span>&#160; <span class="pre">--ajax_mymatch.php(FILE-NAME)</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">develop(FIRST-BRANCH)</span> <span class="pre">feature/matches-and-filter(SECOND-BRANCH)</span>&#160; <span class="pre">--ajax_mymatch.php(FILE-NAME)</span></code></dt>
 <dd><ul class="first last simple">
 <li>To check the difference between made in the file of two different branch</li>
 </ul>
@@ -361,6 +362,7 @@ git branch -D branch_name
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

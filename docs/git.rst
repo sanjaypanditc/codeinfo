@@ -99,7 +99,7 @@ Commands
    git checkout BRANCH-NAME -- filename
    git checkout origin/BRANCH-NAME -- filename
 
- * To pull specific file from specific branch:
+* To pull specific file from specific branch:
 
 ``ssh-keygen -t rsa  -C "emailid"``
  * To generate SSH key for bitbucket:

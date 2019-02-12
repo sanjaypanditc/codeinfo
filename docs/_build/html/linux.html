@@ -162,57 +162,57 @@
 <div class="section" id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">grep</span> <span class="pre">keyword</span> <span class="pre">/var/spool/cron/root</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">-v</span> <span class="pre">^#</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^$</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$1,$2,$3,$4,$5,$8}'</span></code></li>
-<li><code class="docutils literal"><span class="pre">cat</span> <span class="pre">netstat.log.5</span> <span class="pre">|</span>&#160; <span class="pre">awk</span> <span class="pre">'$4</span> <span class="pre">~</span> <span class="pre">/:80$/</span> <span class="pre">{c++;print</span> <span class="pre">$5</span> <span class="pre">|</span> <span class="pre">&quot;sed</span> <span class="pre">'s/::ffff://'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/:.*$//'|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">10&quot;}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">c}'</span></code></li>
-<li><code class="docutils literal"><span class="pre">netstat</span> <span class="pre">-plantu</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-c</span> <span class="pre">:1433</span></code></li>
-<li><code class="docutils literal"><span class="pre">ifconfig</span> <span class="pre">eth0</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">keyword</span> <span class="pre">/var/spool/cron/root</span> <span class="pre">|</span> <span class="pre">egrep</span> <span class="pre">-v</span> <span class="pre">^#</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^$</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$1,$2,$3,$4,$5,$8}'</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">netstat.log.5</span> <span class="pre">|</span>&#160; <span class="pre">awk</span> <span class="pre">'$4</span> <span class="pre">~</span> <span class="pre">/:80$/</span> <span class="pre">{c++;print</span> <span class="pre">$5</span> <span class="pre">|</span> <span class="pre">&quot;sed</span> <span class="pre">'s/::ffff://'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/:.*$//'|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n</span> <span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">10&quot;}</span> <span class="pre">END</span> <span class="pre">{print</span> <span class="pre">c}'</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">netstat</span> <span class="pre">-plantu</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-c</span> <span class="pre">:1433</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ifconfig</span> <span class="pre">eth0</span></code></li>
 <li><strong>Print last 20 lines from the error_log file</strong>
-<code class="docutils literal"><span class="pre">tail</span> <span class="pre">-20</span>&#160;&#160; <span class="pre">/var/log/httpd/error_log</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-20</span>&#160;&#160; <span class="pre">/var/log/httpd/error_log</span></code></li>
 <li><strong>Get max number of client on apache configuration</strong>
-<code class="docutils literal"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">maxclients</span> <span class="pre">/etc/httpd/conf/httpd.conf</span></code></li>
-<li><code class="docutils literal"><span class="pre">cat</span> <span class="pre">/etc/my.cnf</span>&#160; <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">cache</span> <span class="pre">-i</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^#</span></code></li>
-<li><code class="docutils literal"><span class="pre">grep</span> <span class="pre">&quot;^|&quot;</span> <span class="pre">queries-pre-restart.txt</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{</span> <span class="pre">print</span> <span class="pre">$14</span> <span class="pre">}'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-nr</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">maxclients</span> <span class="pre">/etc/httpd/conf/httpd.conf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/my.cnf</span>&#160; <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">cache</span> <span class="pre">-i</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">^#</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;^|&quot;</span> <span class="pre">queries-pre-restart.txt</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{</span> <span class="pre">print</span> <span class="pre">$14</span> <span class="pre">}'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">-c</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-nr</span></code></li>
 <li><strong>Will make directory at nested level (it will create both directory)</strong>
-<code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">www/public_html</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">www/public_html</span></code></li>
 <li><strong>To compress all files of foldername</strong>
-<code class="docutils literal"><span class="pre">tar</span> <span class="pre">-cvzf</span> <span class="pre">docs.tar.gz</span> <span class="pre">/var/www/html/foldername</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-cvzf</span> <span class="pre">docs.tar.gz</span> <span class="pre">/var/www/html/foldername</span></code></li>
 <li><strong>extract docs.tar.gz in docs folder</strong>
-<code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">docs.tar.gz</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">docs.tar.gz</span></code></li>
 <li><strong>Symlink specific time on server</strong>
-<code class="docutils literal"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/usr/share/zoneinfo/US/Pacific</span> <span class="pre">/etc/localtime</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/usr/share/zoneinfo/US/Pacific</span> <span class="pre">/etc/localtime</span></code></li>
 <li><dl class="first docutils">
 <dt><strong>search text from file name</strong></dt>
-<dd><code class="docutils literal"><span class="pre">grep</span> <span class="pre">word</span> <span class="pre">/mnt/data/filepath</span></code></dd>
+<dd><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">word</span> <span class="pre">/mnt/data/filepath</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Mount a Drive</strong></dt>
-<dd><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mount</span> <span class="pre">/dev/xvdf</span> <span class="pre">/mnt/data/</span></code></dd>
+<dd><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mount</span> <span class="pre">/dev/xvdf</span> <span class="pre">/mnt/data/</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>UnMount a Drive</strong></dt>
-<dd><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">umount</span> <span class="pre">--verbose</span> <span class="pre">/mnt/data/</span></code></dd>
+<dd><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">umount</span> <span class="pre">--verbose</span> <span class="pre">/mnt/data/</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Blank an email</strong></dt>
-<dd><code class="docutils literal"><span class="pre">&gt;</span> <span class="pre">/var/spool/mail/root</span></code></dd>
+<dd><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">/var/spool/mail/root</span></code></dd>
 </dl>
 </li>
 </ul>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/tmp</span></code>
-<code class="docutils literal"><span class="pre">curl</span> <span class="pre">-sS</span> <span class="pre">https://getcomposer.org/installer</span> <span class="pre">|</span> <span class="pre">php</span></code></div></blockquote>
-<p class="last"><code class="docutils literal"><span class="pre">Move</span> <span class="pre">it</span> <span class="pre">to</span> <span class="pre">/usr/local/bin/</span></code>
-<code class="docutils literal"><span class="pre">mv</span> <span class="pre">composer.phar</span> <span class="pre">/usr/local/bin/composer</span></code></p>
+<div><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/tmp</span></code>
+<code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-sS</span> <span class="pre">https://getcomposer.org/installer</span> <span class="pre">|</span> <span class="pre">php</span></code></div></blockquote>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">Move</span> <span class="pre">it</span> <span class="pre">to</span> <span class="pre">/usr/local/bin/</span></code>
+<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">composer.phar</span> <span class="pre">/usr/local/bin/composer</span></code></p>
 </div>
 </div>
 <div class="section" id="logcommands">
 <h2>logCommands<a class="headerlink" href="#logcommands" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>awk &#39;{print $1}&#39; combined_log         # ip address (%h)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>awk &#39;{print $1}&#39; combined_log         # ip address (%h)
 awk &#39;{print $2}&#39; combined_log         # RFC 1413 identity (%l)
 awk &#39;{print $3}&#39; combined_log         # userid (%u)
 awk &#39;{print $4,5}&#39; combined_log       # date/time (%t)
@@ -253,7 +253,7 @@ sort -rn | head -n 10
 </div>
 <div class="section" id="cronjobs">
 <h2>Cronjobs<a class="headerlink" href="#cronjobs" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Example of job definition:</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of job definition:</span>
 <span class="c1"># .---------------- minute (0 - 59)</span>
 <span class="c1"># |  .------------- hour (0 - 23)</span>
 <span class="c1"># |  |  .---------- day of month (1 - 31)</span>
@@ -326,6 +326,7 @@ sort -rn | head -n 10
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

@@ -162,38 +162,38 @@
 <ol class="arabic simple">
 <li>Avoid using mysql(i)_ extensions <strong>use PDO</strong></li>
 <li>You should use below code at the time uploading file.
-<code class="docutils literal"><span class="pre">$file</span> <span class="pre">=</span> <span class="pre">basename(realpath($_GET['file']));</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">$file</span> <span class="pre">=</span> <span class="pre">basename(realpath($_GET['file']));</span></code></li>
 <li>SANITIZE user data
-<code class="docutils literal"><span class="pre">filter_var($_REQUEST['search'],</span> <span class="pre">FILTER_SANITIZE_FULL_SPECIAL_CHARS);</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">filter_var($_REQUEST['search'],</span> <span class="pre">FILTER_SANITIZE_FULL_SPECIAL_CHARS);</span></code></li>
 <li>use password_hash and password_verify
-<code class="docutils literal"><span class="pre">$hash</span> <span class="pre">=</span> <span class="pre">password_hash($password,</span> <span class="pre">PASSWORD_DEFAULT);</span></code>
-<code class="docutils literal"><span class="pre">password_verify($password,</span> <span class="pre">$hash);</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">$hash</span> <span class="pre">=</span> <span class="pre">password_hash($password,</span> <span class="pre">PASSWORD_DEFAULT);</span></code>
+<code class="docutils literal notranslate"><span class="pre">password_verify($password,</span> <span class="pre">$hash);</span></code></li>
 <li>In php.ini change expose_php to Off</li>
 <li>In php.ini change mail.add_x_header to Off</li>
 <li>In php.ini change session.cookie_httponly to On
-<code class="docutils literal"><span class="pre">session.cookie_httponly</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">session.cookie_httponly</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
 <li>In php.ini change session.cookie_secure to On
-<code class="docutils literal"><span class="pre">session.cookie_secure</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">session.cookie_secure</span> <span class="pre">=</span> <span class="pre">On</span></code></li>
 <li>In php.ini change session.use_strict_mode to On
-<code class="docutils literal"><span class="pre">session.use_strict_mode</span> <span class="pre">=</span> <span class="pre">1</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">session.use_strict_mode</span> <span class="pre">=</span> <span class="pre">1</span></code></li>
 <li>allow_url_fopen = Off
-<code class="docutils literal"><span class="pre">allow_url_include</span> <span class="pre">=</span> <span class="pre">Off</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">allow_url_include</span> <span class="pre">=</span> <span class="pre">Off</span></code></li>
 <li>In php.ini change open_basedir
-<code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/</span></code>
-<code class="docutils literal"><span class="pre">//</span> <span class="pre">Multiple</span> <span class="pre">directories</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">specified</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">&quot;:&quot;</span> <span class="pre">delimiter</span></code>
-<code class="docutils literal"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/:/var/www/html2/:/var/www/html3/</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/</span></code>
+<code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">Multiple</span> <span class="pre">directories</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">specified</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">&quot;:&quot;</span> <span class="pre">delimiter</span></code>
+<code class="docutils literal notranslate"><span class="pre">open_basedir</span> <span class="pre">=</span> <span class="pre">/var/www/html/:/var/www/html2/:/var/www/html3/</span></code></li>
 <li>In php.ini change upload_temp_dir
-<code class="docutils literal"><span class="pre">upload_tmp_dir</span> <span class="pre">=</span> <span class="pre">/var/www/html/tmp/</span></code>
-<code class="docutils literal"><span class="pre">filter_var($email_address,</span> <span class="pre">FILTER_VALIDATE_EMAIL)</span></code></li>
-<li><code class="docutils literal"><span class="pre">filter_var($ip_address,</span> <span class="pre">FILTER_VALIDATE_IP)</span></code></li>
-<li><code class="docutils literal"><span class="pre">filter_var($url,</span> <span class="pre">FILTER_VALIDATE_URL)</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">upload_tmp_dir</span> <span class="pre">=</span> <span class="pre">/var/www/html/tmp/</span></code>
+<code class="docutils literal notranslate"><span class="pre">filter_var($email_address,</span> <span class="pre">FILTER_VALIDATE_EMAIL)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">filter_var($ip_address,</span> <span class="pre">FILTER_VALIDATE_IP)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">filter_var($url,</span> <span class="pre">FILTER_VALIDATE_URL)</span></code></li>
 <li>Don’t Do This
-<code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;http://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code>
+<code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;http://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code>
 Do This Instead
-<code class="docutils literal"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></li>
+<code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://example.com&quot;</span> <span class="pre">target=&quot;_blank&quot;</span> <span class="pre">rel=&quot;noopener</span> <span class="pre">noreferrer&quot;&gt;Click</span> <span class="pre">here&lt;/a&gt;</span></code></li>
 </ol>
 <p><strong>Generate PHP Error on a Specific IP</strong> Generate PHP Errors on a Specific IP</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="nv">$_SERVER</span><span class="o">[</span><span class="s2">&quot;REMOTE_ADDR&quot;</span><span class="o">]</span> <span class="o">==</span><span class="s1">&#39;xxx.xxxx.xxx.xxx&#39;</span><span class="o">){</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="nv">$_SERVER</span><span class="o">[</span><span class="s2">&quot;REMOTE_ADDR&quot;</span><span class="o">]</span> <span class="o">==</span><span class="s1">&#39;xxx.xxxx.xxx.xxx&#39;</span><span class="o">){</span>
   error_reporting<span class="o">(</span>E_ALL<span class="o">)</span><span class="p">;</span>
    ini_set<span class="o">(</span><span class="s1">&#39;display_errors&#39;</span>,<span class="s1">&#39;Off&#39;</span><span class="o">)</span><span class="p">;</span>
    ini_set<span class="o">(</span><span class="s2">&quot;log_errors&quot;</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
@@ -202,7 +202,7 @@ Do This Instead
 </pre></div>
 </div>
 <p><strong>Write a PHP File</strong> Write PHP Errors in a single file</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">##Generate file##</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">##Generate file##</span>
 <span class="nv">$arrayInfo</span> <span class="o">=</span>array<span class="o">()</span><span class="p">;</span>
 <span class="nv">$path</span> <span class="o">=</span> <span class="s2">&quot;/var/www/html/&quot;</span><span class="p">;</span>
 <span class="nv">$fp</span> <span class="o">=</span> fopen<span class="o">(</span><span class="nv">$path</span>.<span class="s2">&quot;arrayDetails.txt&quot;</span>, <span class="s2">&quot;a&quot;</span><span class="o">)</span><span class="p">;</span>
@@ -266,6 +266,7 @@ fclose<span class="o">(</span><span class="nv">$fp</span><span class="o">)</span
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

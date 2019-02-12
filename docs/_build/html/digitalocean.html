@@ -170,7 +170,7 @@
 <li>sudo cp 000-default.conf example2.com.conf</li>
 <li>nano example1.com.conf and put below code in it</li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
 ServerAdmin webmaster@example1.com
 ServerName example1.com
 ServerAlias www.example1.com
@@ -181,9 +181,9 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">example2.com.conf</span></code> and put below code in it</li>
+<li><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">example2.com.conf</span></code> and put below code in it</li>
 </ul>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
 ServerAdmin webmaster@example1.com
 ServerName example2.com
 ServerAlias www.example2.com
@@ -194,15 +194,15 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">a2dissite</span> <span class="pre">000-default.conf</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">a2ensite</span> <span class="pre">example1.com.conf</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">a2ensite</span> <span class="pre">example2.com.conf</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">apache2</span></code></li>
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/var/www</span></code></li>
-<li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">example1.com/public_html/index.html</span></code> and put “Welcome to example1.com”</li>
-<li><code class="docutils literal"><span class="pre">nano</span> <span class="pre">example2.com/public_html/index.html</span></code> and put “Welcome to example2.com”</li>
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">a2dissite</span> <span class="pre">000-default.conf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">a2ensite</span> <span class="pre">example1.com.conf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">a2ensite</span> <span class="pre">example2.com.conf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">apache2</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/var/www</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">example1.com/public_html/index.html</span></code> and put “Welcome to example1.com”</li>
+<li><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">example2.com/public_html/index.html</span></code> and put “Welcome to example2.com”</li>
 <li>now you need to make host entries to your local machines.</li>
-<li>on ubuntu you need to open <code class="docutils literal"><span class="pre">/etc/hosts</span></code> file and make host entry like, Use <code class="docutils literal"><span class="pre">C:\Windows\System32\drivers\etc\hosts</span></code> if you are on windows</li>
+<li>on ubuntu you need to open <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file and make host entry like, Use <code class="docutils literal notranslate"><span class="pre">C:\Windows\System32\drivers\etc\hosts</span></code> if you are on windows</li>
 <li>xxx.xxx.xxx.xxx example1.com
 xxx.xxx.xxx.xxx www.example1.com
 xxx.xxx.xxx.xxx example2.com
@@ -265,6 +265,7 @@ Now your subdomains/virtual host are ready.</li>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

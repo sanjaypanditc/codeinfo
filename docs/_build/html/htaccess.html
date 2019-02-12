@@ -160,7 +160,7 @@
 <h1>Htaccess<a class="headerlink" href="#htaccess" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ssl-redirection">
 <h2>SSL Redirection<a class="headerlink" href="#ssl-redirection" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">##Redirection to https file**</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">##Redirection to https file**</span>
 RewriteCond %<span class="o">{</span>HTTPS<span class="o">}</span> off
 RewriteRule .* https://%<span class="o">{</span>HTTP_HOST<span class="o">}</span>%<span class="o">{</span>REQUEST_URI<span class="o">}</span> <span class="o">[</span>L,R<span class="o">=</span><span class="m">301</span><span class="o">]</span>
 
@@ -228,6 +228,7 @@ RewriteRule .* https://www.%<span class="o">{</span>HTTP_HOST<span class="o">}</
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 

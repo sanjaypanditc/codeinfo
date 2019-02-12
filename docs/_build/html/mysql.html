@@ -158,24 +158,24 @@
   <div class="section" id="mysql">
 <span id="id1"></span><h1>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
 <p><strong>Convert DateTime in UnixTimeStamp</strong>
-<code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*,from_unixtime(date_added)</span> <span class="pre">FROM</span> <span class="pre">`TABLE_NAME`</span>&#160; <span class="pre">order</span> <span class="pre">by</span> <span class="pre">date_added</span> <span class="pre">desc</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*,from_unixtime(date_added)</span> <span class="pre">FROM</span> <span class="pre">`TABLE_NAME`</span>&#160; <span class="pre">order</span> <span class="pre">by</span> <span class="pre">date_added</span> <span class="pre">desc</span></code></p>
 <p><strong>Space consume by a table</strong>
-<code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">table_schema</span> <span class="pre">&quot;Data</span> <span class="pre">Base</span> <span class="pre">Name&quot;,sum(</span> <span class="pre">data_length</span> <span class="pre">+</span> <span class="pre">index_length</span> <span class="pre">)</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/1024</span> <span class="pre">&quot;Used</span> <span class="pre">GB&quot;</span> <span class="pre">FROM</span> <span class="pre">information_schema.TABLES</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">table_schema</span> <span class="pre">;</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">table_schema</span> <span class="pre">&quot;Data</span> <span class="pre">Base</span> <span class="pre">Name&quot;,sum(</span> <span class="pre">data_length</span> <span class="pre">+</span> <span class="pre">index_length</span> <span class="pre">)</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/</span> <span class="pre">1024</span> <span class="pre">/1024</span> <span class="pre">&quot;Used</span> <span class="pre">GB&quot;</span> <span class="pre">FROM</span> <span class="pre">information_schema.TABLES</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">table_schema</span> <span class="pre">;</span></code></p>
 <p><strong>Character Set</strong>
-<code class="docutils literal"><span class="pre">utf8mb4_unicode_ci</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">utf8mb4_unicode_ci</span></code></p>
 <p><strong>Set a login path using terminal/putty</strong>
-<code class="docutils literal"><span class="pre">mysql_config_editor</span> <span class="pre">set</span> <span class="pre">--login-path=anyname</span>&#160; <span class="pre">--host=localhost</span> <span class="pre">--port=3306</span> <span class="pre">--socket=/var/run/mysqld/mysqld.sock</span> <span class="pre">--user=databaseuser</span> <span class="pre">--password</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">mysql_config_editor</span> <span class="pre">set</span> <span class="pre">--login-path=anyname</span>&#160; <span class="pre">--host=localhost</span> <span class="pre">--port=3306</span> <span class="pre">--socket=/var/run/mysqld/mysqld.sock</span> <span class="pre">--user=databaseuser</span> <span class="pre">--password</span></code></p>
 <p><strong>How to fix a MySQL Failed to Start error</strong>
 Please visit <a class="reference external" href="https://lowendbox.com/blog/how%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bfix%E2%80%8B-%E2%80%8Ba%E2%80%8B-%E2%80%8Bmysql%E2%80%8B-%E2%80%8Bfailed%E2%80%8B-%E2%80%8Bto%E2%80%8B-%E2%80%8Bstart%E2%80%8B-%E2%80%8Berror/">LowendBox</a></p>
 <p><strong>Give Permission to mysqluser</strong></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>CEATE USER <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED WITH mysql_native_password AS <span class="s1">&#39;***&#39;</span><span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CEATE USER <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED WITH mysql_native_password AS <span class="s1">&#39;***&#39;</span><span class="p">;</span>
 GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR <span class="m">0</span> MAX_CONNECTIONS_PER_HOUR <span class="m">0</span> MAX_UPDATES_PER_HOUR <span class="m">0</span> MAX_USER_CONNECTIONS <span class="m">0</span><span class="p">;</span>
 GRANT ALL PRIVILEGES ON <span class="sb">`</span>adopted<span class="sb">`</span>.* TO <span class="s1">&#39;ankit&#39;</span>@<span class="s1">&#39;%&#39;</span> WITH GRANT OPTION<span class="p">;</span>
 </pre></div>
 </div>
 <div class="section" id="mysql-backup-restore">
 <h2>Mysql Backup/Restore<a class="headerlink" href="#mysql-backup-restore" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>**Download full database <span class="o">(</span>.gz extention<span class="o">)</span>**
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>**Download full database <span class="o">(</span>.gz extention<span class="o">)</span>**
 <span class="sb">``</span>mysqldump -h<span class="o">[</span>host<span class="o">]</span> -u<span class="o">[</span>user<span class="o">]</span> -p<span class="o">[</span>password<span class="o">]</span> <span class="o">[</span>database<span class="o">]</span> <span class="p">|</span> gzip -c <span class="p">|</span> cat &gt; /var/www/html/mysqldump_<span class="o">[</span>database<span class="o">]</span>_<span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span>.sql.gz<span class="sb">``</span>
 
 **Download full database with ssl enabled <span class="o">(</span>.gz extention<span class="o">)</span>**
@@ -253,6 +253,7 @@ GRANT ALL PRIVILEGES ON <span class="sb">`</span>adopted<span class="sb">`</span
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
 
   
 
