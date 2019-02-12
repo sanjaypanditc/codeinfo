@@ -20,15 +20,13 @@ GIT Basics
  * A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
  * Always run git pull origin master before starting work on a repository.
 
-**checkout -b branchname**
-::
+``checkout -b branchname``
+ * Create a new branch called “branchname” and move to it.
+ * Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it. 
+ * The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.
+ * When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master).
 
-   * Create a new branch called “branchname” and move to it.
-   * Branching out is essential to working with Git. Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it. 
-   * The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.
-   * When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master). Those commands are coming right up ...
-
-**git status**
+``*git status*``
 ::
 
    * Current status of your repository. 
