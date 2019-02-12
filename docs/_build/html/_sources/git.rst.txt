@@ -70,38 +70,42 @@ GIT Basics
 Commands
 --------
 
-``git reset --hard origin/master``
  * Keep you local changes and replace it your files with the files uploaded at master branch.
 
-``git config``
+``git reset --hard origin/master``
+
  * Use it to view git config settings.
 
-``git stash``
-
-``git stash pop``
+``git config``
 
 ``git checkout HEAD^``
 
 ``git checkout -f master``
 
-``git merge --abort``
  * To abort the merge if conflict occur
 
+``git merge --abort``
+
+ * To remove last commit changes completely
+
 ``git reset --hard HEAD~1``
- * To remove last commit changes completely:**
+
+ * To delete particular branch:
 
 ``git branch -d branch_name``
 
 ``git branch -D branch_name``
- * To delete particular branch:
+
+ * To pull specific file from specific branch:
 
 ``git checkout BRANCH-NAME -- filename``
 
 ``git checkout origin/BRANCH-NAME -- filename``
- * To pull specific file from specific branch:
 
-``ssh-keygen -t rsa  -C "emailid"``
  * To generate SSH key for bitbucket:
 
-``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
+``ssh-keygen -t rsa  -C "emailid"``
+
  * To check the difference between made in the file of two different branch
+ 
+``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
