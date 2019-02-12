@@ -3,41 +3,17 @@
 GIT
 ============
 
-Commands
---------
-
-#. ``git clone $ git reset --hard origin/master``
-   **Keep you local changes and wants to replace your files with the files uploaded at master branch.**
-#. ``git config`` **Use this command to view git config settings.**
-#. ``git checkout HEAD^``
-#. ``git checkout -f master``
-#. ``git stash``
-#. ``git stash pop``
-#. ``git merge --abort``	**To abort the merge if conflict occur**
-#. **To remove last commit changes completely:**
-   ``git reset --hard HEAD~1``
-#. **To move to different branch:**
-   ``git checkout branch_name``
-#. **To view active branch:**
-   ``$ git branch``
-#. **To create new branch:**
-   ``git checkout -b ‘branch_name’``
-#. **To push changes in a branch:**
-   ``git push origin ‘branch_name’``
-#. **To delete particular branch:**
-   ``git branch -d branch_name``
-   ``git branch -D branch_name``
-#. **To pull specific file from specific branch:**
-   ``git checkout BRANCH-NAME -- filename``
-   ``git checkout origin/BRANCH-NAME -- filename``
-#. **To generate SSH key for bitbucket:**
-   ``Run this command in git command prompt: ssh-keygen``
-#. **To check the difference between made in the file of two different branch:**
-   ``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
-#. **Process of working with GIT**
-
 GIT Basics
 ----------
+#. ``git clone user@gitpath.git``
+   git clone allow you to get all files of git in a directory having name gitpath
+
+#. ``git clone user@gitpath.git  newdoc``
+   git clone allow you to get all files of git in a directory having name newdoc
+
+#. ``git clone user@gitpath.git  newdoc``
+   git clone allow you to get all files of git in a directory having name newdoc
+
 **git checkout master**
 ::
 
@@ -94,3 +70,37 @@ GIT Basics
 ::
 
   * It will abort merging issue.
+
+Commands
+--------
+
+#. ``git clone $ git reset --hard origin/master``
+   **Keep you local changes and wants to replace your files with the files uploaded at master branch.**
+#. ``git config`` **Use this command to view git config settings.**
+#. ``git checkout HEAD^``
+#. ``git checkout -f master``
+#. ``git stash``
+#. ``git stash pop``
+#. ``git merge --abort``	**To abort the merge if conflict occur**
+#. **To remove last commit changes completely:**
+   ``git reset --hard HEAD~1``
+#. **To move to different branch:**
+   ``git checkout branch_name``
+#. **To view active branch:**
+   ``$ git branch``
+#. **To create new branch:**
+   ``git checkout -b ‘branch_name’``
+#. **To push changes in a branch:**
+   ``git push origin ‘branch_name’``
+#. **To delete particular branch:**
+   ``git branch -d branch_name``
+   ``git branch -D branch_name``
+#. **To pull specific file from specific branch:**
+   ``git checkout BRANCH-NAME -- filename``
+   ``git checkout origin/BRANCH-NAME -- filename``
+#. **To generate SSH key for bitbucket:**
+   ``Run this command in git command prompt: ssh-keygen``
+#. **To check the difference between made in the file of two different branch:**
+   ``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
+#. **Process of working with GIT**
+

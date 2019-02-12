@@ -88,8 +88,8 @@
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">Htaccess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GIT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#git-basics">GIT Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
@@ -158,42 +158,16 @@
             
   <div class="section" id="git">
 <span id="id1"></span><h1>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">$</span> <span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">origin/master</span></code>
-<strong>Keep you local changes and wants to replace your files with the files uploaded at master branch.</strong></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span></code> <strong>Use this command to view git config settings.</strong></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">HEAD^</span></code></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-f</span> <span class="pre">master</span></code></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">stash</span></code></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">pop</span></code></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code>        <strong>To abort the merge if conflict occur</strong></li>
-<li><strong>To remove last commit changes completely:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">HEAD~1</span></code></li>
-<li><strong>To move to different branch:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_name</span></code></li>
-<li><strong>To view active branch:</strong>
-<code class="docutils literal"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">branch</span></code></li>
-<li><strong>To create new branch:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">‘branch_name’</span></code></li>
-<li><strong>To push changes in a branch:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">‘branch_name’</span></code></li>
-<li><strong>To delete particular branch:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">branch_name</span></code>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-D</span> <span class="pre">branch_name</span></code></li>
-<li><strong>To pull specific file from specific branch:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">BRANCH-NAME</span> <span class="pre">--</span> <span class="pre">filename</span></code>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">origin/BRANCH-NAME</span> <span class="pre">--</span> <span class="pre">filename</span></code></li>
-<li><strong>To generate SSH key for bitbucket:</strong>
-<code class="docutils literal"><span class="pre">Run</span> <span class="pre">this</span> <span class="pre">command</span> <span class="pre">in</span> <span class="pre">git</span> <span class="pre">command</span> <span class="pre">prompt:</span> <span class="pre">ssh-keygen</span></code></li>
-<li><strong>To check the difference between made in the file of two different branch:</strong>
-<code class="docutils literal"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">develop(FIRST-BRANCH)</span> <span class="pre">feature/matches-and-filter(SECOND-BRANCH)</span>&#160; <span class="pre">--ajax_mymatch.php(FILE-NAME)</span></code></li>
-<li><strong>Process of working with GIT</strong></li>
-</ol>
-</div>
 <div class="section" id="git-basics">
 <h2>GIT Basics<a class="headerlink" href="#git-basics" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code>
+git clone allow you to get all files of git in a directory having name gitpath</li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span>&#160; <span class="pre">newdoc</span></code>
+git clone allow you to get all files of git in a directory having name newdoc</li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span>&#160; <span class="pre">newdoc</span></code>
+git clone allow you to get all files of git in a directory having name newdoc</li>
+</ol>
 <p><strong>git checkout master</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">allows</span> <span class="n">you</span> <span class="n">to</span> <span class="n">move</span> <span class="n">between</span> <span class="n">branches</span> <span class="ow">and</span> <span class="n">potentially</span> <span class="n">restore</span> <span class="n">tree</span> <span class="n">files</span><span class="o">.</span>
 <span class="o">*</span> <span class="n">The</span> <span class="n">command</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span> <span class="n">switches</span> <span class="n">you</span> <span class="n">to</span> <span class="n">the</span> <span class="n">master</span> <span class="n">branch</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">always</span> <span class="n">the</span> <span class="n">best</span> <span class="n">place</span> <span class="n">to</span> <span class="n">start</span> <span class="n">before</span> <span class="n">making</span> <span class="n">changes</span> <span class="n">to</span> <span class="n">your</span> <span class="n">repo</span><span class="o">.</span>
@@ -243,6 +217,40 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">It</span> <span class="n">will</span> <span class="n">abort</span> <span class="n">merging</span> <span class="n">issue</span><span class="o">.</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">$</span> <span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">origin/master</span></code>
+<strong>Keep you local changes and wants to replace your files with the files uploaded at master branch.</strong></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span></code> <strong>Use this command to view git config settings.</strong></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">HEAD^</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-f</span> <span class="pre">master</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">stash</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">pop</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code>        <strong>To abort the merge if conflict occur</strong></li>
+<li><strong>To remove last commit changes completely:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">HEAD~1</span></code></li>
+<li><strong>To move to different branch:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_name</span></code></li>
+<li><strong>To view active branch:</strong>
+<code class="docutils literal"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">branch</span></code></li>
+<li><strong>To create new branch:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">‘branch_name’</span></code></li>
+<li><strong>To push changes in a branch:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">‘branch_name’</span></code></li>
+<li><strong>To delete particular branch:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">branch_name</span></code>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-D</span> <span class="pre">branch_name</span></code></li>
+<li><strong>To pull specific file from specific branch:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">BRANCH-NAME</span> <span class="pre">--</span> <span class="pre">filename</span></code>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">origin/BRANCH-NAME</span> <span class="pre">--</span> <span class="pre">filename</span></code></li>
+<li><strong>To generate SSH key for bitbucket:</strong>
+<code class="docutils literal"><span class="pre">Run</span> <span class="pre">this</span> <span class="pre">command</span> <span class="pre">in</span> <span class="pre">git</span> <span class="pre">command</span> <span class="pre">prompt:</span> <span class="pre">ssh-keygen</span></code></li>
+<li><strong>To check the difference between made in the file of two different branch:</strong>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">develop(FIRST-BRANCH)</span> <span class="pre">feature/matches-and-filter(SECOND-BRANCH)</span>&#160; <span class="pre">--ajax_mymatch.php(FILE-NAME)</span></code></li>
+<li><strong>Process of working with GIT</strong></li>
+</ol>
 </div>
 </div>
 
