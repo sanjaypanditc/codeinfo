@@ -5,14 +5,14 @@ GIT
 
 GIT Basics
 ----------
-#. ``git clone user@gitpath.git`` 
-   git clone allow you to get all files of git in a directory having name gitpath
+``git clone user@gitpath.git`` 
+|   git clone allow you to get all files of git in a directory having name gitpath
 
-#. ``git clone user@gitpath.git  newdoc`` 
-   git clone allow you to get all files of git in a directory having name newdoc
+``git clone user@gitpath.git  newdoc`` 
+|   git clone allow you to get all files of git in a directory having name newdoc
 
-#. ``git clone user@gitpath.git  newdoc`` 
-   git clone allow you to get all files of git in a directory having name newdoc
+``git clone user@gitpath.git  newdoc`` 
+|   git clone allow you to get all files of git in a directory having name newdoc
 
 **git checkout master**
 ::
