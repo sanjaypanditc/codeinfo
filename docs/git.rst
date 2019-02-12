@@ -11,12 +11,7 @@ GIT Basics
 ``git clone user@gitpath.git  newdoc``
  git clone allow you to get all files of git in a directory having name newdoc
 
-``git clone user@gitpath.git  newdoc``
- git clone allow you to get all files of git in a directory having name newdoc
-
-**git checkout master**
-::
-
+``git checkout master``
    * git checkout allows you to move between branches and potentially restore tree files.
    * The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
 
