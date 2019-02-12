@@ -94,10 +94,7 @@ Commands
 
 * To delete particular branch:
 
-.. code-block:: python
-
-    :caption: this.py
-    :name: this-py
+.. code-block:: rst
 
    git checkout BRANCH-NAME -- filename
    git checkout origin/BRANCH-NAME -- filename
