@@ -70,13 +70,13 @@ GIT Basics
 Commands
 --------
 
- * Keep you local changes and replace it your files with the files uploaded at master branch.
-
 ``git reset --hard origin/master``
-
- * Use it to view git config settings.
+ * It Keep you local changes and replace it your files with the files uploaded at master branch.
 
 ``git config``
+ * Use it to view git config settings.
+
+
 
 ``git checkout HEAD^``
 
@@ -107,5 +107,5 @@ Commands
 ``ssh-keygen -t rsa  -C "emailid"``
 
  * To check the difference between made in the file of two different branch
- 
+
 ``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
