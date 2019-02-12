@@ -92,14 +92,15 @@ Commands
   git branch -d branch_name
   git branch -D branch_name
 
-* To delete particular branch:
+
+ * To delete particular branch
 
 .. code-block:: rst
 
    git checkout BRANCH-NAME -- filename
    git checkout origin/BRANCH-NAME -- filename
 
-* To pull specific file from specific branch:
+* To pull specific file from specific branch
 
 ``ssh-keygen -t rsa  -C "emailid"``
  * To generate SSH key for bitbucket:
