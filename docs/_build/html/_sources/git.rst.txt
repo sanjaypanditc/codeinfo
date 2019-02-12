@@ -94,12 +94,15 @@ Commands
 
 * To delete particular branch:
 
-.. code-block:: bash
+.. code-block:: python
 
-  git checkout BRANCH-NAME -- filename
-  git checkout origin/BRANCH-NAME -- filename
+    :caption: this.py
+    :name: this-py
 
-* To pull specific file from specific branch:
+   git checkout BRANCH-NAME -- filename
+   git checkout origin/BRANCH-NAME -- filename
+
+ * To pull specific file from specific branch:
 
 ``ssh-keygen -t rsa  -C "emailid"``
  * To generate SSH key for bitbucket:
