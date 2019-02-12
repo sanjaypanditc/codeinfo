@@ -90,6 +90,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GIT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#git-basics">GIT Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gitignore">Gitignore</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nodejs.html">NodeJS</a></li>
@@ -306,6 +307,72 @@ git checkout origin/BRANCH-NAME -- filename
 </ul>
 </dd>
 </dl>
+</div>
+<div class="section" id="gitignore">
+<h2>Gitignore<a class="headerlink" href="#gitignore" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">gitignore entry</th>
+<th class="head">Ignores every…</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>target/</td>
+<td>…folder (due to the trailing /) recursively</td>
+</tr>
+<tr class="row-odd"><td>target</td>
+<td>…file or folder named target recursively</td>
+</tr>
+<tr class="row-even"><td>/target</td>
+<td>…file or folder named target in the top-most directory (due to the leading /)</td>
+</tr>
+<tr class="row-odd"><td>/target/</td>
+<td>…folder named target in the top-most directory (leading and trailing /)</td>
+</tr>
+<tr class="row-even"><td><a href="#id2"><span class="problematic" id="id3">*</span></a>.class</td>
+<td>…every file or folder ending with .class recursively</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">gitignore entry</th>
+<th class="head">Ignores every…</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>#comment</td>
+<td>…nothing, this is a comment (first character is a #)</td>
+</tr>
+<tr class="row-odd"><td>#comment</td>
+<td>…every file or folder with name #comment (for escaping)</td>
+</tr>
+<tr class="row-even"><td>target/logs/</td>
+<td>…every folder named logs which is a subdirectory of a folder named target</td>
+</tr>
+<tr class="row-odd"><td>target/<a href="#id4"><span class="problematic" id="id5">*</span></a>/logs/</td>
+<td>…every folder named logs two levels under a folder named target (* doesn’t include /)</td>
+</tr>
+<tr class="row-even"><td>target/<a href="#id6"><span class="problematic" id="id7">**</span></a>/logs/</td>
+<td>…every folder named logs somewhere under a folder named target (** includes /)</td>
+</tr>
+<tr class="row-odd"><td><a href="#id8"><span class="problematic" id="id9">*</span></a>.py[co]</td>
+<td>…file or folder ending in .pyc or .pyo. However, it doesn’t match .py!</td>
+</tr>
+<tr class="row-even"><td>!README.md |</td>
+<td>Doesn’t ignore any README.md file even if it matches an exclude pattern, e.g. <a href="#id10"><span class="problematic" id="id11">*</span></a>.md.
+NOTE This does not work if the file is located within a ignored folder.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
