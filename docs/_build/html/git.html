@@ -160,20 +160,31 @@
 <span id="id1"></span><h1>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="git-basics">
 <h2>GIT Basics<a class="headerlink" href="#git-basics" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code>
-* git clone allow you to get all files of git in a directory having name gitpath</p>
-<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span>&#160; <span class="pre">newdoc</span></code>
-* git clone allow you to get all files of git in a directory having name newdoc</p>
-<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code>
-* git checkout allows you to move between branches and potentially restore tree files.
-* The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.</p>
-<p><strong>git pull origin master</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>* Get the latest updates on the master branch,
-* This is typically done to merge upstream changes. A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together.
-* Essentially, git pull origin master allows you to do two commands at once. It’s a great time-saver!
-* Always run git pull origin master before starting work on a repository. After all, you want to be sure your repository is up to date with the remote repo where you collaborate.
-</pre></div>
-</div>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code></dt>
+<dd><ul class="first last simple">
+<li>git clone allow you to get all files of git in a directory having name gitpath</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span>&#160; <span class="pre">newdoc</span></code></dt>
+<dd><ul class="first last simple">
+<li>git clone allow you to get all files of git in a directory having name newdoc</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></dt>
+<dd><ul class="first last simple">
+<li>git checkout allows you to move between branches and potentially restore tree files.</li>
+<li>The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code></dt>
+<dd><ul class="first last simple">
+<li>Get the latest updates on the master branch,</li>
+<li>A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together.</li>
+<li>Always run git pull origin master before starting work on a repository.</li>
+</ul>
+</dd>
+</dl>
 <p><strong>checkout -b branchname</strong></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>* Create a new branch called “branchname” and move to it.
 * Branching out is essential to working with Git. Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it.

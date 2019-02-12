@@ -6,22 +6,19 @@ GIT
 GIT Basics
 ----------
 ``git clone user@gitpath.git``
-* git clone allow you to get all files of git in a directory having name gitpath
+ * git clone allow you to get all files of git in a directory having name gitpath
 
 ``git clone user@gitpath.git  newdoc``
-* git clone allow you to get all files of git in a directory having name newdoc
+ * git clone allow you to get all files of git in a directory having name newdoc
 
 ``git checkout master``
-* git checkout allows you to move between branches and potentially restore tree files.
-* The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
+ * git checkout allows you to move between branches and potentially restore tree files.
+ * The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
 
-**git pull origin master**
-::
-
-   * Get the latest updates on the master branch, 
-   * This is typically done to merge upstream changes. A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
-   * Essentially, git pull origin master allows you to do two commands at once. It’s a great time-saver!
-   * Always run git pull origin master before starting work on a repository. After all, you want to be sure your repository is up to date with the remote repo where you collaborate.
+``git pull origin master``
+ * Get the latest updates on the master branch, 
+ * A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
+ * Always run git pull origin master before starting work on a repository.
 
 **checkout -b branchname**
 ::
