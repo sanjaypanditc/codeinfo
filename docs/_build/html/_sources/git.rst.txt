@@ -61,6 +61,7 @@ GIT Basics
 .. Tip::
 
  git push origin master
+
  git push origin new-feature
    
 ``git merge --abort``
@@ -69,32 +70,38 @@ GIT Basics
 Commands
 --------
 
-#. ``git clone $ git reset --hard origin/master``
-   **Keep you local changes and wants to replace your files with the files uploaded at master branch.**
-#. ``git config`` **Use this command to view git config settings.**
-#. ``git checkout HEAD^``
-#. ``git checkout -f master``
-#. ``git stash``
-#. ``git stash pop``
-#. ``git merge --abort``	**To abort the merge if conflict occur**
+``git reset --hard origin/master``
+ * Keep you local changes and replace it your files with the files uploaded at master branch.
+
+``git config``
+ * Use it to view git config settings.
+
+``git stash``
+``git stash pop``
+
+``git checkout HEAD^``
+``git checkout -f master``
+
+``git merge --abort``	**To abort the merge if conflict occur**
 #. **To remove last commit changes completely:**
-   ``git reset --hard HEAD~1``
-#. **To move to different branch:**
-   ``git checkout branch_name``
+
+``git reset --hard HEAD~1``
+ * To move to different branch
+ 
+``git checkout branch_name``
 #. **To view active branch:**
-   ``$ git branch``
-#. **To create new branch:**
-   ``git checkout -b ‘branch_name’``
-#. **To push changes in a branch:**
-   ``git push origin ‘branch_name’``
-#. **To delete particular branch:**
-   ``git branch -d branch_name``
-   ``git branch -D branch_name``
-#. **To pull specific file from specific branch:**
-   ``git checkout BRANCH-NAME -- filename``
-   ``git checkout origin/BRANCH-NAME -- filename``
-#. **To generate SSH key for bitbucket:**
-   ``Run this command in git command prompt: ssh-keygen``
+
+``git branch -d branch_name``
+``git branch -D branch_name``
+ * To delete particular branch:
+
+``git checkout BRANCH-NAME -- filename``
+``git checkout origin/BRANCH-NAME -- filename``
+ * To pull specific file from specific branch:
+
+``ssh-keygen -t rsa  -C "emailid"``
+ * To generate SSH key for bitbucket:
+   
 #. **To check the difference between made in the file of two different branch:**
    ``git diff develop(FIRST-BRANCH) feature/matches-and-filter(SECOND-BRANCH)  --ajax_mymatch.php(FILE-NAME)``
 #. **Process of working with GIT**
