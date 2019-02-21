@@ -504,15 +504,15 @@ git checkout origin/BRANCH-NAME -- filename
 <tr class="row-odd"><td>/target/</td>
 <td>…folder named target in the top-most directory (leading and trailing /)</td>
 </tr>
-<tr class="row-even"><td><a href="#id3"><span class="problematic" id="id4">*</span></a>.class</td>
+<tr class="row-even"><td><cite>*.class</cite></td>
 <td>…every file or folder ending with .class recursively</td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col width="16%" />
+<col width="84%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">gitignore entry</th>
@@ -529,17 +529,17 @@ git checkout origin/BRANCH-NAME -- filename
 <tr class="row-even"><td>target/logs/</td>
 <td>…every folder named logs which is a subdirectory of a folder named target</td>
 </tr>
-<tr class="row-odd"><td>target/<a href="#id5"><span class="problematic" id="id6">*</span></a>/logs/</td>
-<td>…every folder named logs two levels under a folder named target (* doesn’t include /)</td>
+<tr class="row-odd"><td><cite>target/*/logs/</cite></td>
+<td>…every folder named logs two levels under a folder named target (<cite>*</cite> doesn’t include /)</td>
 </tr>
-<tr class="row-even"><td>target/<a href="#id7"><span class="problematic" id="id8">**</span></a>/logs/</td>
-<td>…every folder named logs somewhere under a folder named target (** includes /)</td>
+<tr class="row-even"><td><cite>target/**/logs/</cite></td>
+<td>…every folder named logs somewhere under a folder named target ( <cite>** includes</cite> /)</td>
 </tr>
-<tr class="row-odd"><td><a href="#id9"><span class="problematic" id="id10">*</span></a>.py[co]</td>
+<tr class="row-odd"><td><cite>*.py[co]</cite></td>
 <td>…file or folder ending in .pyc or .pyo. However, it doesn’t match .py!</td>
 </tr>
 <tr class="row-even"><td>!README.md |</td>
-<td>Doesn’t ignore any README.md file even if it matches an exclude pattern, e.g. <a href="#id11"><span class="problematic" id="id12">*</span></a>.md.
+<td>Doesn’t ignore any README.md file even if it matches an exclude pattern, e.g. <cite>*.md.</cite>
 NOTE This does not work if the file is located within a ignored folder.</td>
 </tr>
 </tbody>
