@@ -88,7 +88,18 @@
 <li class="toctree-l1"><a class="reference internal" href="htaccess.html">Htaccess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GIT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#git-basics">GIT Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-basics">GIT Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-repositories-if-your-repo-is-blank">CREATE REPOSITORIES (if your repo is blank)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-repositories-if-your-repo-is-not-blank">CREATE REPOSITORIES (if your repo is not blank)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-your-git-repo">CONFIGURE YOUR GIT REPO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-changes">MAKE CHANGES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-changes">GROUP CHANGES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#refactor-filenames">REFACTOR FILENAMES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-fragments">SAVE FRAGMENTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review-history">REVIEW HISTORY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redo-commits-erase-mistakes-and-craf-replacement-history">REDO COMMITS (Erase mistakes and craf replacement history)</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gitignore">Gitignore</a></li>
 </ul>
@@ -161,6 +172,23 @@
 <span id="id1"></span><h1>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="git-basics">
 <h2>GIT Basics<a class="headerlink" href="#git-basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-repositories-if-your-repo-is-blank">
+<h3>CREATE REPOSITORIES (if your repo is blank)<a class="headerlink" href="#create-repositories-if-your-repo-is-blank" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></dt>
+<dd><ul class="first last simple">
+<li>Use this code to initiate git in a Directory.</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">origin</span> <span class="pre">git&#64;github.com:User/UserRepo.git</span></code></dt>
+<dd><ul class="first last simple">
+<li>Use this code to link your directory to git url.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="create-repositories-if-your-repo-is-not-blank">
+<h3>CREATE REPOSITORIES (if your repo is not blank)<a class="headerlink" href="#create-repositories-if-your-repo-is-not-blank" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code></dt>
 <dd><ul class="first last simple">
@@ -172,25 +200,34 @@
 <li>git clone allow you to get all files of git in a directory having name newdoc</li>
 </ul>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></dt>
+</dl>
+</div>
+<div class="section" id="configure-your-git-repo">
+<h3>CONFIGURE YOUR GIT REPO<a class="headerlink" href="#configure-your-git-repo" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.name</span> <span class="pre">&quot;[name]&quot;</span></code></dt>
 <dd><ul class="first last simple">
-<li>git checkout allows you to move between branches and potentially restore tree files.</li>
-<li>The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.</li>
+<li>Sets the name you want atached to your commit transactions</li>
 </ul>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.email</span> <span class="pre">&quot;[email</span> <span class="pre">address]&quot;</span></code></dt>
 <dd><ul class="first last simple">
-<li>Get the latest updates on the master branch,</li>
-<li>A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together.</li>
-<li>Always run git pull origin master before starting work on a repository.</li>
+<li>Sets the email you want atached to your commit transactions</li>
 </ul>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branchname</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></dt>
 <dd><ul class="first last simple">
-<li>Create a new branch called “branchname” and move to it.</li>
-<li>Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it.</li>
-<li>The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.</li>
-<li>When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master).</li>
+<li>Use it to view git config settings.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="make-changes">
+<h3>MAKE CHANGES<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></dt>
+<dd><ul class="first last simple">
+<li>Shows file differences not yet staged</li>
 </ul>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></dt>
@@ -213,6 +250,16 @@
 <p class="last">git add filename1 filename2</p>
 </div>
 <dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">--staged</span></code></dt>
+<dd><ul class="first last simple">
+<li>Shows file differences between staging and the last file version</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">[file]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Unstages the file, but preserve its contents</li>
+</ul>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code></dt>
 <dd><ul class="first last simple">
 <li>The git commit command records changes you make to the local repository.</li>
@@ -243,7 +290,56 @@ where you collaborate with your colleagues.</li>
 <p>git push origin master</p>
 <p class="last">git push origin new-feature</p>
 </div>
+</div>
+<div class="section" id="group-changes">
+<h3>GROUP CHANGES<a class="headerlink" href="#group-changes" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></dt>
+<dd><ul class="first last simple">
+<li>Lists all local branches in the current repository</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-b</span> <span class="pre">[branchName]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Create a new branch BranchName</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></dt>
+<dd><ul class="first last simple">
+<li>git checkout allows you to move between branches and potentially restore tree files.</li>
+<li>The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">[branchName]</span></code></dt>
+<dd><ul class="first last simple">
+<li>To move in BranchName</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code></dt>
+<dd><ul class="first last simple">
+<li>Get the latest updates on the master branch,</li>
+<li>A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together.</li>
+<li>Always run git pull origin master before starting work on a repository.</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">branchname</span></code></dt>
+<dd><ul class="first last simple">
+<li>Create a new branch called “branchname” and move to it.</li>
+<li>Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it.</li>
+<li>The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.</li>
+<li>When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master).</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">[branch]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Combines the specified branch’s history into the current branch</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">[branch-name]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Deletes the specified branch</li>
+</ul>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code></dt>
 <dd><ul class="first last simple">
 <li>It will abort merging issue.</li>
@@ -251,20 +347,104 @@ where you collaborate with your colleagues.</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="refactor-filenames">
+<h3>REFACTOR FILENAMES<a class="headerlink" href="#refactor-filenames" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">[file]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Deletes the file from the working directory and stages the deletion</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">--cached</span> <span class="pre">[file]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Removes the file from version control but preserves the file locally</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span> <span class="pre">[file-original]</span> <span class="pre">[file-renamed]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Changes the file name and prepares it for commit</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="save-fragments">
+<h3>SAVE FRAGMENTS<a class="headerlink" href="#save-fragments" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code></dt>
+<dd><ul class="first last simple">
+<li>Temporarily stores all modified tracked files</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">list</span></code></dt>
+<dd><ul class="first last simple">
+<li>Lists all stashed changesets</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">pop</span></code></dt>
+<dd><ul class="first last simple">
+<li>Restores the most recently stashed files</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">drop</span></code></dt>
+<dd><ul class="first last simple">
+<li>Discards the most recently stashed changeset</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="review-history">
+<h3>REVIEW HISTORY<a class="headerlink" href="#review-history" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></dt>
+<dd><ul class="first last simple">
+<li>Lists version history for the current branch</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--follow</span> <span class="pre">[file]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Lists version history for a file, including renames</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">[first-branch]...[second-branch]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Shows content differences between two branches</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span> <span class="pre">[commit]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Outputs metadata and content changes of the specified commit</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="redo-commits-erase-mistakes-and-craf-replacement-history">
+<h3>REDO COMMITS (Erase mistakes and craf replacement history)<a class="headerlink" href="#redo-commits-erase-mistakes-and-craf-replacement-history" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">[commit]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Undoes all commits afer [commit], preserving changes locally</li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">[commit]</span></code></dt>
+<dd><ul class="first last simple">
+<li>Discards all history and changes back to the specified commit</li>
+</ul>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">origin/master</span></code></dt>
 <dd><ul class="first last simple">
 <li>It Keep you local changes and replace it your files with the files uploaded at master branch.</li>
 </ul>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">[branchName]</span></code></dt>
 <dd><ul class="first last simple">
-<li>Use it to view git config settings.</li>
+<li>It Keep you local changes and replace it your files with the files uploaded at branchName branch.</li>
 </ul>
 </dd>
 </dl>
+</div>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout HEAD^
 git checkout -f master
 </pre></div>

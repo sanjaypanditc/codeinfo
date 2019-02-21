@@ -5,26 +5,42 @@ GIT
 
 GIT Basics
 ----------
+
+CREATE REPOSITORIES (if your repo is blank)
+********************************************
+
+``git init``
+ * Use this code to initiate git in a Directory.
+
+``git remote add origin git@github.com:User/UserRepo.git``
+ * Use this code to link your directory to git url.
+
+CREATE REPOSITORIES (if your repo is not blank)
+***********************************************
+
 ``git clone user@gitpath.git``
  * git clone allow you to get all files of git in a directory having name gitpath
 
 ``git clone user@gitpath.git  newdoc``
  * git clone allow you to get all files of git in a directory having name newdoc
 
-``git checkout master``
- * git checkout allows you to move between branches and potentially restore tree files.
- * The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
+CONFIGURE YOUR GIT REPO
+***********************
 
-``git pull origin master``
- * Get the latest updates on the master branch, 
- * A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
- * Always run git pull origin master before starting work on a repository.
+``git config --global user.name "[name]"``
+  * Sets the name you want atached to your commit transactions
 
-``checkout -b branchname``
- * Create a new branch called “branchname” and move to it.
- * Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it. 
- * The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.
- * When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master).
+``git config --global user.email "[email address]"``
+  * Sets the email you want atached to your commit transactions
+
+``git config``
+ * Use it to view git config settings.
+
+MAKE CHANGES
+************
+
+``git diff``
+  * Shows file differences not yet staged
 
 ``git status``
  * Current status of your repository. 
@@ -39,6 +55,12 @@ GIT Basics
 .. Tip::
 
    git add filename1 filename2
+
+``git diff --staged``
+  * Shows file differences between staging and the last file version
+
+``git reset [file]``
+  * Unstages the file, but preserve its contents
 
 ``git commit``
  * The git commit command records changes you make to the local repository.
@@ -63,18 +85,101 @@ GIT Basics
  git push origin master
 
  git push origin new-feature
+
+GROUP CHANGES
+*************
+
+``git branch``
+  * Lists all local branches in the current repository
+
+``git branch -b [branchName]``
+  * Create a new branch BranchName
+
+``git checkout master``
+ * git checkout allows you to move between branches and potentially restore tree files.
+ * The command git checkout master switches you to the master branch, which is always the best place to start before making changes to your repo.
+
+``git checkout [branchName]``
+  * To move in BranchName
+
+``git pull origin master``
+ * Get the latest updates on the master branch, 
+ * A git pull is actually a combination of git fetch, which grabs all the latest  information, and git merge, which merges the two histories together. 
+ * Always run git pull origin master before starting work on a repository.
+
+``checkout -b branchname``
+ * Create a new branch called “branchname” and move to it.
+ * Got an idea for a new feature? Enter git checkout -b new-feature to create a new branch called “new-feature” and open it. 
+ * The new branch allows you to work in parallel with your colleagues, keeping your code separate from theirs during the time you’re working on that branch.
+ * When you’re ready to share your work, you can push your branch to a remote repo or merge it back into the main branch (usually master).
+
+``git merge [branch]``
+  * Combines the specified branch’s history into the current branch
+
+``git branch -d [branch-name]``
+  * Deletes the specified branch
    
 ``git merge --abort``
  * It will abort merging issue.
 
-Commands
---------
+REFACTOR FILENAMES
+******************
+
+``git rm [file]``
+ * Deletes the file from the working directory and stages the deletion
+
+``git rm --cached [file]``
+ * Removes the file from version control but preserves the file locally
+
+``git mv [file-original] [file-renamed]``
+ * Changes the file name and prepares it for commit
+
+SAVE FRAGMENTS
+**************
+``git stash``
+ * Temporarily stores all modified tracked files
+
+``git stash list``
+ * Lists all stashed changesets
+
+``git stash pop``
+ * Restores the most recently stashed files
+
+``git stash drop``
+ * Discards the most recently stashed changeset
+
+REVIEW HISTORY
+**************
+
+``git log``
+ * Lists version history for the current branch
+
+``git log --follow [file]``
+ * Lists version history for a file, including renames
+
+``git diff [first-branch]...[second-branch]``
+ * Shows content differences between two branches
+
+``git show [commit]``
+ * Outputs metadata and content changes of the specified commit
+
+REDO COMMITS (Erase mistakes and craf replacement history)
+**********************************************************
+
+``git reset [commit]``
+ * Undoes all commits afer [commit], preserving changes locally
+
+``git reset --hard [commit]``
+ * Discards all history and changes back to the specified commit
 
 ``git reset --hard origin/master``
  * It Keep you local changes and replace it your files with the files uploaded at master branch.
 
-``git config``
- * Use it to view git config settings.
+``git reset --hard [branchName]``
+ * It Keep you local changes and replace it your files with the files uploaded at branchName branch.
+
+Commands
+--------
 
 .. code-block:: bash
 
