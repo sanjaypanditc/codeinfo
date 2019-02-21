@@ -6,8 +6,9 @@ GIT
 GIT Basics
 ----------
 
-CREATE REPOSITORIES (if your repo is blank)
-********************************************
+CREATE REPOSITORIES
+^^^^^^^^^^^^^^^^^^^
+*if your repo is blank*
 
 ``git init``
  * Use this code to initiate git in a Directory.
@@ -15,8 +16,9 @@ CREATE REPOSITORIES (if your repo is blank)
 ``git remote add origin git@github.com:User/UserRepo.git``
  * Use this code to link your directory to git url.
 
-CREATE REPOSITORIES (if your repo is not blank)
-***********************************************
+CREATE REPOSITORIES
+^^^^^^^^^^^^^^^^^^^
+*if your repo is not blank*
 
 ``git clone user@gitpath.git``
  * git clone allow you to get all files of git in a directory having name gitpath
@@ -25,7 +27,7 @@ CREATE REPOSITORIES (if your repo is not blank)
  * git clone allow you to get all files of git in a directory having name newdoc
 
 CONFIGURE YOUR GIT REPO
-***********************
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ``git config --global user.name "[name]"``
   * Sets the name you want atached to your commit transactions
@@ -37,7 +39,7 @@ CONFIGURE YOUR GIT REPO
  * Use it to view git config settings.
 
 MAKE CHANGES
-************
+^^^^^^^^^^^^
 
 ``git diff``
   * Shows file differences not yet staged
@@ -87,7 +89,7 @@ MAKE CHANGES
  git push origin new-feature
 
 GROUP CHANGES
-*************
+^^^^^^^^^^^^^
 
 ``git branch``
   * Lists all local branches in the current repository
@@ -123,7 +125,7 @@ GROUP CHANGES
  * It will abort merging issue.
 
 REFACTOR FILENAMES
-******************
+^^^^^^^^^^^^^^^^^^
 
 ``git rm [file]``
  * Deletes the file from the working directory and stages the deletion
@@ -135,7 +137,7 @@ REFACTOR FILENAMES
  * Changes the file name and prepares it for commit
 
 SAVE FRAGMENTS
-**************
+^^^^^^^^^^^^^^
 ``git stash``
  * Temporarily stores all modified tracked files
 
@@ -149,7 +151,7 @@ SAVE FRAGMENTS
  * Discards the most recently stashed changeset
 
 REVIEW HISTORY
-**************
+^^^^^^^^^^^^^^
 
 ``git log``
  * Lists version history for the current branch
@@ -163,8 +165,9 @@ REVIEW HISTORY
 ``git show [commit]``
  * Outputs metadata and content changes of the specified commit
 
-REDO COMMITS (Erase mistakes and craf replacement history)
-**********************************************************
+REDO COMMITS
+^^^^^^^^^^^^
+*Erase mistakes and craf replacement history*
 
 ``git reset [commit]``
  * Undoes all commits afer [commit], preserving changes locally
@@ -186,19 +189,8 @@ Commands
    git checkout HEAD^
    git checkout -f master
 
-``git merge --abort``
- * To abort the merge if conflict occur
-
 ``git reset --hard HEAD~1``
  * To remove last commit changes completely
-
-.. code-block:: bash
-
-  git branch -d branch_name
-  git branch -D branch_name
-
-
- * To delete particular branch
 
 .. code-block:: rst
 

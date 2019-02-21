@@ -89,15 +89,15 @@
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GIT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#git-basics">GIT Basics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-repositories-if-your-repo-is-blank">CREATE REPOSITORIES (if your repo is blank)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-repositories-if-your-repo-is-not-blank">CREATE REPOSITORIES (if your repo is not blank)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-repositories">CREATE REPOSITORIES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">CREATE REPOSITORIES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configure-your-git-repo">CONFIGURE YOUR GIT REPO</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#make-changes">MAKE CHANGES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#group-changes">GROUP CHANGES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#refactor-filenames">REFACTOR FILENAMES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#save-fragments">SAVE FRAGMENTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#review-history">REVIEW HISTORY</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#redo-commits-erase-mistakes-and-craf-replacement-history">REDO COMMITS (Erase mistakes and craf replacement history)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redo-commits">REDO COMMITS</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
@@ -172,8 +172,9 @@
 <span id="id1"></span><h1>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="git-basics">
 <h2>GIT Basics<a class="headerlink" href="#git-basics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="create-repositories-if-your-repo-is-blank">
-<h3>CREATE REPOSITORIES (if your repo is blank)<a class="headerlink" href="#create-repositories-if-your-repo-is-blank" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-repositories">
+<h3>CREATE REPOSITORIES<a class="headerlink" href="#create-repositories" title="Permalink to this headline">¶</a></h3>
+<p><em>if your repo is blank</em></p>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></dt>
 <dd><ul class="first last simple">
@@ -187,8 +188,9 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="create-repositories-if-your-repo-is-not-blank">
-<h3>CREATE REPOSITORIES (if your repo is not blank)<a class="headerlink" href="#create-repositories-if-your-repo-is-not-blank" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>CREATE REPOSITORIES<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><em>if your repo is not blank</em></p>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">user&#64;gitpath.git</span></code></dt>
 <dd><ul class="first last simple">
@@ -417,8 +419,9 @@ where you collaborate with your colleagues.</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="redo-commits-erase-mistakes-and-craf-replacement-history">
-<h3>REDO COMMITS (Erase mistakes and craf replacement history)<a class="headerlink" href="#redo-commits-erase-mistakes-and-craf-replacement-history" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="redo-commits">
+<h3>REDO COMMITS<a class="headerlink" href="#redo-commits" title="Permalink to this headline">¶</a></h3>
+<p><em>Erase mistakes and craf replacement history</em></p>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">[commit]</span></code></dt>
 <dd><ul class="first last simple">
@@ -450,24 +453,12 @@ git checkout -f master
 </pre></div>
 </div>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">--abort</span></code></dt>
-<dd><ul class="first last simple">
-<li>To abort the merge if conflict occur</li>
-</ul>
-</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">HEAD~1</span></code></dt>
 <dd><ul class="first last simple">
 <li>To remove last commit changes completely</li>
 </ul>
 </dd>
 </dl>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> git branch -d branch_name
- git branch -D branch_name
-
-
-* To delete particular branch
-</pre></div>
-</div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>git checkout BRANCH-NAME -- filename
 git checkout origin/BRANCH-NAME -- filename
 </pre></div>
@@ -513,7 +504,7 @@ git checkout origin/BRANCH-NAME -- filename
 <tr class="row-odd"><td>/target/</td>
 <td>…folder named target in the top-most directory (leading and trailing /)</td>
 </tr>
-<tr class="row-even"><td><a href="#id2"><span class="problematic" id="id3">*</span></a>.class</td>
+<tr class="row-even"><td><a href="#id3"><span class="problematic" id="id4">*</span></a>.class</td>
 <td>…every file or folder ending with .class recursively</td>
 </tr>
 </tbody>
@@ -538,17 +529,17 @@ git checkout origin/BRANCH-NAME -- filename
 <tr class="row-even"><td>target/logs/</td>
 <td>…every folder named logs which is a subdirectory of a folder named target</td>
 </tr>
-<tr class="row-odd"><td>target/<a href="#id4"><span class="problematic" id="id5">*</span></a>/logs/</td>
+<tr class="row-odd"><td>target/<a href="#id5"><span class="problematic" id="id6">*</span></a>/logs/</td>
 <td>…every folder named logs two levels under a folder named target (* doesn’t include /)</td>
 </tr>
-<tr class="row-even"><td>target/<a href="#id6"><span class="problematic" id="id7">**</span></a>/logs/</td>
+<tr class="row-even"><td>target/<a href="#id7"><span class="problematic" id="id8">**</span></a>/logs/</td>
 <td>…every folder named logs somewhere under a folder named target (** includes /)</td>
 </tr>
-<tr class="row-odd"><td><a href="#id8"><span class="problematic" id="id9">*</span></a>.py[co]</td>
+<tr class="row-odd"><td><a href="#id9"><span class="problematic" id="id10">*</span></a>.py[co]</td>
 <td>…file or folder ending in .pyc or .pyo. However, it doesn’t match .py!</td>
 </tr>
 <tr class="row-even"><td>!README.md |</td>
-<td>Doesn’t ignore any README.md file even if it matches an exclude pattern, e.g. <a href="#id10"><span class="problematic" id="id11">*</span></a>.md.
+<td>Doesn’t ignore any README.md file even if it matches an exclude pattern, e.g. <a href="#id11"><span class="problematic" id="id12">*</span></a>.md.
 NOTE This does not work if the file is located within a ignored folder.</td>
 </tr>
 </tbody>
