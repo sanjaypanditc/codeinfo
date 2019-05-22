@@ -94,14 +94,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AWS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-2">Install lamp with php7.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-lamp-with-php7-1">Install lamp with php7.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extras">Extras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-user">Create user</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysql-initial">Mysql Initial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#timezone-change">TimeZone change</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#vsftpd-install">vsftpd install</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-host-example">Virtual Host Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#generate-ppk-file">Generate PPK file</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
@@ -242,8 +242,10 @@
 <li>Search for allowoverride None and replace it with allowoverride All</li>
 </ol>
 </div>
-<div class="section" id="initial-setup">
-<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extras">
+<h2>Extras<a class="headerlink" href="#extras" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-user">
+<h3>Create user<a class="headerlink" href="#create-user" title="Permalink to this headline">¶</a></h3>
 <p><strong>Connect to server</strong>
 <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">pathof</span> <span class="pre">pem</span> <span class="pre">file</span> <span class="pre">serveruser&#64;yourip</span></code>
 <strong>Create User</strong>
@@ -253,6 +255,7 @@
 it will ask for insert SetPassword, you need to put your desire password.
 <strong>Set Directory Path of that user</strong>
 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-d</span> <span class="pre">/var/www/html/</span> <span class="pre">username</span></code></p>
+</div>
 <div class="section" id="mysql-initial">
 <h3>Mysql Initial<a class="headerlink" href="#mysql-initial" title="Permalink to this headline">¶</a></h3>
 <p><strong>First logged in Mysql panel</strong>
@@ -272,10 +275,10 @@ it will ask for insert SetPassword, you need to put your desire password.
 </div>
 <div class="section" id="vsftpd-install">
 <h3>vsftpd install<a class="headerlink" href="#vsftpd-install" title="Permalink to this headline">¶</a></h3>
-<p>pasv_enable=YES
-pasv_min_port=1024
-pasv_max_port=1048
-pasv_address=&lt;Public IP of your instance&gt;</p>
+<p><code class="docutils literal notranslate"><span class="pre">pasv_enable=YES</span></code>
+<code class="docutils literal notranslate"><span class="pre">pasv_min_port=1024</span></code>
+<code class="docutils literal notranslate"><span class="pre">pasv_max_port=1048</span></code>
+<code class="docutils literal notranslate"><span class="pre">pasv_address=&lt;Public</span> <span class="pre">IP</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">instance&gt;</span></code></p>
 </div>
 </div>
 <div class="section" id="virtual-host-example">
@@ -295,16 +298,6 @@ pasv_address=&lt;Public IP of your instance&gt;</p>
 &lt;/VirtualHost&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="generate-ppk-file">
-<h2>Generate PPK file<a class="headerlink" href="#generate-ppk-file" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Download Puttygen software from this <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">link</a></li>
-<li>Install it</li>
-<li>Click on Conversion Tab</li>
-<li>Upload your .pem file</li>
-<li>Click on <em>Save Private key</em> to generate PPK file.</li>
-</ul>
 </div>
 </div>
 

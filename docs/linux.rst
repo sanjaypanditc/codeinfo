@@ -35,8 +35,8 @@ Commands
 
 .. Tip::
 
-	``cd /tmp``
-	``curl -sS https://getcomposer.org/installer | php``
+  ``cd /tmp``
+  ``curl -sS https://getcomposer.org/installer | php``
   ``Move it to /usr/local/bin/``
   ``mv composer.phar /usr/local/bin/composer``
 
@@ -45,7 +45,7 @@ Commands
 logCommands
 -----------
 
-.. code-block:: bash
+.. code-block::bash
 
 	awk '{print $1}' combined_log         # ip address (%h)
 	awk '{print $2}' combined_log         # RFC 1413 identity (%l)
@@ -104,3 +104,13 @@ Cronjobs
 
 	#cronjob for last day of month
 	[ "$(/bin/date +\%d -d tomorrow)" = "01" ] && /usr/local/bin/php /var/www/html/projectname/yourphpfile
+
+
+
+Generate PPK file
+--------------------
+* Download Puttygen software from this `link <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
+* Install it 
+* Click on Conversion Tab
+* Upload your .pem file
+* Click on *Save Private key* to generate PPK file.

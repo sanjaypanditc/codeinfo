@@ -77,8 +77,11 @@ Install lamp with php7.1
 #. Search for allowoverride None and replace it with allowoverride All
 
 
-Initial Setup
--------------
+Extras
+-------
+
+Create user
+~~~~~~~~~~~~~~
 **Connect to server**
 ``ssh -i pathof pem file serveruser@yourip``
 **Create User**
@@ -109,10 +112,10 @@ TimeZone change
 
 vsftpd install
 ~~~~~~~~~~~~~~
-pasv_enable=YES
-pasv_min_port=1024
-pasv_max_port=1048
-pasv_address=<Public IP of your instance>
+``pasv_enable=YES``
+``pasv_min_port=1024``
+``pasv_max_port=1048``
+``pasv_address=<Public IP of your instance>``
 
 
 Virtual Host Example
@@ -132,11 +135,3 @@ Virtual Host Example
         ErrorLog /var/log/httpd/xyz.com-error.log
         CustomLog /var/log/httpd/xyz.com-requests.log combined
     </VirtualHost>
-
-Generate PPK file
---------------------
-* Download Puttygen software from this `link <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
-* Install it 
-* Click on Conversion Tab
-* Upload your .pem file
-* Click on *Save Private key* to generate PPK file.

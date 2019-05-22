@@ -94,7 +94,11 @@
 <li class="toctree-l1"><a class="reference internal" href="gcloud.html">Google Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AWS Best practise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#aws-cli">AWS CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-cli">AWS CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#s3-commands">S3 commands</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#aws-load-balancer">AWS load balancer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#scaling-vertically">Scaling Vertically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scaling-horizontally">Scaling Horizontally</a></li>
@@ -163,35 +167,44 @@
 <span id="awsbest"></span><h1>AWS Best practise<a class="headerlink" href="#aws-best-practise" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="aws-cli">
 <h2>AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this headline">¶</a></h2>
-<p>Aws cli configuration
-<code class="docutils literal notranslate"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">`aws</span> <span class="pre">configure</span> <span class="pre">--profile</span> <span class="pre">PROFILE_NAME</span>
 <span class="pre">AWS</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">ID</span> <span class="pre">[None]:</span> <span class="pre">YOURKEY</span>
 <span class="pre">AWS</span> <span class="pre">Secret</span> <span class="pre">Access</span> <span class="pre">Key</span> <span class="pre">[None]:</span> <span class="pre">YOURSECRETKEY</span>
 <span class="pre">Default</span> <span class="pre">region</span> <span class="pre">name</span> <span class="pre">[None]:</span> <span class="pre">us-west-2</span>
 <span class="pre">Default</span> <span class="pre">output</span> <span class="pre">format</span> <span class="pre">[None]:</span> <span class="pre">json</span>
-<span class="pre">`</span></code>
-.. Tip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Space in S3 Bucket
-```aws s3api --profile PROFILE_NAME list-objects --bucket BUCKETNAME --output json --query &quot;[sum(Contents[].Size), length(Contents[])]&quot; | awk &#39;NR!=2 {print $0;next} NR==2 {print $0/1024/1024/1024&quot; GB&quot;}&#39;```
-</pre></div>
+<span class="pre">`</span></code></p>
 </div>
+<div class="section" id="s3-commands">
+<h3>S3 commands<a class="headerlink" href="#s3-commands" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilenames3</span> <span class="pre">ls</span> <span class="pre">s3://bucketname</span></code>
 <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">filename</span> <span class="pre">s3://bucketname/</span></code>
 <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">sync</span> <span class="pre">s3://bucketname/foldername</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">cp</span> <span class="pre">s3://bucketname/filename</span> <span class="pre">/serverpath</span></code>
 <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--profile</span> <span class="pre">profilename</span> <span class="pre">s3</span> <span class="pre">sync</span> <span class="pre">.</span> <span class="pre">s3://bucketname/MyFolder</span></code></p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Space in S3 Bucket
+aws s3api –profile PROFILE_NAME list-objects –bucket BUCKETNAME –output json –query “[sum(Contents[].Size), length(Contents[])]” | awk ‘NR!=2 {print $0;next} NR==2 {print $0/1024/1024/1024” GB”}’</p>
+</div>
+</div>
 </div>
 <div class="section" id="aws-load-balancer">
 <h2>AWS load balancer<a class="headerlink" href="#aws-load-balancer" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="scaling-vertically">
 <h3>Scaling Vertically<a class="headerlink" href="#scaling-vertically" title="Permalink to this headline">¶</a></h3>
-<p>::
-Scaling vertically takes place through an increase in the specifications of an individual resource (e.g., upgrading a server with a larger hard drive or a faster CPU). On Amazon EC2, this can easily be achieved by stopping an instance and resizing it to an instance type that has more RAM, CPU, IO, or networking capabilities. This way of scaling can eventually hit a limit and it is not always a cost efficient or highly available approach. However, it is very easy to implement and can be sufficient for many use cases especially in the short term.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Scaling vertically takes place through an increase in the specifications of an individual resource (e.g., upgrading a server with a larger hard drive or a faster CPU). On Amazon EC2, this can easily be achieved by stopping an instance and resizing it to an instance type that has more RAM, CPU, IO, or networking capabilities. This way of scaling can eventually hit a limit and it is not always a cost efficient or highly available approach. However, it is very easy to implement and can be sufficient for many use cases especially in the short term.</dd>
+</dl>
 </div>
 <div class="section" id="scaling-horizontally">
 <h3>Scaling Horizontally<a class="headerlink" href="#scaling-horizontally" title="Permalink to this headline">¶</a></h3>
-<p>::
-Scaling horizontally takes place through an increase in the number of resources (e.g., adding more hard drives to a storage array or adding more servers to support an application). This is a great way to build Internet-scale applications that leverage the elasticity of cloud computing. Not all architectures are designed to distribute their workload to multiple resources, so let’s examine some of the possible scenarios.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Scaling horizontally takes place through an increase in the number of resources (e.g., adding more hard drives to a storage array or adding more servers to support an application). This is a great way to build Internet-scale applications that leverage the elasticity of cloud computing. Not all architectures are designed to distribute their workload to multiple resources, so let’s examine some of the possible scenarios.</dd>
+</dl>
 </div>
 </div>
 </div>
