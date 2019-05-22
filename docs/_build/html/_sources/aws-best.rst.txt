@@ -8,10 +8,10 @@ AWS CLI
 
 Configuration
 ~~~~~~~~~~~~~~
-``aws configure --profile PROFILE_NAME``
-``AWS Access Key ID [None]: YOURKEY``
-``AWS Secret Access Key [None]: YOURSECRETKEY``
-``Default region name [None]: us-west-2``
+``aws configure --profile PROFILE_NAME``\s\s
+``AWS Access Key ID [None]: YOURKEY``\s\s
+``AWS Secret Access Key [None]: YOURSECRETKEY``\s\s
+``Default region name [None]: us-west-2``\s\s
 ``Default output format [None]: json``
 
 
