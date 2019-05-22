@@ -8,10 +8,10 @@ AWS CLI
 
 Configuration
 ~~~~~~~~~~~~~~
-``aws configure --profile PROFILE_NAME``
-``AWS Access Key ID [None]: YOURKEY``
-``AWS Secret Access Key [None]: YOURSECRETKEY``
-``Default region name [None]: us-west-2``
+``aws configure --profile PROFILE_NAME``\
+``AWS Access Key ID [None]: YOURKEY``\
+``AWS Secret Access Key [None]: YOURSECRETKEY``\
+``Default region name [None]: us-west-2``\
 ``Default output format [None]: json``
 
 
@@ -19,10 +19,10 @@ Configuration
 S3 commands
 ~~~~~~~~~~~~
 ``aws --profile profilename s3 ls s3://bucketname`` For listing of all files in a bucket
-``aws --profile profilename s3 cp filename s3://bucketname/``  For listing of all files in a bucket
-``aws --profile profilename s3 sync s3://bucketname/foldername`` For listing of all files in a bucket
-``aws --profile profilename s3 cp s3://bucketname/filename /serverpath`` For listing of all files in a bucket
-``aws --profile profilename s3 sync . s3://bucketname/MyFolder`` For listing of all files in a bucket
+``aws --profile profilename s3 cp filename s3://bucketname/``  For copy a file from local to  bucket
+``aws --profile profilename s3 sync s3://bucketname/foldername`` For copy all bucket of a folder to bucket folder
+``aws --profile profilename s3 cp s3://bucketname/filename /serverpath`` For copy a file from local to  bucket
+``aws --profile profilename s3 sync . s3://bucketname/MyFolder`` For copy all bucket of a folder to bucket folder
 
 .. Tip::
 
