@@ -30,23 +30,23 @@ Mysql Backup/Restore
 --------------------
 .. code-block:: bash
 
-	**Download full database (.gz extention)**  
-	``mysqldump -h[host] -u[user] -p[password] [database] | gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz``
+	Download full database (.gz extention)  
+	mysqldump -h[host] -u[user] -p[password] [database] | gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz
 
-	**Download full database with ssl enabled (.gz extention)**  
-	``mysqldump -h[host] -u[user] -p[password] [database] --ssl-ca=[.PEM file] [database] | gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz``
+	Download full database with ssl enabled (.gz extention)  
+	mysqldump -h[host] -u[user] -p[password] [database] --ssl-ca=[.PEM file] [database] | gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz
 
-	**Download Specific database table (.gz extention)**  
-	``mysqldump -h[host] -u[user] -p[password] [database] [tablename] | gzip -c | cat > /var/www/html/mysqldump_[database]_[tablename]_$(date +%Y%m%d_%H%M%S).sql.gz``
+	Download Specific database table (.gz extention)  
+	mysqldump -h[host] -u[user] -p[password] [database] [tablename] | gzip -c | cat > /var/www/html/mysqldump_[database]_[tablename]_$(date +%Y%m%d_%H%M%S).sql.gz
 
-	**Download Database after ignore some table (.gz extention)**  
-	``mysqldump -h[host] -u[user] -p[password] [database] --ignore-table=[table1] --ignore-table=[table2]| gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz``
+	Download Database after ignore some table (.gz extention)**  
+	mysqldump -h[host] -u[user] -p[password] [database] --ignore-table=[table1] --ignore-table=[table2]| gzip -c | cat > /var/www/html/mysqldump_[database]_$(date +%Y%m%d_%H%M%S).sql.gz
 
-	**Restore Backup file in Database**  
-	``mysql -h[host] -u[user] -p[password] [database] < /var/www/html/database.sql``
+	Restore Backup file in Database  
+	mysql -h[host] -u[user] -p[password] [database] < /var/www/html/database.sql
 
-	**Restore Database using .sql.gz file with ssl enabled**  
-	``zcat database.sql.gz | mysql -h[host] -u[user] -p[password] --ssl-ca=[.PEM file] [database]``
+	Restore Database using .sql.gz file with ssl enabled  
+	zcat database.sql.gz | mysql -h[host] -u[user] -p[password] --ssl-ca=[.PEM file] [database]
 
-	**Restore Database using .sql.gz file**  
-	``zcat database.sql.gz | mysql -h[host] -u[user] -p[password] [database]``
+	Restore Database using .sql.gz file  
+	zcat database.sql.gz | mysql -h[host] -u[user] -p[password] [database]
